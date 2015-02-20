@@ -1,16 +1,104 @@
-#header {
-	margin-top: 30px;
+/* Begin Base */
+
+h1 {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 25px;
 }
 
-#footer {
-	margin-top: 30px;
-	border-top: 1px solid $gray-lighter;
-	padding-top: 30px;
-	color: $gray-light;
+/* End Base */
+
+/* Begin Header */
+
+body > header {
+  height: 0;
+  margin-bottom: $navbar-height;
 }
 
-.gallery-image img{
-    display: block;
-    max-width: 100%;
-    height: auto;
+@media (min-width: 768px) {
+  body > header.sticky nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.07);
+  }
+}
+
+.navbar {
+  border: none;
+}
+
+.navbar .navbar-brand {
+  padding: 0px;
+}
+
+.navbar .navbar-brand img {
+  display: block;
+  width: $navbar-height;
+}
+
+.navbar .navbar-nav > li > a {
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .navbar .navbar-nav > li > a {
+    padding: 0 15px;
+    vertical-align: middle;
+    line-height: $navbar-height;
+  }
+}
+
+.navbar .navbar-nav > li > a {
+  color: #777777;
+  text-decoration: none;
+}
+
+.navbar .navbar-nav > li > a:hover {
+  color: #004165;
+  background-color: #fff;
+}
+
+.navbar-toggle {
+  margin-top: 24px;
+  border: 0;
+  border-radius: 0;
+}
+
+.navbar-toggle:hover,
+.navbar-toggle:focus {
+  background-color: #5dade2;
+}
+
+.navbar-toggle .icon-bar {
+  background-color: #004165;
+}
+
+.navbar-toggle:hover .icon-bar,
+.navbar-toggle:focus .icon-bar {
+  background-color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav {
+    width: 100%;
+    text-align: center;
+    > li {
+      float: none;
+      display: inline-block;
+    }
+  }
+  .navbar-collapse.collapse {
+    margin-left: $navbar-height;
+    margin-right: $navbar-height;
+  }
+}
+
+/* End Header */
+
+.landing {
+  min-height: 100%;
 }

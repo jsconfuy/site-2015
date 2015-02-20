@@ -23,8 +23,10 @@ Sponsor.add({
   level: { type: Types.Relationship, ref: 'SponsorLevel', index: true, required: false },
   description: { type: Types.Markdown },
   logo: { type: Types.CloudinaryImage },
-  contactName: { type: String },
-  contactEmail: { type: Types.Email },
+  contact: {
+    name: { type: String },
+    email: { type: Types.Email },
+  },
   paid: { type: Types.Datetime },
   published: { type: Types.Datetime },
   notes: { type: Types.Markdown },

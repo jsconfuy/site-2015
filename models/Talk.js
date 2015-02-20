@@ -14,12 +14,12 @@ var Talk = new keystone.List('Talk', {
 
 Talk.add({
   title: { type: String, required: true },
-  speakers: { type: Types.Relationship, ref: 'User', many: true },
+  speakers: { type: Types.Relationship, ref: 'Speaker', many: true },
   added: { type: Types.Datetime, default: Date.now, noedit: true },
   status: { type: Types.Select, default: 'P', options: [
     { value: 'P', label: 'Pending' },
     { value: 'W', label: 'Waiting' },
-    { value: 'A', label: 'Accepted' },
+    { value: 'C', label: 'Confirmed' },
     { value: 'D', label: 'Declined' }]},
   notes: { type: Types.Markdown },
   tags: { type: Types.Relationship, ref: 'Tag', many: true },

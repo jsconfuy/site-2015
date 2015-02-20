@@ -66,10 +66,10 @@ keystone.set('email locals', {
 
 keystone.set('email rules', [{
   find: '/images/',
-  replace: (keystone.get('env') == 'production') ? 'http://www.your-server.com/images/' : 'http://localhost:3000/images/'
+  replace: (keystone.get('env') == 'production') ? 'https://jsconf.uy/images/' : 'http://localhost:3000/images/'
 }, {
   find: '/keystone/',
-  replace: (keystone.get('env') == 'production') ? 'http://www.your-server.com/keystone/' : 'http://localhost:3000/keystone/'
+  replace: (keystone.get('env') == 'production') ? 'https://jsconf.uy/keystone/' : 'http://localhost:3000/keystone/'
 }]);
 
 // Load your project's email test routes
@@ -79,13 +79,11 @@ keystone.set('email tests', require('./routes/emails'));
 // Configure the navigation bar in Keystone's Admin UI
 
 keystone.set('nav', {
-  'conference': ['proposals', 'speakers', 'sponsors', 'sponsor-levels', 'talks', 'workshops'],
-  'sales': ['tickets', 'orders', 'attendees', 'discounts'],
+  'conference': ['proposals', 'speakers', 'talks', 'workshops', 'organizers'],
+  'sales': ['tickets', 'orders', 'attendees', 'discounts', 'sponsors', 'sponsor-levels'],
   'blog': ['posts', 'post-categories'],
   'others': ['users', 'tags', 'galleries'],
   'enquiries': 'enquiries',
 });
-
-// Start Keystone to connect to your database and initialise the web server
 
 keystone.start();

@@ -17,8 +17,8 @@ Order.add({
   quantity: { type: Types.Number, required: true, default: 1, intial: true },
   reserved: { type: Types.Datetime, default: Date.now, noedit: true },
   paid: { type: Types.Datetime },
-  payment_id: { type: Types.String },
-  payment_name: { type: Types.String },
+  paymentId: { type: String },
+  paymentName: { type: String },
 });
 
 // The order should be paid before 15 minutes.

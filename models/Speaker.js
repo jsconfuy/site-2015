@@ -3,7 +3,7 @@ var keystone = require('keystone'),
 
 /**
  * Speakers Model
- * ==========
+ * ==============
  */
 
 var Speaker = new keystone.List('Speaker', {

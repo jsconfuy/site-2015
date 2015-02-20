@@ -11,22 +11,15 @@
 var _ = require('underscore');
 
 
-/**
-  Initialises the standard view locals
-
-  The included layout depends on the navLinks array to generate
-  the navigation in the header, you may wish to change this array
-  or replace it with your own templates / logic.
-*/
-
 exports.initLocals = function(req, res, next) {
 
   var locals = res.locals;
 
-  locals.navLinks = [
+  locals.links = [
     { label: 'Home', key: 'home', href: '/' },
     { label: 'Venue', key: 'venue', href: '/venue' },
-    { label: 'Call for Proposals', key: 'coc', href: '/code-of-conduct' },
+    { label: 'Code of Conduct', key: 'coc', href: '/code-of-conduct' },
+    { label: 'Call for Proposals', key: 'cfp', href: '/call-for-proposals' },
     { label: 'Last Year', key: 'last', href: 'http://2014.jsconf.uy/' },
     { label: 'Blog', key: 'blog', href: '/blog' },
   ];

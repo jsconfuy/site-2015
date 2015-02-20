@@ -1,0 +1,68 @@
+extends ../layouts/default
+
+block content
+  .venue
+    .container
+      .row
+        .col-md-10.col-md-offset-1
+          h1 Getting around the city
+          p
+            | To get to Montevideo you can do that by plane, bus or ferry.
+            | You may check the timetable for the airport at 
+            a(href='http://www.aeropuertodecarrasco.com.uy/en/') aeropuertodecarrasco.com.uy/en/
+            | , bus schedules at 
+            a(href='http://www.trescruces.com.uy/horarios_especiales.html') trescruces.com.uy/horarios_especiales.html
+            | .
+            br
+            | The venue “La Torre de Antel” is reachable from downtown by
+            | BUS/TAXI in few minutes. Even if it is a walkable distance
+            | from downtown it is not recommended, particularly by night.
+          h3
+            | By Bus
+          p
+            | There are plenty of lines that go to and from the venue to most
+            | of the city. For timetables and bus numbers please check either:
+            each val in [1, 2]
+              br
+            a(href='http://www.montevideo.gub.uy/aplicacion/como-ir') http://www.montevideo.gub.uy/aplicacion/como-ir
+            br
+            a(href='http://www.montevideobus.com.uy/') http://www.montevideobus.com.uy/
+            br
+          p
+            | Buses expect payment in cash, Uruguayan pesos only,
+            | prices range are from 24 to 50 pesos depending on the type.
+          h3
+            | By Taxi
+          p
+            | In Montevideo taxis are safe to use. The meter next to the
+            | driver should be at zero when you start your journey. When
+            | you reach your destination the number on the meter tallies
+            | with a number on the pricing card you will be shown. Next to
+            | the number is the actual cost in Uruguayan Pesos, drivers may
+            | occasionally accept dollars, argentinian pesos or reais. The
+            | pricing card should always be available for you to check prices.
+          h3
+            | Money and Safety tips
+          p
+            | Credit cards are widely accepted in most hotels, restaurants
+            | and shops. ATMs are also available and are not in the street.
+            | Even though Montevideo is quite safe for tourists, street crime
+            | like bag snatching and pick-pocketing occurs, please pay
+            | particular attention to your belongings. Try to keep away from
+            | isolated or poorly lit areas at night and avoid walking downtown
+            | or in the port area alone.
+      .row
+        .col-md-10.col-md-offset-1
+          h1 Sightseeing
+          h2 Cabo Polonio
+          p
+          h2 Punta del Diablo
+          p
+          h2 Punta del Este
+          p
+          h2 Piriapolis
+          p
+          h2 Colonia del Sacramento
+          p
+    h3 Antel Auditorium
+    iframe(src='https://www.google.com/maps/ms?msa=0&msid=202962288982339632307.0004ed9e9e6f542a556aa&hl=en&ie=UTF8&ll=-34.891803,-56.194242&spn=0,0&t=m&output=embed')

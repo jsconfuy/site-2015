@@ -14,7 +14,7 @@ var SponsorLevel = new keystone.List('SponsorLevel', {
 
 SponsorLevel.add({
   name: { type: String, required: true },
-  slug: { type: String },
+  summary: { type: Types.Markdown },
   cost: { type: Types.Money, required: true, default: 0 }
 });
 
