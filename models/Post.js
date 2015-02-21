@@ -8,13 +8,14 @@ var keystone = require('keystone'),
 
 var Post = new keystone.List('Post', {
   map: { name: 'title' },
-  autokey: { path: 'slug', from: 'title', unique: true }
+  autokey: { path: 'slug', from: 'title', unique: true },
+  track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true },
 });
 
 Post.add({
   title: { type: String, required: true },
   state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
-  author: { type: Types.Relationship, ref: 'User', index: true },
+  author: { type: Types.Relationship, ref: 'Organizer', index: true },
   published: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
   image: { type: Types.CloudinaryImage },
   content: {

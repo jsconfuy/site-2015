@@ -10,6 +10,7 @@ var SponsorLevel = new keystone.List('SponsorLevel', {
   map: { name: 'name' },
   autokey: { path: 'slug', from: 'name', unique: true },
   sortable: true,
+  track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true},
 });
 
 SponsorLevel.add({

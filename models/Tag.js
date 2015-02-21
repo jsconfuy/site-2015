@@ -9,6 +9,7 @@ var keystone = require('keystone'),
 var Tag = new keystone.List('Tag', {
   map: { name: 'name'},
   autokey: { path: 'slug', from: 'name', unique: true },
+  track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true },
 });
 
 Tag.add({

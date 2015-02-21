@@ -3,24 +3,24 @@ var keystone = require('keystone'),
 
 /**
  * Sponsors Model
- * ==========
+ * ==============
  */
 
 var Sponsor = new keystone.List('Sponsor', {
   map: { name: 'name' },
   sortable: true,
+  track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true},
 });
 
 Sponsor.add({
   name: { type: String, required: true },
-  added: { type: Types.Datetime, default: Date.now, noedit: true },
-  assignee: { type: Types.Relationship, ref: 'User', index: true },
+  assignee: { type: Types.Relationship, ref: 'Organizer', index: true },
   status: { type: Types.Select, options: [
     { value: 'P', label: 'Pending' },
     { value: 'W', label: 'Waiting' },
     { value: 'C', label: 'Confirmed' },
     { value: 'D', label: 'Declined' }]},
-  level: { type: Types.Relationship, ref: 'SponsorLevel', index: true, required: false },
+  level: { type: Types.Relationship, ref: 'SponsorLevel', index: true },
   description: { type: Types.Markdown },
   logo: { type: Types.CloudinaryImage },
   contact: {

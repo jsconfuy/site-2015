@@ -2,6 +2,8 @@ require('dotenv').load();
 
 var keystone = require('keystone');
 
+require('./patchs');
+
 keystone.init({
 
   'name': 'JSConfUY',

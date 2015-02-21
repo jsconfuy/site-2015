@@ -8,6 +8,7 @@ var keystone = require('keystone'),
 
 var Order = new keystone.List('Order', {
   map: { name: 'id' },
+  nocreate: true,
 });
 
 Order.add({

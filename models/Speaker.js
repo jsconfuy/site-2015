@@ -10,12 +10,12 @@ var Speaker = new keystone.List('Speaker', {
   map: { name: 'name' },
   autokey: { path: 'slug', from: 'name', unique: true },
   sortable: true,
+  track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true},
 });
 
 Speaker.add({
   name: { type: String, required: true },
-  added: { type: Types.Datetime, default: Date.now, noedit: true },
-  assignee: { type: Types.Relationship, ref: 'User', index: true },
+  assignee: { type: Types.Relationship, ref: 'Organizer', index: true },
   status: { type: Types.Select, default: 'P', options: [
     { value: 'P', label: 'Pending' },
     { value: 'W', label: 'Waiting' },

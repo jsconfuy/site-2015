@@ -15,7 +15,7 @@ Attendee.add({
   ticket: { type: Types.Relationship, ref: 'Ticket', index: true },
   name: { type: String, required: true },
   email: { type: Types.Email },
-  price: { type: Types.Money, required: false},
+  price: { type: Types.Money },
   tshirt: { type: Types.Select, options: [
     { value: 'XS', label: 'XS' },
     { value: 'S', label: 'S' },

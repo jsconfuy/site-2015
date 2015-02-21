@@ -12,8 +12,8 @@ var Discount = new keystone.List('Discount', {
 
 Discount.add({
   code: { type: String, required: true, unique: true },
-  validFrom: { type: Types.Datetime, required: false},
-  validUntil: { type: Types.Datetime, required: false},
+  validFrom: { type: Types.Datetime },
+  validUntil: { type: Types.Datetime },
   percentage: { type: Types.Number, required: true, default: 0},
   flat: { type: Types.Money, required: true, default: 0 },
   limit: { type: Types.Number },
