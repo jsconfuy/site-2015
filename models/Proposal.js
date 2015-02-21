@@ -9,6 +9,7 @@ var keystone = require('keystone'),
 var Proposal = new keystone.List('Proposal', {
   map: { name: 'topic' },
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true },
+  sortable: true,
 });
 
 Proposal.add(

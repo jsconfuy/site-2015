@@ -21,6 +21,7 @@ Talk.add({
     { value: 'W', label: 'Waiting' },
     { value: 'C', label: 'Confirmed' },
     { value: 'D', label: 'Declined' }]},
+  published: { type: Types.Datetime },
   notes: { type: Types.Markdown },
   tags: { type: Types.Relationship, ref: 'Tag', many: true },
 });

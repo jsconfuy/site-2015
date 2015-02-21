@@ -11,8 +11,14 @@ h1 {
 /* Begin Header */
 
 body > header {
-  height: 0;
-  margin-bottom: $navbar-height;
+  height: $navbar-height;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  -webkit-box-shadow: 0 0.063em 0.25em rgba( 37, 50, 55, .25 ); /* 1 4 */
+  box-shadow: 0 0.063em 0.25em rgba( 37, 50, 55, .25 ); /* 1 4 */
 }
 
 @media (min-width: 768px) {
