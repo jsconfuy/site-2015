@@ -16,10 +16,11 @@ var Organizer = new keystone.List('Organizer', {
 Organizer.add({
   name: { type: String, required: true },
   email: { type: Types.Email },
+  twitter: { type: String, required: true, initial: true },
   picture: { type: Types.CloudinaryImage },
   biography: { type: Types.Markdown },
   published: { type: Types.Datetime },
 });
 
-Organizer.defaultColumns = 'name, email';
+Organizer.defaultColumns = 'name, twitter, email, published';
 Organizer.register();

@@ -17,6 +17,7 @@ Discount.add({
   percentage: { type: Types.Number, required: true, default: 0},
   flat: { type: Types.Money, required: true, default: 0 },
   limit: { type: Types.Number },
+  logo: { type: Types.CloudinaryImage },
   tickets: { type: Types.Relationship, ref: 'Ticket', many: true },
 });
 

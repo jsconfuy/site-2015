@@ -1,0 +1,43 @@
+extends ../layouts/default
+
+block vars
+  - var section = 'home';
+  - var klass = 'home';
+
+block top
+  .top
+
+block content
+  #speakers.speakers
+    .container
+        h1 Meet the Speakers
+        ul
+          each speaker in speakers
+            li
+              if speaker.picture.exists
+                .img(style='background-image: url(#{speaker.picture.url})')
+              else
+                .img.empty
+              .name
+                != speaker.name
+              .bio
+                != speaker.biography.short.html
+  #sponsors.sponsors
+    .container
+      h1 Sponsors
+      h2 Interested?
+      p.text-center
+        | Contact us at 
+        a(href='mailto:hola@jsconf.uy') hola@jsconf.uy
+  .organizers
+    .container
+      h1 Organizers
+      ul
+        each organizer in organizers
+          li
+            if organizer.picture.exists
+              .img(style='background-image: url(#{organizer.picture.url})')
+            else
+              .img.empty
+            a.name(href='https://twitter.com/#{organizer.twitter}')
+              != organizer.name

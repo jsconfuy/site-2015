@@ -1,7 +1,12 @@
 include ../mixins/flash-messages
 
+- var title = 'JSConfUY April 24th and 25th - Montevideo';
+- var section = '';
+- var klass = '';
+block vars
+
 doctype html
-html
+html(class='#{klass}')
 
   head
     meta(charset="utf-8")
@@ -24,7 +29,7 @@ html
 
     block header
       header
-        nav(role="navigation").navbar.navbar-default
+        nav(role="navigation").navbar.navbar-default.navbar-fixed-top
           .navbar-header
             button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
               span.sr-only Toggle navigation
@@ -35,19 +40,29 @@ html
               img(src='/images/logo.png', alt='JSConf Uruguay')
           .collapse.navbar-collapse
             ul.nav.navbar-nav
-              each link in links
-                li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
-
-    #body
-
-      block intro
-
-      +flash-messages(messages)
+              li(class=(section == 'home' ? 'active' : null))
+                a(href='/') Home
+              li(class=(section == 'cfp' ? 'active' : null))
+                a(href='/proposals') Call for Proposals
+              li
+                a(href='/#speakers') Speakers
+              li
+                a(href='/#sponsors') Sponsors
+              li(class=(section == 'venue' ? 'active' : null))
+                a(href='/venue') Venue
+              li(class=(section == 'hotels' ? 'active' : null))
+                a(href='/hotels') Hotels
+              li(class=(section == 'coc' ? 'active' : null))
+                a(href='/code-of-conduct') Code of Conduct
+              li(class=(section == 'blog' ? 'active' : null))
+                a(href='/blog') Blog
+              li
+                a(href='http://2014.jsconf.uy/') Last Year
+    block main
 
       block content
 
-
-    .container: #footer
+    block footer
 
     script(src='/js/lib/jquery/jquery-2.1.1.min.js')
     script(src='/js/lib/bootstrap/bootstrap-3.2.0.min.js')

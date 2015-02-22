@@ -1,3 +1,7 @@
+body {
+  padding-top: $navbar-height;
+}
+
 /* Begin Base */
 
 h1 {
@@ -6,19 +10,25 @@ h1 {
   margin-bottom: 25px;
 }
 
+h2 {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
 /* End Base */
 
 /* Begin Header */
 
 body > header {
   height: $navbar-height;
+  -webkit-box-shadow: 0 0.063em 0.25em rgba( 37, 50, 55, .25 ); /* 1 4 */
+  box-shadow: 0 0.063em 0.25em rgba( 37, 50, 55, .25 ); /* 1 4 */
   width: 100%;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
-  -webkit-box-shadow: 0 0.063em 0.25em rgba( 37, 50, 55, .25 ); /* 1 4 */
-  box-shadow: 0 0.063em 0.25em rgba( 37, 50, 55, .25 ); /* 1 4 */
 }
 
 @media (min-width: 768px) {
@@ -104,7 +114,3 @@ body > header {
 }
 
 /* End Header */
-
-.landing {
-  min-height: 100%;
-}

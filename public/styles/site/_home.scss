@@ -1,0 +1,110 @@
+.home {
+  min-height: 100%;
+  height: 100%;
+  body {
+    // margin: 0;
+    // padding: 120px 0 0 0;
+    min-height: 100%;
+    height: 100%;
+    .top {
+      display: block;
+      background-color: $blue-dark;
+      background-image: url('../images/city.svg');
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-size: 70% auto;
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      z-index: 1000;
+    }
+    .speakers {
+      padding: 30px 0;
+      ul {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        li {
+          list-style: none;
+          display: inline-block;
+          vertical-align: top;
+          width: 282px;
+          padding: 0 0 30px 0;
+          .img {
+            margin: 0 auto;
+            display: block;
+            // Relation: 0.8636363636
+            height: 255px;
+            width: 220px;
+            // @include clip-path(url('../images/mask.svg'));
+            @include clip-path(polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%));
+            @include background-size-cover();
+            &.empty {
+              background: transparent url('../images/george.svg') no-repeat 50% 50%;
+              background-size: 70% auto;
+            }
+          }
+          .name {
+            display: block;
+            margin: 10px 0 10px;
+            text-transform: uppercase;
+            color: $blue;
+            font-weight: bold;
+            font-size: $font-size-large;
+          }
+          .bio {
+            margin: 10px 0 0;
+            color: $text-color;
+            font-size: $font-size-medium;
+          }
+        }
+      }
+    }
+    .sponsors {
+      padding: 30px 0;
+
+    }
+    .organizers {
+      padding: 30px 0;
+      background-color: $blue;
+      h1 {
+        background: transparent url('../images/ballon.svg') no-repeat 50% 0;
+        background-size: 300px auto;
+        padding-top: 320px;
+        color: $white;
+      }
+      ul {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        li {
+          list-style: none;
+          display: inline-block;
+          vertical-align: top;
+          width: 282px;
+          padding: 10px 0 40px 0;
+          .img {
+            margin: 0 auto;
+            // Relation: 0.8636363636
+            height: 255px;
+            width: 220px;
+            @include clip-path(polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%));
+            @include background-size-cover();
+            &.empty {
+              background: transparent url('../images/george.svg') no-repeat 50% 50%;
+              background-size: 70% auto;
+            }
+          }
+          .name {
+            display: block;
+            margin: 10px 0 0;
+            text-transform: uppercase;
+            color: $white;
+            font-weight: bold;
+            font-size: $font-size-large;
+          }
+        }
+      }
+    }
+  }
+}

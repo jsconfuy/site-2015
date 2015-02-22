@@ -15,15 +15,6 @@ exports.initLocals = function(req, res, next) {
 
   var locals = res.locals;
 
-  locals.links = [
-    { label: 'Home', key: 'home', href: '/' },
-    { label: 'Venue', key: 'venue', href: '/venue' },
-    { label: 'Code of Conduct', key: 'coc', href: '/code-of-conduct' },
-    { label: 'Call for Proposals', key: 'cfp', href: '/call-for-proposals' },
-    { label: 'Last Year', key: 'last', href: 'http://2014.jsconf.uy/' },
-    { label: 'Blog', key: 'blog', href: '/blog' },
-  ];
-
   locals.user = req.user;
 
   next();

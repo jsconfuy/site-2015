@@ -1,0 +1,15 @@
+@mixin clip-path($clip) {
+  -webkit-clip-path: $clip;
+  -moz-clip-path: $clip;
+  -ms-clip-path: $clip;
+  clip-path: $clip;
+}
+
+@mixin background-size-cover() {
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

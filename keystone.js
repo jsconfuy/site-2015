@@ -2,7 +2,7 @@ require('dotenv').load();
 
 var keystone = require('keystone');
 
-require('./patchs');
+require('./lib/patchs');
 
 keystone.init({
 

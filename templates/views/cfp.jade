@@ -1,0 +1,119 @@
+extends ../layouts/default
+
+block vars
+  - var section = 'cfp';
+  - var klass = 'cfp';
+
+block content
+  .proposals
+    h2 Submit your proposal
+    .container
+      .row
+        .col-md-6
+          h3 Invitation
+          p
+            | We are inviting the JavaScript and CSS communities to submit talks for the upcoming JSConfUY and CSSConfUY.
+            | This Call for Proposals' deadline is February 20th, 2015.
+          p
+            | If you know someone who may deliver an interesting talk, please let us know and we'll contact them.
+          p
+            | Here's a list of topics we believe are interesting to our community (in alphabetical order):
+            ul
+              li JavaScript based technologies.
+              li Uses of CSS and pre-processors.
+              li Improving JavaScript developers' lives, making development more awesome.
+              li Optimized graphics for JavaScript.
+              li State of the art in JavaScript technology, or computer science in general if somehow applicable to JavaScript.
+              li The JavaScript community, past, present & future.
+              li Embedded and Hardware JS.
+              li Whatever you think suits.
+
+            | Feel free to refer to other JSConf/CSSConf programmes to check for additional topics.
+          p
+            | If you have any questions just contact us: hola@jsconf.uy (please note: to submit a proposal, use the form below).
+        .col-md-6
+          h3 The perks of being a Speaker
+          p
+            | If you get selected as a speaker, here's what you get:
+            ul
+              li
+                b We cover your stay in Montevideo 
+                | in a nice hotel (including free Wifi) for the days of the conference two nights before and one after.
+                | If you want to stay longer, we can arrange things, just let us know.
+                | You will have to cover extra nights, though. If your employer can cover your travel and hotel, 
+                | we are happy to list them as an awesome company sponsor. The money we save will be used to make a better conference.
+              li
+                | Depending on our budget, we may pay for your 
+                b plane/ferry to Montevideo
+                | .
+              li
+                b Speakers' dinner. 
+                | All speakers are invited to taste uruguayan food at a dinner the evening before the event.
+              li
+                b An awesome JSConfUY t-shirt
+          p
+            | Let us know if you need help with anything that is not listed here, we'll be more than happy to help.
+      .row
+        .col-md-6
+          h3 The Selection Process
+          p
+            | How we choose the talks:
+            ul
+              li We anonymize submissions, so we don’t bias against anything related to the author.
+              li We follow two rounds of voting:
+              li The first round rates each talk on a scale from 1 to 5.
+              li Submissions with higher average are rated again on a 3-point scale: “fair”, “good”, “MUST HAVE”.
+              li De-anonymize so we can finally bias against author details. Based on our budget, we might opt for a local or less expensive to transport author.
+            p
+            | We expect many excellent submissions for the speaking slots. This process helps us to select the right ones and play nice.
+        .col-md-6
+          h3 Guidelines for proposals
+          p
+            | Submit your proposal by <b>Feb 20th 2015, 23:59:59 UYT(GMT-3).</b>
+          p
+            | Talks may be in <b>English or Spanish</b>. Please choose the language you feel more comfortable with.
+          p
+            | <b>Your talk may take 30 minutes</b> (contact us if you need additional time). There is no additional Q&A section. There will be plenty of time during the breaks for further discussion of topics. Due to schedule reasons we strongly recommend timing your presentation in advance (we may be strict with the talk's duration).
+          p
+            | <b>Make a nice submission,</b> and make sure we see you care about it. Avoid typos, sloppy formatting and all-lowercase text. Be concise: If you need more than two paragraphs to get to the point of your topic, it is likely you won’t make it in 30 minutes. Please make our reading of your proposal easy.
+          p
+            | <b>Original Topics.</b> We favor original content. If you want to discuss a topic that you have talked about elsewhere, try to add a twist, or new research, or development, something unique. Please bear in mind that we want this conference to be enjoyable for everyone, therefore we expect you to adhere to the JSConf <a href='http://jsconf.com/codeofconduct.html'>code of conduct</a>. And of course, if your talk is plain awesome as it is,  just go for it!
+    h2#submit Submit
+    .container
+      .row
+        .col-md-8.col-md-offset-2
+          if cfp.submitted
+            h2 Thanks
+            h3 Your proposal was submitted.
+            p We'll contact you shortly.
+          else
+            // +flash-messages(messages)
+            form(method='post', action='/proposals#submit')
+              - var errors = cfp.errors || {}
+              - var data = cfp.data || {}
+              input(type='hidden', name='action', value='submit')
+              .form-group(class=errors.topic ? 'has-error' : null)
+                label(for='topic') Talk's Topic *
+                input#topic(type='text', name='topic', value=data['topic']).form-control
+              .form-group(class=errors.summary ? 'has-error' : null)
+                label(for='summary') Talk's Summary *
+                textarea#summary(name='summary', rows=4).form-control= data.summary
+              .form-group(class=errors.name ? 'has-error' : null)
+                label(for='name') Speaker's Name *
+                input#name(type='text', name='name', value=data['name']).form-control
+              .form-group(class=errors.email ? 'has-error' : null)
+                label(for='email') Speaker's Email *
+                input#email(type='email', name='email', value=data.email).form-control
+              .form-group(class=errors.residence ? 'has-error' : null)
+                label(for='residence') Speaker's Residence *
+                input#residence(type='residence', name='residence', value=data.residence, placeholder='In case we\'ll need to buy the flights...').form-control
+              .form-group(class=errors.notes ? 'has-error' : null)
+                label(for='notes') Notes
+                textarea#notes(name='notes', placeholder='Anything else you would like to mention...' rows=4).form-control= data.notes
+              .form-group(class=errors.coasted ? 'has-error' : null)
+                .checkbox
+                  label(for='coasted')
+                    input#coasted(type='checkbox', name='coasted', value=data.coasted)
+                    | My company may pay for travel and/or stay expenses
+              .form-actions.text-center
+                button(type='submit').btn.btn-primary Submit

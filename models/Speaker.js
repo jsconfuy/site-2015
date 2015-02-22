@@ -13,18 +13,23 @@ var Speaker = new keystone.List('Speaker', {
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true},
 });
 
+Speaker.STATUS_CONFIRMED = 'C';
+
 Speaker.add({
   name: { type: String, required: true },
   assignee: { type: Types.Relationship, ref: 'Organizer', index: true },
   status: { type: Types.Select, default: 'P', options: [
     { value: 'P', label: 'Pending' },
     { value: 'W', label: 'Waiting' },
-    { value: 'A', label: 'Accepted' },
+    { value: 'C', label: 'Confirmed' },
     { value: 'D', label: 'Declined' }]},
   email: { type: Types.Email },
   residence: { type: String },
   picture: { type: Types.CloudinaryImage },
-  biography: { type: Types.Markdown },
+  biography: {
+    short: { type: Types.Markdown },
+    full: { type: Types.Markdown },
+  },
   published: { type: Types.Datetime },
   notes: { type: Types.Markdown },
   tags: { type: Types.Relationship, ref: 'Tag', many: true },
