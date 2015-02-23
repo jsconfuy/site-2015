@@ -5134,14 +5134,14 @@ body > header {
           width: 282px;
           padding: 0 0 30px 0; }
           .home body .speakers ul li .img {
-            box-shadow: 0 0 10px red;
             margin: 0 auto;
             display: block;
             height: 255px;
+            position: relative;
             width: 220px;
             -webkit-mask: url('../images/mask.svg') no-repeat;
             -moz-mask: url('../images/mask.svg') no-repeat;
-            -ms-mask: url('../images/mask.svg') no-repeat;
+            -o-mask: url('../images/mask.svg') no-repeat;
             mask: url('../images/mask.svg') no-repeat;
             background-repeat: no-repeat;
             background-position: center center;
@@ -5149,6 +5149,26 @@ body > header {
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover; }
+            .home body .speakers ul li .img:after {
+              background-image: url('../images/mask-border.svg');
+              background-repeat: no-repeat;
+              content: "";
+              display: block;
+              height: 255px;
+              left: 0;
+              position: absolute;
+              top: 0;
+              width: 220px;
+              -webkit-pointer-events: none;
+              -moz-pointer-events: none;
+              -o-pointer-events: none;
+              pointer-events: none;
+              background-repeat: no-repeat;
+              background-position: center center;
+              -webkit-background-size: cover;
+              -moz-background-size: cover;
+              -o-background-size: cover;
+              background-size: cover; }
             .home body .speakers ul li .img.empty {
               background: transparent url('../images/george.svg') no-repeat 50% 50%;
               background-size: 70% auto; }
@@ -5187,10 +5207,6 @@ body > header {
             margin: 0 auto;
             height: 255px;
             width: 220px;
-            -webkit-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-            -moz-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-            -ms-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-            clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
             background-repeat: no-repeat;
             background-position: center center;
             -webkit-background-size: cover;

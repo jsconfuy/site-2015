@@ -32,15 +32,28 @@
           padding: 0 0 30px 0;
           .img {
             // Create the border
-
+            /* &:after{
+              background-image: url('../images/mask-border.svg');
+              background-repeat: no-repeat;
+              content: "";
+              display: block;
+              height: 255px;
+              left: 0;
+              position: absolute;
+              top: 0;
+              width: 220px;
+              @include crossBrowser(pointer-events, none);
+              @include background-size-cover();
+            } */
             margin: 0 auto;
             display: block;
             // Relation: 0.8636363636
             height: 255px;
+            position: relative;
             width: 220px;
             // @include clip-path(url('../images/mask.svg'));
             // @include clip-path(polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%));
-            @include mask(url('../images/mask.svg') no-repeat);
+            @include crossBrowser(mask, url('../images/mask.svg') no-repeat);
             @include background-size-cover();
             &.empty {
               background: transparent url('../images/george.svg') no-repeat 50% 50%;
@@ -91,7 +104,7 @@
             // Relation: 0.8636363636
             height: 255px;
             width: 220px;
-            @include clip-path(polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%));
+            // @include clip-path(polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%));
             @include background-size-cover();
             &.empty {
               background: transparent url('../images/george.svg') no-repeat 50% 50%;

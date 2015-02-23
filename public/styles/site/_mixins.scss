@@ -1,15 +1,8 @@
-@mixin clip-path($clip) {
-  -webkit-clip-path: $clip;
-  -moz-clip-path: $clip;
-  -ms-clip-path: $clip;
-  clip-path: $clip;
-}
-
-@mixin mask($mask) {
-  -webkit-mask: $mask;
-  -moz-mask: $mask;
-  -ms-mask: $mask;
-  mask: $mask;
+@mixin crossBrowser($property, $css) {
+    -webkit-#{$property} : $css;
+    -moz-#{$property} : $css;
+    -o-#{$property} : $css;
+    #{$property} : $css;
 }
 
 @mixin background-size-cover() {
