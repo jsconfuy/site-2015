@@ -3,7 +3,7 @@ var keystone = require('keystone'),
 
 /**
  * Discounts Model
- * ============
+ * ===============
  */
 
 var Discount = new keystone.List('Discount', {
@@ -12,16 +12,16 @@ var Discount = new keystone.List('Discount', {
 
 Discount.add({
   code: { type: String, required: true, unique: true },
-  validFrom: { type: Types.Datetime },
-  validUntil: { type: Types.Datetime },
+  valid: {
+    from: { type: Types.Datetime },
+    until: { type: Types.Datetime },
+  },
   percentage: { type: Types.Number, required: true, default: 0},
   flat: { type: Types.Money, required: true, default: 0 },
-  limit: { type: Types.Number },
+  limit: { type: Types.Number, note: '0 for no limit.' },
   logo: { type: Types.CloudinaryImage },
   tickets: { type: Types.Relationship, ref: 'Ticket', many: true },
 });
 
-Discount.relationship({ ref: 'Ticket', path: 'tickets' });
-
-Discount.defaultColumns = 'code, validFrom, validUntil, percentage, flat, limit, tickets';
+Discount.defaultColumns = 'code, valid.from, valid.until, percentage, flat, limit, tickets';
 Discount.register();

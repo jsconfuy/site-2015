@@ -35,9 +35,8 @@ Speaker.add({
   tags: { type: Types.Relationship, ref: 'Tag', many: true },
 });
 
-Speaker.relationship({ ref: 'Tag', path: 'tags' });
-Speaker.relationship({ ref: 'Talk', path: 'talks' });
-Speaker.relationship({ ref: 'Workshop', path: 'workshops' });
+Speaker.relationship({ ref: 'Talk', refPath: 'speakers', path: 'talks' });
+Speaker.relationship({ ref: 'Workshop', refPath: 'speakers', path: 'workshops' });
 
-Speaker.defaultColumns = 'name, email, residence, tags, status, assignee, added';
+Speaker.defaultColumns = 'name, email, residence, tags, status, assignee, published';
 Speaker.register();

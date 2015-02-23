@@ -33,7 +33,5 @@ Sponsor.add({
   tags: { type: Types.Relationship, ref: 'Tag', many: true },
 });
 
-Sponsor.relationship({ ref: 'Tag', path: 'tags' });
-
-Sponsor.defaultColumns = 'name, paid, level, tags, status, assignee, added';
+Sponsor.defaultColumns = 'name, paid, level, tags, status, assignee, published';
 Sponsor.register();

@@ -17,9 +17,11 @@ Tag.add({
   color: { type: Types.Color },
 });
 
-Tag.relationship({ ref: 'Sponsor', path: 'tags' });
-Tag.relationship({ ref: 'Speaker', path: 'tags' });
-Tag.relationship({ ref: 'Proposal', path: 'tags' });
+Tag.relationship({ ref: 'Sponsor', refPath: 'tags', path: 'sponsors' });
+Tag.relationship({ ref: 'Speaker', refPath: 'tags', path: 'speakers' });
+Tag.relationship({ ref: 'Proposal', refPath: 'tags', path: 'proposals' });
+Tag.relationship({ ref: 'Talk', refPath: 'tags', path: 'talks' });
+Tag.relationship({ ref: 'Workshop', refPath: 'tags', path: 'workshops' });
 
 Tag.defaultColumns = 'name, slug, color';
 Tag.register();

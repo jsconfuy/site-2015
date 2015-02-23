@@ -14,8 +14,10 @@ var Ticket = new keystone.List('Ticket', {
 Ticket.add({
   name: { type: String, required: true },
   description: { type: Types.Markdown },
-  saleFrom: { type: Types.Datetime },
-  saleUntil: { type: Types.Datetime },
+  sale: {
+    from: { type: Types.Datetime },
+    until: { type: Types.Datetime },
+  },
   price: { type: Types.Money },
   limit: { type: Types.Number, default: 0, note: '0 for no limit.' },
   sold: { type: Types.Number, default: 0, noedit: true },

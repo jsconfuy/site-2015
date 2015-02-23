@@ -19,5 +19,7 @@ SponsorLevel.add({
   cost: { type: Types.Money, required: true, default: 0 }
 });
 
+SponsorLevel.relationship({ ref: 'Sponsor', refPath: 'level', path: 'sponsors' });
+
 SponsorLevel.defaultColumns = 'name, slug, order, cost';
 SponsorLevel.register();
