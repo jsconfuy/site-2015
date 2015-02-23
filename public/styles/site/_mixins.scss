@@ -5,6 +5,13 @@
   clip-path: $clip;
 }
 
+@mixin mask($mask) {
+  -webkit-mask: $mask;
+  -moz-mask: $mask;
+  -ms-mask: $mask;
+  mask: $mask;
+}
+
 @mixin background-size-cover() {
     background-repeat: no-repeat;
     background-position: center center;

@@ -5056,14 +5056,15 @@ body > header {
           width: 282px;
           padding: 0 0 30px 0; }
           .home body .speakers ul li .img {
+            box-shadow: 0 0 10px red;
             margin: 0 auto;
             display: block;
             height: 255px;
             width: 220px;
-            -webkit-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-            -moz-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-            -ms-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-            clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+            -webkit-mask: url('../images/mask.svg') no-repeat;
+            -moz-mask: url('../images/mask.svg') no-repeat;
+            -ms-mask: url('../images/mask.svg') no-repeat;
+            mask: url('../images/mask.svg') no-repeat;
             background-repeat: no-repeat;
             background-position: center center;
             -webkit-background-size: cover;
@@ -5088,7 +5089,7 @@ body > header {
       padding: 30px 0; }
     .home body .organizers {
       padding: 30px 0;
-      background-color: #254164; }
+      background-color: #162636; }
       .home body .organizers h1 {
         background: transparent url('../images/ballon.svg') no-repeat 50% 0;
         background-size: 300px auto;

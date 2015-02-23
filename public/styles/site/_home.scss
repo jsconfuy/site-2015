@@ -31,13 +31,16 @@
           width: 282px;
           padding: 0 0 30px 0;
           .img {
+            // Create the border
+
             margin: 0 auto;
             display: block;
             // Relation: 0.8636363636
             height: 255px;
             width: 220px;
             // @include clip-path(url('../images/mask.svg'));
-            @include clip-path(polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%));
+            // @include clip-path(polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%));
+            @include mask(url('../images/mask.svg') no-repeat);
             @include background-size-cover();
             &.empty {
               background: transparent url('../images/george.svg') no-repeat 50% 50%;
@@ -66,7 +69,7 @@
     }
     .organizers {
       padding: 30px 0;
-      background-color: $blue;
+      background-color: $blue-dark;
       h1 {
         background: transparent url('../images/ballon.svg') no-repeat 50% 0;
         background-size: 300px auto;
