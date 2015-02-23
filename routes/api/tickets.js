@@ -79,7 +79,6 @@ var getTickets = function(ticket, discount, callback) {
           ticket = data.tickets.filter(function(t) { return t.id.equals(reserved._id); })[0];
           ticket.available -= reserved.total;
         });
-        console.log(result);
         return next();
       });
     },

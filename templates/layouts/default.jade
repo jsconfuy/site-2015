@@ -25,6 +25,7 @@ html(class='#{klass}')
     block head
 
   body
+
     block top
 
     block header
@@ -57,13 +58,42 @@ html(class='#{klass}')
               li(class=(section == 'blog' ? 'active' : null))
                 a(href='/blog') Blog
               li
+                a(href='javascript:void(0);', data-buy) Buy
+              li
                 a(href='http://2014.jsconf.uy/') Last Year
     block main
 
       block content
 
+    block modals
+      #buy.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
+        .modal-dialog
+          .modal-content
+            .modal-body
+              .indicators
+                .indicator.indicator-select
+                  i(class='glyphicon glyphicon-shopping-cart')
+                .indicator.indicator-payment
+                  i(class='glyphicon glyphicon-credit-card')
+                .indicator.indicator-assign
+                  i(class='glyphicon glyphicon-tag')
+              .steps
+                .step.step-select
+                  .soldout
+                    | We're sold out.
+                  .tickets
+                    .title Tickets
+                    ul
+                  .discount
+                  .note
+                    | Any questions please contact 
+                    a(href='mailto:hola@jsonf.uy') hola@jsconf.uy
+                .step.step-payment
+                .step.step-assign
+
     block footer
 
+    script(src='//www.2checkout.com/checkout/api/2co.min.js')
     script(src='/js/lib/jquery/jquery-2.1.1.min.js')
     script(src='/js/lib/bootstrap/bootstrap-3.2.0.min.js')
     script(src='/js/lib/base.js')

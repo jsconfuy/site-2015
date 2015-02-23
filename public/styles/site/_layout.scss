@@ -114,3 +114,147 @@ body > header {
 }
 
 /* End Header */
+
+
+
+// Tickets
+#buy {
+  .indicators {
+    height: 80px;
+    margin: 0;
+    padding: 0;
+    .indicator {
+      height: 80px;
+      line-height: 80px;
+      width: 33.3333%;
+      float: left;
+      text-align: center;
+      font-size: 30px;
+      i {
+        vertical-align: middle;
+      }
+      &.active {
+        background-color: $blue;
+        color: $white;
+      }
+    }
+  }
+  .steps {
+    .step {
+      &.step-select {
+        .loading {
+          position: relative;
+          height: 150px;
+        }
+        .tickets {
+          .title {
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: $blue;
+            font-size: 24px;
+            margin: 20px 0;
+          }
+          ul {
+            padding: 0;
+            margin: 0 0 40px 0;
+            li {
+              @include clearfix();
+              display: block;
+              padding: 0;
+              margin: 0 0 20px 0;
+              .name {
+                text-align: left;
+                text-transform: uppercase;
+                font-weight: bold;
+                color: $blue;
+                float: left;
+                width: 60%;
+              }
+              .buy {
+                float: left;
+                width: 40%;
+                input {
+                  padding: 2px;
+                  border: 2px solid $blue;
+                  width: 2em;
+                }
+                button {
+                  padding: 2px;
+                  background-color: $blue;
+                  color: $white;
+                }
+              }
+            }
+          }
+        }
+        .soldout {
+          text-align: center;
+          text-transform: uppercase;
+          font-weight: bold;
+          padding: 10px 20px;
+          border: 3px solid $blue;
+          color: $blue;
+          font-size: 20px;
+          width: 270px;
+          margin: 40px auto;
+        }
+      }
+    }
+  }
+}
+
+
+.loader:before,
+.loader:after,
+.loader {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: load7 1.8s infinite ease-in-out;
+  animation: load7 1.8s infinite ease-in-out;
+}
+.loader {
+  margin: 8em auto;
+  font-size: 10px;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-animation-delay: 0.16s;
+  animation-delay: 0.16s;
+}
+.loader:before {
+  left: -3.5em;
+}
+.loader:after {
+  left: 3.5em;
+  -webkit-animation-delay: 0.32s;
+  animation-delay: 0.32s;
+}
+.loader:before,
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+@-webkit-keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em $blue;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0 $blue;
+  }
+}
+@keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em $blue;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0 $blue;
+  }
+}

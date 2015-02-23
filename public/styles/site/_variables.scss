@@ -91,12 +91,12 @@ $headings-color:          $blue !default;
 //** Load fonts from this directory.
 
 // [converter] Asset helpers such as Sprockets and Node.js Mincer do not resolve relative paths
-// $icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "../fonts/bootstrap/") !default;
+$icon-font-path: "../fonts/" !default;
 
 //** File name for all font files.
-// $icon-font-name:          "glyphicons-halflings-regular" !default;
+$icon-font-name:          "glyphicons-halflings-regular" !default;
 //** Element ID within SVG icon file.
-// $icon-font-svg-id:        "glyphicons_halflingsregular" !default;
+$icon-font-svg-id:        "glyphicons_halflingsregular" !default;
 
 
 //== Components
