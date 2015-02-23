@@ -4916,71 +4916,149 @@ body > header {
 
 /* End Header */
 #buy .indicators {
-  height: 80px;
   margin: 0;
   padding: 0; }
+  #buy .indicators:before, #buy .indicators:after {
+    content: " ";
+    display: table; }
+  #buy .indicators:after {
+    clear: both; }
   #buy .indicators .indicator {
-    height: 80px;
-    line-height: 80px;
+    padding: 20px 0;
     width: 33.3333%;
     float: left;
     text-align: center;
     font-size: 30px; }
     #buy .indicators .indicator i {
       vertical-align: middle; }
+    #buy .indicators .indicator span {
+      display: block;
+      margin: 10px 0 0 0;
+      font-size: 14px;
+      text-align: center; }
     #buy .indicators .indicator.active {
       background-color: #254164;
       color: #ffffff; }
-#buy .steps .step.step-select .loading {
-  position: relative;
-  height: 150px; }
-#buy .steps .step.step-select .tickets .title {
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: bold;
-  color: #254164;
-  font-size: 24px;
-  margin: 20px 0; }
-#buy .steps .step.step-select .tickets ul {
-  padding: 0;
-  margin: 0 0 40px 0; }
-  #buy .steps .step.step-select .tickets ul li {
-    display: block;
-    padding: 0;
+#buy .steps .step {
+  margin: 20px 0 0 0; }
+  #buy .steps .step.step-select .loading {
+    position: relative;
+    height: 150px; }
+  #buy .steps .step.step-select .tickets .title {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #254164;
+    font-size: 24px;
+    margin: 20px 0; }
+  #buy .steps .step.step-select .tickets .discount {
+    text-align: right;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
     margin: 0 0 20px 0; }
-    #buy .steps .step.step-select .tickets ul li:before, #buy .steps .step.step-select .tickets ul li:after {
+    #buy .steps .step.step-select .tickets .discount .code {
+      display: inline-block;
+      padding: 4px 8px;
+      border: 2px solid #254164;
+      background-color: #ffffff;
+      color: #254164; }
+      #buy .steps .step.step-select .tickets .discount .code.error {
+        border: 2px solid #d9534f;
+        background-color: #d9534f;
+        color: #ffffff; }
+  #buy .steps .step.step-select .tickets ul {
+    padding: 0;
+    margin: 0 0 40px 0; }
+    #buy .steps .step.step-select .tickets ul li {
+      display: block;
+      padding: 0;
+      margin: 0 0 20px 0; }
+      #buy .steps .step.step-select .tickets ul li:before, #buy .steps .step.step-select .tickets ul li:after {
+        content: " ";
+        display: table; }
+      #buy .steps .step.step-select .tickets ul li:after {
+        clear: both; }
+      #buy .steps .step.step-select .tickets ul li .name {
+        text-align: left;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #254164;
+        float: left;
+        width: 60%; }
+      #buy .steps .step.step-select .tickets ul li .buy {
+        float: left;
+        width: 40%;
+        text-align: right; }
+        #buy .steps .step.step-select .tickets ul li .buy input {
+          padding: 2px;
+          border: 2px solid #254164;
+          width: 3em;
+          margin: 0 0 0 4px;
+          text-align: center; }
+        #buy .steps .step.step-select .tickets ul li .buy button {
+          padding: 4px 8px;
+          background-color: #254164;
+          color: #ffffff;
+          border: 0; }
+  #buy .steps .step.step-select .soldout {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 3px solid #254164;
+    color: #254164;
+    font-size: 20px;
+    width: 270px;
+    margin: 40px auto; }
+  #buy .steps .step.step-payment .loading {
+    position: relative;
+    height: 150px; }
+  #buy .steps .step.step-payment .info:before, #buy .steps .step.step-payment .info:after {
+    content: " ";
+    display: table; }
+  #buy .steps .step.step-payment .info:after {
+    clear: both; }
+  #buy .steps .step.step-payment .info .data {
+    float: left;
+    width: 50%;
+    padding: 0 10px; }
+    #buy .steps .step.step-payment .info .data:before, #buy .steps .step.step-payment .info .data:after {
       content: " ";
       display: table; }
-    #buy .steps .step.step-select .tickets ul li:after {
+    #buy .steps .step.step-payment .info .data:after {
       clear: both; }
-    #buy .steps .step.step-select .tickets ul li .name {
-      text-align: left;
-      text-transform: uppercase;
-      font-weight: bold;
-      color: #254164;
-      float: left;
-      width: 60%; }
-    #buy .steps .step.step-select .tickets ul li .buy {
-      float: left;
-      width: 40%; }
-      #buy .steps .step.step-select .tickets ul li .buy input {
-        padding: 2px;
-        border: 2px solid #254164;
-        width: 2em; }
-      #buy .steps .step.step-select .tickets ul li .buy button {
-        padding: 2px;
-        background-color: #254164;
-        color: #ffffff; }
-#buy .steps .step.step-select .soldout {
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: bold;
-  padding: 10px 20px;
-  border: 3px solid #254164;
-  color: #254164;
-  font-size: 20px;
-  width: 270px;
-  margin: 40px auto; }
+    #buy .steps .step.step-payment .info .data:nth-child(odd) {
+      padding: 0 10px 0 0; }
+    #buy .steps .step.step-payment .info .data:nth-child(even) {
+      padding: 0 0 0 10px; }
+    #buy .steps .step.step-payment .info .data input {
+      border: 1px solid #254164;
+      width: 100%;
+      padding: 4px;
+      margin: 0 0 10px 0; }
+  #buy .steps .step.step-payment .info .title {
+    margin: 15px 0 10px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #254164;
+    font-size: 20px; }
+  #buy .steps .step.step-payment .info .separator {
+    border-top: 1px dashed #999999;
+    margin: 20px 0 20px 0; }
+  #buy .steps .step.step-payment .info .detail {
+    text-align: right;
+    margin: 0 0 10px 0; }
+  #buy .steps .step.step-payment .info .total {
+    text-align: right;
+    margin: 0 0 10px 0; }
+  #buy .steps .step.step-payment .info .action {
+    text-align: right; }
+    #buy .steps .step.step-payment .info .action button {
+      padding: 4px 8px;
+      background-color: #254164;
+      color: #ffffff;
+      border: 0; }
 
 .loader:before, .loader:after, .loader {
   border-radius: 50%;

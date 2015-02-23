@@ -24,8 +24,9 @@ exports = module.exports = function(app) {
 
   // API
   app.all('/api*', keystone.middleware.api);
-  app.get('/api/tickets/list', routes.api.tickets.list);
-  // app.post('/api/tickets/buy', routes.api.tickets.buy);
+  app.get('/api/tickets/available', routes.api.tickets.available);
+  app.post('/api/tickets/reserve', routes.api.tickets.reserve);
+  app.post('/api/tickets/checkout', routes.api.tickets.checkout);
 
   // app.get('/protected', middleware.requireUser, routes.views.protected);
 

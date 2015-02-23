@@ -7,7 +7,7 @@ var keystone = require('keystone'),
 var USER_RESERVATION = 15; // Minutes
 var CHECK_RESERVATION = USER_RESERVATION + 2;
 
-var getTickets = function(ticket, discount, callback) {
+var getAvailables = function(ticket, discount, callback) {
   var data = {tickets: []};
   async.series([
     function(next) {
@@ -53,7 +53,7 @@ var getTickets = function(ticket, discount, callback) {
             return next();
           }
         }
-        data.discount = { invalid: true };
+        data.discount = { invalid: true, code: discount };
         return next();
       });
     },
@@ -92,8 +92,8 @@ var getTickets = function(ticket, discount, callback) {
 };
 
 exports = module.exports = {
-  list: function(req, res) {
-    getTickets(req.query.ticket, req.query.discount, function(err, data) {
+  available: function(req, res) {
+    getAvailables(req.query.ticket, req.query.discount, function(err, data) {
       data.tickets = data.tickets.filter(function(ticket) {
         return ticket.available > 0;
       }).map(function(ticket) {
@@ -105,5 +105,11 @@ exports = module.exports = {
       });
       return res.apiResponse(data);
     });
+  },
+  reserve: function(req, res) {
+    return res.apiResponse({});
+  },
+  checkout: function(req, res) {
+    return res.apiResponse({});
   }
 };

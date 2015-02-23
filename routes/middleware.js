@@ -1,30 +1,24 @@
-/**
- * This file contains the common middleware used by your routes.
- *
- * Extend or replace these functions as your application requires.
- *
- * This structure is not enforced, and just a starting point. If
- * you have more middleware you may want to group it as separate
- * modules in your project's /lib directory.
- */
-
 var _ = require('underscore');
 
+// Load .env for development environments
+require('dotenv').load();
 
 exports.initLocals = function(req, res, next) {
 
   var locals = res.locals;
 
   locals.user = req.user;
+  locals.buy = {
+    ticket: req.query.ticket,
+    discount: req.query.discount,
+  };
+  locals.twoco_seller_id = process.env.TWOCO_SELLER_ID;
+  locals.twoco_public_key = process.env.TWOCO_PUBLIC_KEY;
+
 
   next();
 
 };
-
-
-/**
-  Fetches and clears the flashMessages before a view is rendered
-*/
 
 exports.flashMessages = function(req, res, next) {
 
@@ -40,11 +34,6 @@ exports.flashMessages = function(req, res, next) {
   next();
 
 };
-
-
-/**
-  Prevents people from accessing protected pages when they're not signed in
- */
 
 exports.requireUser = function(req, res, next) {
 

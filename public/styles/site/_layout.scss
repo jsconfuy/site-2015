@@ -120,18 +120,23 @@ body > header {
 // Tickets
 #buy {
   .indicators {
-    height: 80px;
     margin: 0;
     padding: 0;
+    @include clearfix();
     .indicator {
-      height: 80px;
-      line-height: 80px;
+      padding: 20px 0;
       width: 33.3333%;
       float: left;
       text-align: center;
       font-size: 30px;
       i {
         vertical-align: middle;
+      }
+      span {
+        display: block;
+        margin: 10px 0 0 0;
+        font-size: 14px;
+        text-align: center;
       }
       &.active {
         background-color: $blue;
@@ -141,6 +146,7 @@ body > header {
   }
   .steps {
     .step {
+      margin: 20px 0 0 0;
       &.step-select {
         .loading {
           position: relative;
@@ -154,6 +160,25 @@ body > header {
             color: $blue;
             font-size: 24px;
             margin: 20px 0;
+          }
+          .discount {
+            text-align: right;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 20px;
+            margin: 0 0 20px 0;
+            .code {
+              display: inline-block;
+              padding: 4px 8px;
+              border: 2px solid $blue;
+              background-color: $white;
+              color: $blue;
+              &.error {
+                border: 2px solid $brand-danger;
+                background-color: $brand-danger;
+                color: $white;
+              }
+            }
           }
           ul {
             padding: 0;
@@ -174,15 +199,19 @@ body > header {
               .buy {
                 float: left;
                 width: 40%;
+                text-align: right;
                 input {
                   padding: 2px;
                   border: 2px solid $blue;
-                  width: 2em;
+                  width: 3em;
+                  margin: 0 0 0 4px;
+                  text-align: center;
                 }
                 button {
-                  padding: 2px;
+                  padding: 4px 8px;
                   background-color: $blue;
                   color: $white;
+                  border: 0;
                 }
               }
             }
@@ -198,6 +227,62 @@ body > header {
           font-size: 20px;
           width: 270px;
           margin: 40px auto;
+        }
+      }
+      &.step-payment {
+        .loading {
+          position: relative;
+          height: 150px;
+        }
+        .info {
+          @include clearfix();
+          .data {
+            @include clearfix();
+            float: left;
+            width: 50%;
+            &:nth-child(odd) {
+              padding: 0 10px 0 0;
+            }
+            &:nth-child(even) {
+              padding: 0 0 0 10px;
+            }
+            padding: 0 10px;
+            input {
+              border: 1px solid $blue;
+              width: 100%;
+              padding: 4px;
+              margin: 0 0 10px 0;
+            }
+          }
+          .title {
+            margin: 15px 0 10px 0;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: $blue;
+            font-size: 20px;
+          }
+          .separator {
+            border-top: 1px dashed $gray-dark;
+            margin: 20px 0 20px 0;
+          }
+          .detail {
+            text-align: right;
+            margin: 0 0 10px 0;
+          }
+          .total {
+            text-align: right;
+            margin: 0 0 10px 0;
+          }
+          .action {
+            text-align: right;
+            button {
+              padding: 4px 8px;
+              background-color: $blue;
+              color: $white;
+              border: 0;
+            }
+          }
+
         }
       }
     }

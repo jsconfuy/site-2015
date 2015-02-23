@@ -66,33 +66,79 @@ html(class='#{klass}')
       block content
 
     block modals
-      #buy.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
+      #buy.modal.fade(tabindex='-1', role='dialog', aria-hidden='true', data-ticket='#{buy.ticket || ""}', data-discount='#{buy.discount || ""}')
         .modal-dialog
           .modal-content
             .modal-body
               .indicators
                 .indicator.indicator-select
                   i(class='glyphicon glyphicon-shopping-cart')
+                  span Select
                 .indicator.indicator-payment
                   i(class='glyphicon glyphicon-credit-card')
+                  span Payment
                 .indicator.indicator-assign
                   i(class='glyphicon glyphicon-tag')
+                  span Assign
               .steps
                 .step.step-select
+                  .loading
+                    .loader
                   .soldout
                     | We're sold out.
                   .tickets
                     .title Tickets
                     ul
                   .discount
+                    .code
                   .note
                     | Any questions please contact 
                     a(href='mailto:hola@jsonf.uy') hola@jsconf.uy
                 .step.step-payment
+                  .loading
+                    .loader
+                  .info
+                    .data
+                      .title Personal Info
+                  .info
+                    .data
+                      input(name='name', placeholder='Full name')
+                    .data
+                      input(name='email', placeholder='Email address')
+                  .info
+                    .data
+                      .title Billing Details
+                      input(name='address1', placeholder='Address')
+                      input(name='address2', placeholder='')
+                      input(name='city', placeholder='City')
+                      input(name='state', placeholder='State')
+                      input(name='postcode', placeholder='Zip code')
+                      input(name='country', placeholder='Country')
+                    .data
+                      .title Card
+                      input(name='card_number', autocomplete='off', placeholder='Card number')
+                      .info
+                        .data
+                          input(name='card_expiration', autocomplete='off', placeholder='MM/YY')
+                        .data
+                          input(name='card_cvc', autocomplete='off', placeholder='CVC')
+                      .separator
+                      .detail 3 Early Bird x $ 100
+                      .total Total: $ 300
+                      .action
+                        button Place Order
+                  .note
+                    | Any questions please contact 
+                    a(href='mailto:hola@jsonf.uy') hola@jsconf.uy
                 .step.step-assign
+                  .loading
+                    .loader
 
     block footer
 
+    script.
+      var TWOCO_SELLER_ID = '#{twoco_seller_id}';
+      var TWOCO_PUBLIC_KEY = '#{twoco_public_key}';
     script(src='//www.2checkout.com/checkout/api/2co.min.js')
     script(src='/js/lib/jquery/jquery-2.1.1.min.js')
     script(src='/js/lib/bootstrap/bootstrap-3.2.0.min.js')

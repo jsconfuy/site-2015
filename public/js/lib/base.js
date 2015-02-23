@@ -1,4 +1,4 @@
-;(function(document, window) {
+;(function() {
   'use strict';
 
   // FIXME: Navbar
@@ -84,42 +84,79 @@
   // Tickets
   var modal = $('#buy');
 
-  var show = function() {
+  var show = function(ticket, discount) {
     modal.find('.indicator').removeClass('active');
     modal.find('.indicator-select').addClass('active');
-    modal.find('.loading').show();
-    modal.find('.soldout, .tickets').hide();
-    modal.modal('show');
-    $.get('/api/tickets/list', function(data) {
-      if(data.error) {
+    modal.find('.step').hide();
+    modal.find('.step-select > *').hide();
+    modal.find('.step-select .loading').show();
+    modal.find('.step-select').show();
+    modal.modal({
+      backdrop: 'static',
+      keyboard: false
+    });
+    $.get('/api/tickets/available', {ticket: ticket, discount: discount}, function(response) {
+      if(response.error) {
         // TODO: show error
       }
-      if (data.tickets.length) {
+      if (response.discount) {
+        if (response.discount.id) {
+          modal.find('.discount').show().find('.code').removeClass('error').text('Code Applied: ' + response.discount.code);
+        } else if (response.discount.invalid) {
+          modal.find('.discount').show().find('.code').addClass('error').text('Invalid Code: ' + response.discount.code);
+        }
+      }
+      if (response.tickets.length) {
         modal.find('.tickets ul').html('');
-        data.tickets.forEach(function(ticket) {
+        response.tickets.forEach(function(ticket) {
+          var input = $('<input min="1" type="number" />').val('1');
           $('<li />')
             .append($('<div />').addClass('name').text(ticket.name))
             .append(
-              $('<div />').addClass('buy').data('ticket', ticket.id).append(
-                $('<span />').text('$ 100 x'),
-                $('<input min="1" type="number" />').val('1'),
-                $('<button />').text('Buy')
+              $('<div />').addClass('buy').append(
+                $('<span />').text((ticket.price > 0 ? '$ ' + ticket.price : 'Free') + ' x'),
+                input,
+                $('<button />').text('Buy').click(function(e) {
+                  reserve(ticket.id, response.discount ? response.discount.id : null, input.val());
+                })
               )
             )
             .appendTo(modal.find('.tickets ul'));
         });
-        modal.find('.tickets').show();
+        modal.find('.step-select .tickets').show();
       } else {
-        modal.find('.soldout').show();
+        modal.find('.step-select .soldout').show();
       }
-      modal.find('.loading').hide();
-
+      modal.find('.step-select .note').show();
+      modal.find('.step-select .loading').hide();
     });
   };
 
-  $('*[data-buy]').click(function(e) {
-    show();
-  });
+  var reserve = function(ticket, discount, quantity) {
+    modal.find('.indicator').removeClass('active');
+    modal.find('.indicator-payment').addClass('active');
+    modal.find('.step').hide();
+    modal.find('.step-payment > *').hide();
+    modal.find('.step-payment .loading').show();
+    modal.find('.step-payment').show();
+    $.post('/api/tickets/reserve', {ticket: ticket, discount: discount, quantity: quantity}, function(response) {
+      if(response.error) {
+        // TODO: show error
+      }
+      modal.find('.step-payment > *').show();
+      modal.find('.step-payment .loading').hide();
+    });
+  };
 
+  var checkout = function() {
+    alert('checkout');
+
+  };
+
+  modal.find('.step-payment .action button').click(function(e){ checkout(); });
+  $('*[data-buy]').click(function(e){ show(); });
+  if (modal.data('ticket') || modal.data('discount')) {
+    show(modal.data('ticket'), modal.data('discount'));
+  }
 
 })();
