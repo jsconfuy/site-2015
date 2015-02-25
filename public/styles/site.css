@@ -4825,14 +4825,14 @@ body {
 
 /* Begin Base */
 h1 {
+  font-size: 4.75em;
   text-align: center;
-  margin-top: 50px;
-  margin-bottom: 25px; }
+  margin: 30px auto; }
 
 h2 {
+  font-size: 2.5em;
   text-align: center;
-  margin-top: 40px;
-  margin-bottom: 20px; }
+  margin: 10px auto; }
 
 /* End Base */
 /* Begin Header */
@@ -4915,6 +4915,119 @@ body > header {
  }
 
 /* End Header */
+/* Begin Footer */
+footer {
+  background-color: #1A1A1A;
+  display: block;
+  height: 100%;
+  min-height: 100%; }
+  footer .map, footer .container {
+    display: inline-block;
+    margin-right: -5px;
+    height: 100%;
+    vertical-align: top;
+    width: 50%; }
+  footer .map {
+    background-color: #5596C0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; }
+  footer .container .venue {
+    display: block;
+    margin: 50px auto; }
+    footer .container .venue h1, footer .container .venue h2 {
+      color: #ffffff; }
+    footer .container .venue h1 {
+      background: transparent url('../images/isometric-03.svg') no-repeat 50% 0;
+      background-size: 230px auto;
+      padding-top: 250px; }
+  footer .container .info {
+    display: block;
+    margin: 50px auto;
+    max-width: 450px;
+    padding: 30px 0; }
+    footer .container .info h3 {
+      color: #ffffff;
+      display: block;
+      margin: 30px auto;
+      text-align: center; }
+    footer .container .info .data {
+      display: block; }
+      footer .container .info .data input {
+        border: none;
+        display: inline-block;
+        height: 70px;
+        margin-right: -5px;
+        padding: 0 20px;
+        vertical-align: top;
+        width: -webkit-calc(100% - 110px);
+        width: -moz-calc(100% - 110px);
+        width: -o-calc(100% - 110px);
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+        -webkit-border-radius: 3px 0 0 3px;
+        -moz-border-radius: 3px 0 0 3px;
+        -o-border-radius: 3px 0 0 3px;
+        border-radius: 3px 0 0 3px; }
+        footer .container .info .data input:focus {
+          outline: none; }
+      footer .container .info .data button {
+        background-color: #254164;
+        border: none;
+        color: #ffffff;
+        display: inline-block;
+        height: 70px;
+        vertical-align: top;
+        vertical-align: top;
+        width: 110px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+        -webkit-border-radius: 0 3px 3px 0;
+        -moz-border-radius: 0 3px 3px 0;
+        -o-border-radius: 0 3px 3px 0;
+        border-radius: 0 3px 3px 0;
+        -webkit-transition: all 100ms;
+        -moz-transition: all 100ms;
+        -o-transition: all 100ms;
+        transition: all 100ms; }
+        footer .container .info .data button:hover {
+          background-color: #2c4d77; }
+  footer .copy {
+    background-color: #1A1A1A;
+    display: block;
+    height: 70px;
+    text-align: center;
+    width: 100%; }
+    footer .copy .container {
+      border-top: 1px solid #343434;
+      width: 80%; }
+      footer .copy .container a {
+        color: #cccccc;
+        line-height: 70px;
+        margin: 0;
+        vertical-align: bottom; }
+        footer .copy .container a:after {
+          content: "-";
+          margin: 0 15px; }
+        footer .copy .container a:hover {
+          color: #ffffff;
+          text-decoration: none; }
+        footer .copy .container a:last-of-type:after {
+          content: ""; }
+  footer a {
+    color: #5596C0;
+    margin: 0 5px; }
+    footer a:hover {
+      color: #7aadce; }
+
+/* End Footer */
 #buy .indicators {
   margin: 0;
   padding: 0; }
@@ -5136,9 +5249,8 @@ body > header {
           .home body .speakers ul li .img {
             margin: 0 auto;
             display: block;
-            height: 255px;
-            position: relative;
-            width: 220px;
+            height: 230px;
+            width: 230px;
             -webkit-mask: url('../images/mask.svg') no-repeat;
             -moz-mask: url('../images/mask.svg') no-repeat;
             -o-mask: url('../images/mask.svg') no-repeat;
@@ -5149,26 +5261,6 @@ body > header {
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover; }
-            .home body .speakers ul li .img:after {
-              background-image: url('../images/mask-border.svg');
-              background-repeat: no-repeat;
-              content: "";
-              display: block;
-              height: 255px;
-              left: 0;
-              position: absolute;
-              top: 0;
-              width: 220px;
-              -webkit-pointer-events: none;
-              -moz-pointer-events: none;
-              -o-pointer-events: none;
-              pointer-events: none;
-              background-repeat: no-repeat;
-              background-position: center center;
-              -webkit-background-size: cover;
-              -moz-background-size: cover;
-              -o-background-size: cover;
-              background-size: cover; }
             .home body .speakers ul li .img.empty {
               background: transparent url('../images/george.svg') no-repeat 50% 50%;
               background-size: 70% auto; }
@@ -5190,8 +5282,8 @@ body > header {
       background-color: #162636; }
       .home body .organizers h1 {
         background: transparent url('../images/ballon.svg') no-repeat 50% 0;
-        background-size: 300px auto;
-        padding-top: 320px;
+        background-size: 230px auto;
+        padding-top: 250px;
         color: #ffffff; }
       .home body .organizers ul {
         padding: 0;
@@ -5205,8 +5297,13 @@ body > header {
           padding: 10px 0 40px 0; }
           .home body .organizers ul li .img {
             margin: 0 auto;
-            height: 255px;
-            width: 220px;
+            display: block;
+            height: 230px;
+            width: 230px;
+            -webkit-mask: url('../images/mask.svg') no-repeat;
+            -moz-mask: url('../images/mask.svg') no-repeat;
+            -o-mask: url('../images/mask.svg') no-repeat;
+            mask: url('../images/mask.svg') no-repeat;
             background-repeat: no-repeat;
             background-position: center center;
             -webkit-background-size: cover;

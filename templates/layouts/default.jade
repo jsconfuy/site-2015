@@ -135,6 +135,25 @@ html(class='#{klass}')
                     .loader
 
     block footer
+      footer
+        .container
+          .venue
+            h1 The Venue
+            h2 Antel Auditorium
+          .info
+            h3 Additional Information
+            | Please feel free to contact us at
+            a(href='mailto:hola@jsonf.uy') hola@jsconf.uy
+            | if you need assistance with flight, hotel bookings and with general rules about getting to the country, we are glad to help.
+            h3 Stay In Touch
+            .data
+              input(name='email', placeholder='Email address')
+              button Subscribe
+        .map
+        .copy
+          .container
+            a(href='http://meetup.com/mvd-js') Open Web Uruguay
+            a(href='/code-of-conduct') Code of Conduct
 
     script.
       var TWOCO_SELLER_ID = '#{twoco_seller_id}';

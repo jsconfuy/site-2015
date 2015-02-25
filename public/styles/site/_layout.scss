@@ -5,15 +5,15 @@ body {
 /* Begin Base */
 
 h1 {
+  font-size: 4.750em;
   text-align: center;
-  margin-top: 50px;
-  margin-bottom: 25px;
+  margin: 30px auto;
 }
 
 h2 {
+  font-size: 2.500em;
   text-align: center;
-  margin-top: 40px;
-  margin-bottom: 20px;
+  margin: 10px auto;
 }
 
 /* End Base */
@@ -115,7 +115,123 @@ body > header {
 
 /* End Header */
 
+/* Begin Footer */
 
+footer {
+  background-color: $black;
+  display: block;
+  height: 100%;
+  min-height: 100%;
+  .map, .container {
+    display: inline-block;
+    margin-right: -5px;
+    height: 100%;
+    vertical-align: top;
+    width: 50%;
+  }
+  .map {
+    background-color: $blue-light;
+    @include background-size-cover();
+  }
+  .container {
+    .venue {
+      display: block;
+      margin: 50px auto;
+      h1, h2 {
+        color: $white;
+      }
+      h1 {
+        background: transparent url('../images/isometric-03.svg') no-repeat 50% 0;
+        background-size: 230px auto;
+        padding-top: 250px;
+      }
+    }
+    .info {
+      display: block;
+      margin: 50px auto;
+      max-width: 450px;
+      padding: 30px 0;
+      h3{
+        color: $white;
+        display: block;
+        margin: 30px auto;
+        text-align: center;
+      }
+      .data {
+        display: block;
+        input{
+          border: none;
+          display: inline-block;
+          height: 70px;
+          margin-right: -5px;
+          padding: 0 20px;
+          vertical-align: top;
+          @include calc(width, "100% - 110px");
+          @include crossBrowser(appearance, none);
+          @include crossBrowser(border-radius, 3px 0 0 3px);
+          &:focus{
+            outline: none;
+          }
+        }
+        button{
+          background-color: $blue;
+          border: none;
+          color: $white;
+          display: inline-block;
+          height: 70px;
+          vertical-align: top;
+          vertical-align: top;
+          width: 110px;
+          @include crossBrowser(appearance, none);
+          @include crossBrowser(border-radius, 0 3px 3px 0);
+          @include crossBrowser(transition, all 100ms);
+          &:hover{
+            background-color: lighten($blue, 5%)
+          }
+        }
+      }
+    }
+  }
+  .copy {
+    background-color: $black;
+    display: block;
+    height: 70px;
+    text-align: center;
+    width: 100%;
+    .container{
+      border-top: 1px solid lighten($black, 10%);
+      width: 80%;
+      a {
+        color: darken($white, 20%);
+        line-height: 70px;
+        margin: 0;
+        vertical-align: bottom;
+        &:after {
+          content: "-";
+          margin: 0 15px;
+        }
+        &:hover{
+          color: $white;
+          text-decoration: none;
+        }
+        &:last-of-type {
+          &:after {
+            content: "";
+          }
+        }
+      }
+    }
+  }
+  a{
+    color: $blue-light;
+    margin: 0 5px;
+    &:hover{
+      color: lighten($blue-light, 10%);
+    }
+  }
+}
+
+/* End Footer */
 
 // Tickets
 #buy {

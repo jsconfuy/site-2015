@@ -31,28 +31,10 @@
           width: 282px;
           padding: 0 0 30px 0;
           .img {
-            // Create the border
-            /* &:after{
-              background-image: url('../images/mask-border.svg');
-              background-repeat: no-repeat;
-              content: "";
-              display: block;
-              height: 255px;
-              left: 0;
-              position: absolute;
-              top: 0;
-              width: 220px;
-              @include crossBrowser(pointer-events, none);
-              @include background-size-cover();
-            } */
             margin: 0 auto;
             display: block;
-            // Relation: 0.8636363636
-            height: 255px;
-            position: relative;
-            width: 220px;
-            // @include clip-path(url('../images/mask.svg'));
-            // @include clip-path(polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%));
+            height: 230px;
+            width: 230px;
             @include crossBrowser(mask, url('../images/mask.svg') no-repeat);
             @include background-size-cover();
             &.empty {
@@ -85,8 +67,8 @@
       background-color: $blue-dark;
       h1 {
         background: transparent url('../images/ballon.svg') no-repeat 50% 0;
-        background-size: 300px auto;
-        padding-top: 320px;
+        background-size: 230px auto;
+        padding-top: 250px;
         color: $white;
       }
       ul {
@@ -101,10 +83,10 @@
           padding: 10px 0 40px 0;
           .img {
             margin: 0 auto;
-            // Relation: 0.8636363636
-            height: 255px;
-            width: 220px;
-            // @include clip-path(polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%));
+            display: block;
+            height: 230px;
+            width: 230px;
+            @include crossBrowser(mask, url('../images/mask.svg') no-repeat);
             @include background-size-cover();
             &.empty {
               background: transparent url('../images/george.svg') no-repeat 50% 50%;
