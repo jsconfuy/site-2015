@@ -4919,7 +4919,6 @@ body > header {
 footer {
   background-color: #1A1A1A;
   display: block;
-  height: 100%;
   min-height: 100%; }
   footer .map, footer .container {
     display: inline-block;
