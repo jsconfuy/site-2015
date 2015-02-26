@@ -149,7 +149,7 @@ html(class='#{klass}')
             .data
               input(name='email', placeholder='Email address')
               button Subscribe
-        .map
+        #map.map
         .copy
           .container
             a(href='http://meetup.com/mvd-js') Open Web Uruguay
@@ -159,6 +159,7 @@ html(class='#{klass}')
       var TWOCO_SELLER_ID = '#{twoco_seller_id}';
       var TWOCO_PUBLIC_KEY = '#{twoco_public_key}';
     script(src='//www.2checkout.com/checkout/api/2co.min.js')
+    script(src='//maps.googleapis.com/maps/api/js?sensor=false')
     script(src='/js/lib/jquery/jquery-2.1.1.min.js')
     script(src='/js/lib/bootstrap/bootstrap-3.2.0.min.js')
     script(src='/js/lib/base.js')

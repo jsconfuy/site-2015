@@ -80,6 +80,12 @@
   //   $(window).on('resize', stickyout);
   //   $(document).on('scroll', stickyout);
   // });
+  //
+
+  // Map
+   var map = new google.maps.Map(
+     document.getElementById('map'),
+     {});
 
   // Tickets
   var modal = $('#buy');
@@ -149,7 +155,20 @@
   };
 
   var checkout = function() {
-    alert('checkout');
+    var data = {};
+    var ok = true;
+    modal.find('.step-payment').find('input').removeClass('error').each(function(){
+      var value = $.trim($(this).val());
+      if(!value) {
+        $(this).addClass('error');
+        ok = false;
+      } else {
+        data[$(this).attr('name')] = value;
+      }
+    });
+    if (ok) {
+      alert('ok');
+    }
 
   };
 
