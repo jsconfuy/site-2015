@@ -259,22 +259,70 @@
 }
 
 @-webkit-keyframes rollDown {
-  to {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  25% {
+    -webkit-transform: translateY(65px);
+  }
+  50% {
+    -webkit-transform: translateY(60px);
+  }
+  75% {
+    -webkit-transform: translateY(68px);
+  }
+  100% {
     -webkit-transform: translateY(65px);
   }
 }
 @-moz-keyframes rollDown {
-  to {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  25% {
+    -moz-transform: translateY(65px);
+  }
+  50% {
+    -moz-transform: translateY(60px);
+  }
+  75% {
+    -moz-transform: translateY(68px);
+  }
+  100% {
     -moz-transform: translateY(65px);
   }
 }
 @-ms-keyframes rollDown {
-  to {
+  0% {
+    -ms-transform: translateY(0);
+  }
+  25% {
+    -ms-transform: translateY(65px);
+  }
+  50% {
+    -ms-transform: translateY(60px);
+  }
+  75% {
+    -ms-transform: translateY(68px);
+  }
+  100% {
     -ms-transform: translateY(65px);
   }
 }
 @keyframes rollDown {
-  to {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(65px);
+  }
+  50% {
+    transform: translateY(60px);
+  }
+  75% {
+    transform: translateY(68px);
+  }
+  100% {
     transform: translateY(65px);
   }
 }
@@ -292,22 +340,70 @@
 }
 
 @-webkit-keyframes rollDownUnhide {
-  to {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  25% {
+    -webkit-transform: translateY(90px);
+  }
+  50% {
+    -webkit-transform: translateY(70px);
+  }
+  75% {
+    -webkit-transform: translateY(90px);
+  }
+  100% {
     -webkit-transform: translateY(90px);
   }
 }
 @-moz-keyframes rollDownUnhide {
-  to {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  25% {
+    -moz-transform: translateY(90px);
+  }
+  50% {
+    -moz-transform: translateY(70px);
+  }
+  75% {
+    -moz-transform: translateY(90px);
+  }
+  100% {
     -moz-transform: translateY(90px);
   }
 }
 @-ms-keyframes rollDownUnhide {
-  to {
+  0% {
+    -ms-transform: translateY(0);
+  }
+  25% {
+    -ms-transform: translateY(90px);
+  }
+  50% {
+    -ms-transform: translateY(70px);
+  }
+  75% {
+    -ms-transform: translateY(90px);
+  }
+  100% {
     -ms-transform: translateY(90px);
   }
 }
 @keyframes rollDownUnhide {
-  to {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(90px);
+  }
+  50% {
+    transform: translateY(70px);
+  }
+  75% {
+    transform: translateY(90px);
+  }
+  100% {
     transform: translateY(90px);
   }
 }
