@@ -4916,23 +4916,24 @@ body > header {
 
 /* End Header */
 /* Begin Footer */
-footer {
+body > footer {
+  margin: 50px 0 0 0;
   background-color: #1A1A1A;
   min-height: 100%; }
-  footer .footer {
+  body > footer .footer {
     position: relative;
     display: block; }
-    footer .footer:before, footer .footer:after {
+    body > footer .footer:before, body > footer .footer:after {
       content: " ";
       display: table; }
-    footer .footer:after {
+    body > footer .footer:after {
       clear: both; }
-    footer .footer .map, footer .footer .venue-info {
+    body > footer .footer .map, body > footer .footer .venue-info {
       display: block;
       margin: 0;
       height: 100%;
       width: 50%; }
-    footer .footer .map {
+    body > footer .footer .map {
       top: 0;
       right: 0;
       bottom: 0;
@@ -4944,32 +4945,32 @@ footer {
       -moz-background-size: cover;
       -o-background-size: cover;
       background-size: cover; }
-      footer .footer .map #map {
+      body > footer .footer .map #map {
         display: block;
         min-height: 100%;
         width: 100%; }
-    footer .footer .venue-info .venue {
+    body > footer .footer .venue-info .venue {
       display: block;
       margin: 50px auto; }
-      footer .footer .venue-info .venue h1, footer .footer .venue-info .venue h2 {
+      body > footer .footer .venue-info .venue h1, body > footer .footer .venue-info .venue h2 {
         color: #ffffff; }
-      footer .footer .venue-info .venue h1 {
+      body > footer .footer .venue-info .venue h1 {
         background: transparent url('../images/isometric-03.svg') no-repeat 50% 0;
         background-size: 230px auto;
         padding-top: 250px; }
-    footer .footer .venue-info .info {
+    body > footer .footer .venue-info .info {
       display: block;
       margin: 50px auto;
       max-width: 450px;
       padding: 30px 0; }
-      footer .footer .venue-info .info h3 {
+      body > footer .footer .venue-info .info h3 {
         color: #ffffff;
         display: block;
         margin: 30px auto;
         text-align: center; }
-      footer .footer .venue-info .info .data {
+      body > footer .footer .venue-info .info .data {
         display: block; }
-        footer .footer .venue-info .info .data input {
+        body > footer .footer .venue-info .info .data input {
           border: none;
           display: inline-block;
           height: 70px;
@@ -4987,9 +4988,9 @@ footer {
           -moz-border-radius: 3px 0 0 3px;
           -o-border-radius: 3px 0 0 3px;
           border-radius: 3px 0 0 3px; }
-          footer .footer .venue-info .info .data input:focus {
+          body > footer .footer .venue-info .info .data input:focus {
             outline: none; }
-        footer .footer .venue-info .info .data button {
+        body > footer .footer .venue-info .info .data button {
           background-color: #254164;
           border: none;
           color: #ffffff;
@@ -5010,34 +5011,34 @@ footer {
           -moz-transition: all 100ms;
           -o-transition: all 100ms;
           transition: all 100ms; }
-          footer .footer .venue-info .info .data button:hover {
+          body > footer .footer .venue-info .info .data button:hover {
             background-color: #2c4d77; }
-  footer .copy {
+  body > footer .copy {
     background-color: #1A1A1A;
     display: block;
     height: 70px;
     text-align: center;
     width: 100%; }
-    footer .copy .container {
+    body > footer .copy .container {
       border-top: 1px solid #343434;
       width: 80%; }
-      footer .copy .container a {
+      body > footer .copy .container a {
         color: #cccccc;
         line-height: 70px;
         margin: 0;
         vertical-align: bottom; }
-        footer .copy .container a:after {
+        body > footer .copy .container a:after {
           content: "-";
           margin: 0 15px; }
-        footer .copy .container a:hover {
+        body > footer .copy .container a:hover {
           color: #ffffff;
           text-decoration: none; }
-        footer .copy .container a:last-of-type:after {
+        body > footer .copy .container a:last-of-type:after {
           content: ""; }
-  footer a {
+  body > footer a {
     color: #5596C0;
     margin: 0 5px; }
-    footer a:hover {
+    body > footer a:hover {
       color: #7aadce; }
 
 /* End Footer */
@@ -5186,6 +5187,7 @@ footer {
       color: #ffffff;
       border: 0; }
 
+/* Loader */
 .loader:before, .loader:after, .loader {
   border-radius: 50%;
   width: 2.5em;

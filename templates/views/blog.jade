@@ -21,7 +21,7 @@ mixin post(post)
           else
             |  
       if post.author
-        | by #{post.author.name.first}
+        | by #{post.author.name}
 
 block content
   .container

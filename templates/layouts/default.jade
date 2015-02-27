@@ -29,38 +29,38 @@ html(class='#{klass}')
     block top
 
     block header
-      header
-        nav(role="navigation").navbar.navbar-default.navbar-fixed-top
-          .navbar-header
-            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-              span.sr-only Toggle navigation
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            a.navbar-brand(href='/')
-              img(src='/images/logo.png', alt='JSConf Uruguay')
-          .collapse.navbar-collapse
-            ul.nav.navbar-nav
-              li(class=(section == 'home' ? 'active' : null))
-                a(href='/') Home
-              // li(class=(section == 'cfp' ? 'active' : null))
-              //  a(href='/proposals') Call for Proposals
-              li
-                a(href='/#speakers') Speakers
-              li
-                a(href='/#sponsors') Sponsors
-              li(class=(section == 'venue' ? 'active' : null))
-                a(href='/venue') Venue
-              li(class=(section == 'hotels' ? 'active' : null))
-                a(href='/hotels') Hotels
-              li(class=(section == 'coc' ? 'active' : null))
-                a(href='/code-of-conduct') Code of Conduct
-              li(class=(section == 'blog' ? 'active' : null))
-                a(href='/blog') Blog
-              // li
-              //  a(href='javascript:void(0);', data-buy) Buy
-              li
-                a(href='http://2014.jsconf.uy/') Last Year
+      nav(role="navigation").navbar.navbar-default.navbar-fixed-top
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/')
+            img(src='/images/logo.png', alt='JSConf Uruguay')
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li(class=(section == 'home' ? 'active' : null))
+              a(href='/') Home
+            // li(class=(section == 'cfp' ? 'active' : null))
+            //  a(href='/proposals') Call for Proposals
+            li
+              a(href='/#speakers') Speakers
+            li
+              a(href='/#sponsors') Sponsors
+            li(class=(section == 'venue' ? 'active' : null))
+              a(href='/venue') Venue
+            li(class=(section == 'hotels' ? 'active' : null))
+              a(href='/hotels') Hotels
+            li(class=(section == 'coc' ? 'active' : null))
+              a(href='/code-of-conduct') Code of Conduct
+            li(class=(section == 'blog' ? 'active' : null))
+              a(href='/blog') Blog
+            // li
+            //  a(href='javascript:void(0);', data-buy) Buy
+            li
+              a(href='http://2014.jsconf.uy/') Last Year
+
     block main
 
       block content
@@ -163,6 +163,7 @@ html(class='#{klass}')
     script(src='//maps.googleapis.com/maps/api/js?sensor=false')
     script(src='/js/lib/jquery/jquery-2.1.1.min.js')
     script(src='/js/lib/bootstrap/bootstrap-3.2.0.min.js')
+    script(src='/js/lib/jquery.bootstrap-autohidingnavbar.js')
     script(src='/js/lib/base.js')
 
     if user && user.canAccessKeystone

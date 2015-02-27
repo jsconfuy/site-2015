@@ -117,7 +117,8 @@ body > header {
 
 /* Begin Footer */
 
-footer {
+body > footer {
+  margin: 50px 0 0 0;
   background-color: $black;
   min-height: 100%;
   .footer {
@@ -416,6 +417,7 @@ footer {
   }
 }
 
+/* Loader */
 
 .loader:before,
 .loader:after,
