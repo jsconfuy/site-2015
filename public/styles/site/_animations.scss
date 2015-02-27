@@ -245,3 +245,69 @@
     transform: translate(250px,150px);
   }
 }
+
+#PassRoller {
+  position: relative;
+  -webkit-animation: rollDown 1s ease-out 2s;
+     -moz-animation: rollDown 1s ease-out 2s;
+      -ms-animation: rollDown 1s ease-out 2s;
+          animation: rollDown 1s ease-out 2s;
+  -webkit-animation-fill-mode: forwards;
+     -moz-animation-fill-mode: forwards;
+      -ms-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes rollDown {
+  to {
+    -webkit-transform: translateY(65px);
+  }
+}
+@-moz-keyframes rollDown {
+  to {
+    -moz-transform: translateY(65px);
+  }
+}
+@-ms-keyframes rollDown {
+  to {
+    -ms-transform: translateY(65px);
+  }
+}
+@keyframes rollDown {
+  to {
+    transform: translateY(65px);
+  }
+}
+
+#ClipPathMask {
+  position: relative;
+  -webkit-animation: rollDownUnhide 1s ease-out 2s;
+     -moz-animation: rollDownUnhide 1s ease-out 2s;
+      -ms-animation: rollDownUnhide 1s ease-out 2s;
+          animation: rollDownUnhide 1s ease-out 2s;
+  -webkit-animation-fill-mode: forwards;
+     -moz-animation-fill-mode: forwards;
+      -ms-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes rollDownUnhide {
+  to {
+    -webkit-transform: translateY(90px);
+  }
+}
+@-moz-keyframes rollDownUnhide {
+  to {
+    -moz-transform: translateY(90px);
+  }
+}
+@-ms-keyframes rollDownUnhide {
+  to {
+    -ms-transform: translateY(90px);
+  }
+}
+@keyframes rollDownUnhide {
+  to {
+    transform: translateY(90px);
+  }
+}
