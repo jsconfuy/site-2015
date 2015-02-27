@@ -4918,86 +4918,100 @@ body > header {
 /* Begin Footer */
 footer {
   background-color: #1A1A1A;
-  display: block;
   min-height: 100%; }
-  footer .map, footer .container {
-    display: inline-block;
-    margin-right: -5px;
-    height: 100%;
-    vertical-align: top;
-    width: 50%; }
-  footer .map {
-    background-color: #5596C0;
-    background-repeat: no-repeat;
-    background-position: center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; }
-  footer .container .venue {
-    display: block;
-    margin: 50px auto; }
-    footer .container .venue h1, footer .container .venue h2 {
-      color: #ffffff; }
-    footer .container .venue h1 {
-      background: transparent url('../images/isometric-03.svg') no-repeat 50% 0;
-      background-size: 230px auto;
-      padding-top: 250px; }
-  footer .container .info {
-    display: block;
-    margin: 50px auto;
-    max-width: 450px;
-    padding: 30px 0; }
-    footer .container .info h3 {
-      color: #ffffff;
+  footer .footer {
+    position: relative;
+    display: block; }
+    footer .footer:before, footer .footer:after {
+      content: " ";
+      display: table; }
+    footer .footer:after {
+      clear: both; }
+    footer .footer .map, footer .footer .venue-info {
       display: block;
-      margin: 30px auto;
-      text-align: center; }
-    footer .container .info .data {
-      display: block; }
-      footer .container .info .data input {
-        border: none;
-        display: inline-block;
-        height: 70px;
-        margin-right: -5px;
-        padding: 0 20px;
-        vertical-align: top;
-        width: -webkit-calc(100% - 110px);
-        width: -moz-calc(100% - 110px);
-        width: -o-calc(100% - 110px);
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        -o-appearance: none;
-        appearance: none;
-        -webkit-border-radius: 3px 0 0 3px;
-        -moz-border-radius: 3px 0 0 3px;
-        -o-border-radius: 3px 0 0 3px;
-        border-radius: 3px 0 0 3px; }
-        footer .container .info .data input:focus {
-          outline: none; }
-      footer .container .info .data button {
-        background-color: #254164;
-        border: none;
+      margin: 0;
+      height: 100%;
+      width: 50%; }
+    footer .footer .map {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+      background-color: #5596C0;
+      background-repeat: no-repeat;
+      background-position: center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover; }
+      footer .footer .map #map {
+        display: block;
+        min-height: 100%;
+        width: 100%; }
+    footer .footer .venue-info .venue {
+      display: block;
+      margin: 50px auto; }
+      footer .footer .venue-info .venue h1, footer .footer .venue-info .venue h2 {
+        color: #ffffff; }
+      footer .footer .venue-info .venue h1 {
+        background: transparent url('../images/isometric-03.svg') no-repeat 50% 0;
+        background-size: 230px auto;
+        padding-top: 250px; }
+    footer .footer .venue-info .info {
+      display: block;
+      margin: 50px auto;
+      max-width: 450px;
+      padding: 30px 0; }
+      footer .footer .venue-info .info h3 {
         color: #ffffff;
-        display: inline-block;
-        height: 70px;
-        vertical-align: top;
-        vertical-align: top;
-        width: 110px;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        -o-appearance: none;
-        appearance: none;
-        -webkit-border-radius: 0 3px 3px 0;
-        -moz-border-radius: 0 3px 3px 0;
-        -o-border-radius: 0 3px 3px 0;
-        border-radius: 0 3px 3px 0;
-        -webkit-transition: all 100ms;
-        -moz-transition: all 100ms;
-        -o-transition: all 100ms;
-        transition: all 100ms; }
-        footer .container .info .data button:hover {
-          background-color: #2c4d77; }
+        display: block;
+        margin: 30px auto;
+        text-align: center; }
+      footer .footer .venue-info .info .data {
+        display: block; }
+        footer .footer .venue-info .info .data input {
+          border: none;
+          display: inline-block;
+          height: 70px;
+          margin-right: -5px;
+          padding: 0 20px;
+          vertical-align: top;
+          width: -webkit-calc(100% - 110px);
+          width: -moz-calc(100% - 110px);
+          width: -o-calc(100% - 110px);
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          -o-appearance: none;
+          appearance: none;
+          -webkit-border-radius: 3px 0 0 3px;
+          -moz-border-radius: 3px 0 0 3px;
+          -o-border-radius: 3px 0 0 3px;
+          border-radius: 3px 0 0 3px; }
+          footer .footer .venue-info .info .data input:focus {
+            outline: none; }
+        footer .footer .venue-info .info .data button {
+          background-color: #254164;
+          border: none;
+          color: #ffffff;
+          display: inline-block;
+          height: 70px;
+          vertical-align: top;
+          vertical-align: top;
+          width: 110px;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          -o-appearance: none;
+          appearance: none;
+          -webkit-border-radius: 0 3px 3px 0;
+          -moz-border-radius: 0 3px 3px 0;
+          -o-border-radius: 0 3px 3px 0;
+          border-radius: 0 3px 3px 0;
+          -webkit-transition: all 100ms;
+          -moz-transition: all 100ms;
+          -o-transition: all 100ms;
+          transition: all 100ms; }
+          footer .footer .venue-info .info .data button:hover {
+            background-color: #2c4d77; }
   footer .copy {
     background-color: #1A1A1A;
     display: block;

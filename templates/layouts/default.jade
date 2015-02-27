@@ -43,8 +43,8 @@ html(class='#{klass}')
             ul.nav.navbar-nav
               li(class=(section == 'home' ? 'active' : null))
                 a(href='/') Home
-              li(class=(section == 'cfp' ? 'active' : null))
-                a(href='/proposals') Call for Proposals
+              // li(class=(section == 'cfp' ? 'active' : null))
+              //  a(href='/proposals') Call for Proposals
               li
                 a(href='/#speakers') Speakers
               li
@@ -57,8 +57,8 @@ html(class='#{klass}')
                 a(href='/code-of-conduct') Code of Conduct
               li(class=(section == 'blog' ? 'active' : null))
                 a(href='/blog') Blog
-              li
-                a(href='javascript:void(0);', data-buy) Buy
+              // li
+              //  a(href='javascript:void(0);', data-buy) Buy
               li
                 a(href='http://2014.jsconf.uy/') Last Year
     block main
@@ -136,20 +136,21 @@ html(class='#{klass}')
 
     block footer
       footer
-        .container
-          .venue
-            h1 The Venue
-            h2 Antel Auditorium
-          .info
-            h3 Additional Information
-            | Please feel free to contact us at
-            a(href='mailto:hola@jsonf.uy') hola@jsconf.uy
-            | if you need assistance with flight, hotel bookings and with general rules about getting to the country, we are glad to help.
-            h3 Stay In Touch
-            .data
-              input(name='email', placeholder='Email address')
-              button Subscribe
-        #map.map
+        .footer
+          .venue-info
+            .venue
+              h1 The Venue
+              h2 Antel Auditorium
+            .info
+              h3 Additional Information
+              | Please feel free to contact us at
+              a(href='mailto:hola@jsonf.uy') hola@jsconf.uy
+              | if you need assistance with flight, hotel bookings and with general rules about getting to the country, we are glad to help.
+              h3 Stay In Touch
+              .data
+                input(name='email', placeholder='Email address')
+                button Subscribe
+          #map.map
         .copy
           .container
             a(href='http://meetup.com/mvd-js') Open Web Uruguay
