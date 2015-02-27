@@ -1,0 +1,32 @@
+.blog {
+
+  .image {
+    min-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .categories {
+    margin: 40px 0 0;
+    padding: 0;
+    display: block;
+    text-align: left;
+    li {
+      list-style: none;
+      display: inline-block;
+      padding: 0;
+      margin-right: -5px;
+      a {
+        text-transform: uppercase;
+        font-size: 0.9em;
+      }
+      &:after {
+        content: "-";
+        padding: 0 15px;
+      }
+      &:last-child:after {
+        content: "";
+      }
+    }
+  }
+
+}

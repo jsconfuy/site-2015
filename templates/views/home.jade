@@ -7,38 +7,59 @@ block vars
 block top
   .top
     include ../../public/images/city.svg
+    ul
+      li(class=(section == 'home' ? 'active' : null))
+        a(href='/') Home
+      // li(class=(section == 'cfp' ? 'active' : null))
+      //  a(href='/proposals') Call for Proposals
+      li
+        a(href='/#speakers') Speakers
+      li
+        a(href='/#sponsors') Sponsors
+      li(class=(section == 'venue' ? 'active' : null))
+        a(href='/venue') Venue
+      li(class=(section == 'hotels' ? 'active' : null))
+        a(href='/hotels') Hotels
+      li(class=(section == 'coc' ? 'active' : null))
+        a(href='/code-of-conduct') Code of Conduct
+      li(class=(section == 'blog' ? 'active' : null))
+        a(href='/blog') Blog
+      // li
+      //  a(href='javascript:void(0);', data-buy) Buy
+      li
+        a(href='http://2014.jsconf.uy/') Last Year
 
 block content
   #speakers.speakers
-    .container
-        h1 Meet the Speakers
-        ul
-          each speaker in speakers
-            li
-              if speaker.picture.exists
-                .img(style='background-image: url(#{speaker.picture.url})')
-              else
-                .img.empty
-              .name
-                != speaker.name
-              .bio
-                != speaker.biography.short.html
-  #sponsors.sponsors
-    .container
-      h1 Sponsors
-      h2 Interested?
-      p.text-center
-        | Contact us at 
-        a(href='mailto:hola@jsconf.uy') hola@jsconf.uy
-  .organizers
-    .container
-      h1 Organizers
+      h1 Meet the Speakers
       ul
-        each organizer in organizers
+        each speaker in speakers
           li
-            if organizer.picture.exists
-              .img(style='background-image: url(#{organizer.picture.url})')
+            if speaker.picture.exists
+              .img(style='background-image: url(#{speaker.picture.url})')
             else
               .img.empty
-            a.name(href='https://twitter.com/#{organizer.twitter}')
-              != organizer.name
+            .name
+              != speaker.name
+            .bio
+              != speaker.biography.short.html
+  #sponsors.sponsors
+    h1 Sponsors
+    h2 Interested?
+    p.text-center
+      | Contact us at 
+      a(href='mailto:hola@jsconf.uy') hola@jsconf.uy
+  .organizers
+    h1 Organizers
+    ul
+      each organizer in organizers
+        li
+          if organizer.picture.exists
+            .img(style='background-image: url(#{organizer.picture.url})')
+          else
+            .img.empty
+          a.name(href='https://twitter.com/#{organizer.twitter}')
+            != organizer.name
+
+block js
+  script(src='/js/home.js')

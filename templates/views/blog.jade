@@ -1,11 +1,14 @@
 extends ../layouts/default
 
+block vars
+  - var section = 'blog';
+  - var klass = 'blog';
+
 mixin post(post)
   .post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
     h2: a(href='/blog/post/' + post.slug)= post.title
     if post.image.exists
-      // img(src=post._.image.fit(160,160)).img.pull-right
-      .image-wrap: img(src=post._.image.fit(750,450)).img-responsive
+      img.image(src=post._.image.fit(750,450))
     p!= post.content.brief.html
     if post.content.extended
       p.read-more: a(href='/blog/post/' + post.slug) Read more...
@@ -54,9 +57,12 @@ block content
             h3.text-muted There are no posts in the category #{data.category.name}.
           else
             h3.text-muted There are no posts yet.
-    // if data.categories.length
-    //  .col-sm-4.col-md-3
-    //    .list-group(style='margin-top: 70px;')
-    //    a(href='/blog', class=!data.category ? 'active' : false).list-group-item All Categories
-    //    each cat in data.categories
-    //      a(href='/blog/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false).list-group-item= cat.name
+  if data.categories.length
+    .container: .row
+      .col-md-8.col-md-offset-2
+        ul.categories
+          li
+            a(href='/blog', class=!data.category ? 'active' : false) All Categories
+          each cat in data.categories
+            li
+              a(href='/blog/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false)= cat.name

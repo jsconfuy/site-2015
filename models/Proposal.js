@@ -58,5 +58,5 @@ Proposal.schema.virtual('score').get(function() {
 }).depends = 'votes.pricco, votes.gchertok, votes.pdejuan, votes.respinosa, votes.lcal, votes.ssassi, votes.mprunell, votes.gcura';
 
 Proposal.relationship({ ref: 'Tag', path: 'tags' });
-Proposal.defaultColumns = 'topic, name, residence, coasted, type, source, tags, status, score, added';
+Proposal.defaultColumns = 'topic|30%, name, coasted, type, tags, status, score';
 Proposal.register();

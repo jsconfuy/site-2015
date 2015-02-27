@@ -1,5 +1,9 @@
 extends ../layouts/default
 
+block vars
+  - var section = 'post';
+  - var klass = 'post';
+
 block content
   .container: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
     article
@@ -10,11 +14,11 @@ block content
           h1= data.post.title
         .post
           if data.post.image.exists
-            .image-wrap: img(src=data.post._.image.fit(750,450)).img-responsive
+            img.image(src=data.post._.image.fit(750,450))
           p
           != data.post.content.full.html
         footer
-          h5 Posted 
+          p.text-muted Posted 
             if data.post.published
               | on #{data.post._.published.format('MMMM Do, YYYY')} 
             if data.post.categories && data.post.categories.length

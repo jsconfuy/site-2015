@@ -1,5 +1,5 @@
 body {
-  padding-top: $navbar-height;
+  padding-top: $navbar-height + 50;
 }
 
 /* Begin Base */
@@ -71,6 +71,7 @@ body > header {
 .navbar .navbar-nav > li > a {
   color: #777777;
   text-decoration: none;
+  font-family: $headings-font-family;
 }
 
 .navbar .navbar-nav > li > a:hover {
@@ -118,7 +119,7 @@ body > header {
 /* Begin Footer */
 
 body > footer {
-  margin: 50px 0 0 0;
+  margin: 80px 0 0 0;
   background-color: $black;
   min-height: 100%;
   .footer {
@@ -129,13 +130,20 @@ body > footer {
       display: block;
       margin: 0 ;
       height: 100%;
-      width: 50%;
+      width: 100%;
+      @media (min-width: $screen-sm-min) {
+        width: 50%;
+      }
     }
     .map {
-      top: 0;
-      right: 0;
-      bottom: 0;
-      position: absolute;
+      display: none;
+      @media (min-width: $screen-sm-min) {
+        display: block;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+      }
       #map {
         display: block;
         min-height: 100%;
@@ -145,6 +153,7 @@ body > footer {
       @include background-size-cover();
     }
     .venue-info {
+      padding: 0 15px;
       .venue {
         display: block;
         margin: 50px auto;
@@ -207,20 +216,31 @@ body > footer {
   .copy {
     background-color: $black;
     display: block;
-    height: 70px;
     text-align: center;
     width: 100%;
-    .container{
+    .box {
       border-top: 1px solid lighten($black, 10%);
       width: 80%;
+      margin: 0 auto;
+      text-align: center;
+      padding: 10px 0 20px;
+      @media (min-width: $screen-sm-min) {
+        padding: 0;
+      }
       a {
         color: darken($white, 20%);
-        line-height: 70px;
+        display: block;
+        @media (min-width: $screen-sm-min) {
+          display: inline-block;
+          line-height: 70px;
+        }
         margin: 0;
         vertical-align: bottom;
-        &:after {
-          content: "-";
-          margin: 0 15px;
+        @media (min-width: $screen-sm-min) {
+          &:after {
+            content: "-";
+            margin: 0 15px;
+          }
         }
         &:hover{
           color: $white;

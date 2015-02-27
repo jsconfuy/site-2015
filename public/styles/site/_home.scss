@@ -2,10 +2,21 @@
   min-height: 100%;
   height: 100%;
   body {
-    // margin: 0;
-    // padding: 120px 0 0 0;
+    padding: 0;
     min-height: 100%;
     height: 100%;
+    .navbar {
+      @media (min-width: $screen-sm-min) {
+        display: none;
+        &.active {
+          display: block;
+        }
+
+      }
+    }
+    & > footer {
+      margin-top: 0;
+    }
     .top {
       display: block;
       background-color: $blue-dark;
@@ -14,10 +25,16 @@
       background-repeat: no-repeat;
       //background-size: 70% auto;
       width: 100%;
-      height: 100%;
-      min-height: 100%;
-      padding: 5% 0;
+      height: 70%;
+      min-height: 70%;
+      padding-top: 85px;
+      @media (min-width: $screen-sm-min) {
+        height: 100%;
+        min-height: 100%;
+        padding: 5% 0;
+      }
       z-index: 1000;
+      position: relative;
       svg{
         display: block;
         height: 100%;
@@ -25,13 +42,49 @@
         max-width: 100%;
         @include crossBrowser(pointer-events, none);
       }
+      ul {
+        display: none;
+        @media (min-width: $screen-sm-min) {
+          position: absolute;
+          bottom: 0;
+          padding: 0;
+          margin: 0 auto;
+          width: 100%;
+          text-align: center;
+          min-height: 70px;
+          display: block;
+        }
+        li {
+          display: inline-block;
+          margin: 0;
+          line-height: 70px;
+          list-style: none;
+          padding: 0;
+          text-transform: uppercase;
+          vertical-align: bottom;
+          height: 70px;
+          a {
+            display: block;
+            height: 100%;
+            color: $blue-light;
+            padding: 0 15px;
+            font-family: $headings-font-family;
+            &:hover {
+              text-decoration: none;
+              color: lighten($blue-light, 10%);
+            }
+          }
+        }
+      }
     }
     .speakers {
       padding: 30px 0;
       ul {
+        max-width: 1200px;
+        margin: 0 auto;
         padding: 0;
-        margin: 0;
         text-align: center;
+        margin: 90px auto;
         li {
           list-style: none;
           display: inline-block;
@@ -57,6 +110,7 @@
             color: $blue;
             font-weight: bold;
             font-size: $font-size-large;
+            font-family: $headings-font-family;
           }
           .bio {
             margin: 10px 0 0;
@@ -68,8 +122,14 @@
     }
     .sponsors {
       padding: 30px 0;
-
+      ul {
+        padding: 0;
+        text-align: center;
+        max-width: 1200px;
+        margin: 90px auto;
+      }
     }
+
     .organizers {
       padding: 30px 0;
       background-color: $blue-dark;
@@ -80,9 +140,11 @@
         color: $white;
       }
       ul {
+        display: block;
         padding: 0;
-        margin: 0;
         text-align: center;
+        max-width: 1200px;
+        margin: 90px auto;
         li {
           list-style: none;
           display: inline-block;
@@ -106,8 +168,8 @@
             margin: 10px 0 0;
             text-transform: uppercase;
             color: $white;
-            font-weight: bold;
             font-size: $font-size-large;
+            font-family: $headings-font-family;
           }
         }
       }
