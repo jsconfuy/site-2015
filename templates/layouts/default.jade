@@ -6,19 +6,54 @@ include ../mixins/flash-messages
 block vars
 
 doctype html
-html(class='#{klass}')
+html(class='#{klass}', lang='en', prefix='og: http://ogp.me/ns#')
 
   head
     meta(charset="utf-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name='viewport', content='width=device-width, initial-scale=1, minimal-ui')
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
 
-    title= title || 'JSConfUY'
-    link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+    title= title || 'JSConfUY 2015 - Montevideo 24th and 25th'
 
     link(href="/styles/site.css", rel="stylesheet")
     if user && user.canAccessKeystone
       link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
+
+    meta(name='robots', content='INDEX, FOLLOW')
+    meta(name='geo.region', content='UY')
+    link(rel='canonical', href='https://jscon.uy')
+
+    meta(property='og:type', content='website')
+    meta(property='og:site_name', content='JSConf Uruguay 2015')
+    meta(property='og:title', content='JSConf Uruguay 2015')
+    meta(property='og:description', content='JSConf Uruguay 2015 - Montevideo, April 24th-25th')
+    // meta(property='og:image', content='') // 1200x630
+    meta(property='og:url', content='https://jsconf.uy')
+    // meta(property='fb:app_id', content='JSConfUY')
+
+    meta(property='twitter:card', content='summary_large_image')
+    meta(property='twitter:site', content='@JSConfUY')
+    meta(property='twitter:title', content='JSConf Uruguay 2015 - Montevideo, April 24th-25th')
+    // meta(property='twitter:description', content='JSConf Urugua')
+    // meta(property='twitter:image', content='')
+    meta(property='twitter:url', content='https://jsconf.uy')
+
+    link(rel='apple-touch-icon', sizes='57x57', href='/images/meta/apple-icon-57x57.png')
+    link(rel='apple-touch-icon', sizes='60x60', href='/images/meta/apple-icon-60x60.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='/images/meta/apple-icon-72x72.png')
+    link(rel='apple-touch-icon', sizes='76x76', href='/images/meta/apple-icon-76x76.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='/images/meta/apple-icon-114x114.png')
+    link(rel='apple-touch-icon', sizes='120x120', href='/images/meta/apple-icon-120x120.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='/images/meta/apple-icon-144x144.png')
+    link(rel='apple-touch-icon', sizes='152x152', href='/images/meta/apple-icon-152x152.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='/images/meta/apple-icon-180x180.png')
+    link(rel='icon', type='image/png', sizes='192x192', href='/images/meta/android-icon-192x192.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='/images/meta/favicon-32x32.png')
+    link(rel='icon', type='image/png', sizes='96x96', href='/images/meta/favicon-96x96.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='/images/meta/favicon-16x16.png')
+    meta(name='msapplication-TileColor', content='#ffffff')
+    meta(name='msapplication-TileImage', content='/images/meta/ms-icon-144x144.png')
+    meta(name='theme-color', content='#ffffff')
 
     block css
 
@@ -37,7 +72,7 @@ html(class='#{klass}')
             span.icon-bar
             span.icon-bar
           a.navbar-brand(href='/')
-            img(src='/images/logo.png', alt='JSConf Uruguay')
+            img(src='/images/base/logo.png', alt='JSConf Uruguay')
         .collapse.navbar-collapse
           ul.nav.navbar-nav
             li(class=(section == 'home' ? 'active' : null))
