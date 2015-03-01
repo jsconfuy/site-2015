@@ -5797,6 +5797,8 @@ body > footer {
     color: #ffffff; }
 .gold.home .organizers {
   background: transparent url('/images/base/gold.jpg') repeat; }
+.gold.home .speakers ul li .name {
+  color: #D4AF37; }
 .gold h1, .gold h2, .gold h3 {
   color: #D4AF37; }
 .gold body > footer {
