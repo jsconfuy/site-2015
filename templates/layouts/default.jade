@@ -6,7 +6,7 @@ include ../mixins/flash-messages
 block vars
 
 doctype html
-html(class='#{klass}', lang='en', prefix='og: http://ogp.me/ns#')
+html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
 
   head
     meta(charset="utf-8")
@@ -72,7 +72,10 @@ html(class='#{klass}', lang='en', prefix='og: http://ogp.me/ns#')
             span.icon-bar
             span.icon-bar
           a.navbar-brand(href='/')
-            img(src='/images/base/logo.png', alt='JSConf Uruguay')
+            if gold
+              img(src='/images/base/logo-gold.png', alt='JSConf Uruguay')
+            else
+              img(src='/images/base/logo.png', alt='JSConf Uruguay')
         .collapse.navbar-collapse
           ul.nav.navbar-nav
             li(class=(section == 'home' ? 'active' : null))
