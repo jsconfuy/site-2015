@@ -49,6 +49,7 @@ Proposal.add(
       mprunell: { label: 'Martin Prunell', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
       gcura: { label: 'Guillermo Cura', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
     },
+    comments: { type: Types.Markdown },
   }
 );
 
