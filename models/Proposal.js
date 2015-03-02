@@ -38,6 +38,7 @@ Proposal.add(
   },
   'Votes',
   {
+    score: { type: Types.Number, noedit: true, default: 0 },
     votes: {
       // TODO: Custom field type Vote / Organizer
       pricco: { label: 'Pablo Ricco', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
@@ -53,11 +54,12 @@ Proposal.add(
   }
 );
 
-Proposal.schema.virtual('score').get(function() {
-  var v = this.votes;
-  return (v.pricco + v.gchertok + v.pdejuan + v.respinosa + v.lcal + v.ssassi + v.mprunell + v.gcura) / 8;
-}).depends = 'votes.pricco, votes.gchertok, votes.pdejuan, votes.respinosa, votes.lcal, votes.ssassi, votes.mprunell, votes.gcura';
+Proposal.schema.pre('save', function(next) {
+    var v = this.votes;
+    this.score = (v.pricco + v.gchertok + v.pdejuan + v.respinosa + v.lcal + v.ssassi + v.mprunell + v.gcura) / 8;
+    next();
+});
 
 Proposal.relationship({ ref: 'Tag', path: 'tags' });
-Proposal.defaultColumns = 'topic|30%, name, coasted, type, tags, status, score';
+Proposal.defaultColumns = 'topic|30%, name, coasted, tags, status, score';
 Proposal.register();
