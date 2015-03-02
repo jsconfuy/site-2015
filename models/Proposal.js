@@ -55,8 +55,21 @@ Proposal.add(
 );
 
 Proposal.schema.pre('save', function(next) {
-    var v = this.votes;
-    this.score = (v.pricco + v.gchertok + v.pdejuan + v.respinosa + v.lcal + v.ssassi + v.mprunell + v.gcura) / 8;
+    var votes = 0;
+    var score = 0;
+    var inc = function(vote) {
+      score += vote || 0;
+      votes += vote ? 1 : 0;
+    }
+    inc(this.votes.pricco);
+    inc(this.votes.gchertok);
+    inc(this.votes.pdejuan);
+    inc(this.votes.respinosa);
+    inc(this.votes.lcal);
+    inc(this.votes.ssassi);
+    inc(this.votes.mprunell);
+    inc(this.votes.gcura);
+    this.score = votes ? score / votes : 0;
     next();
 });
 
