@@ -69,7 +69,7 @@ Proposal.schema.pre('save', function(next) {
     inc(this.votes.ssassi);
     inc(this.votes.mprunell);
     inc(this.votes.gcura);
-    this.score = votes ? score / votes : 0;
+    this.score = (votes ? score / votes : 0).toFixed(1);
     next();
 });
 
