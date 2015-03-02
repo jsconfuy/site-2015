@@ -35,6 +35,7 @@ Proposal.add(
     biography: { type: Types.Textarea },
     notes: { type: Types.Markdown },
     tags: { type: Types.Relationship, ref: 'Tag', many: true },
+    assignee: { type: Types.Relationship, ref: 'Organizer', index: true },
   },
   'Votes',
   {
