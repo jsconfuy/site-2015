@@ -5409,6 +5409,7 @@ body > footer {
 
 .blog .image {
   min-width: 100%;
+  max-width: 100%;
   margin-bottom: 20px; }
 .blog .categories {
   margin: 40px 0 0;
@@ -5431,6 +5432,7 @@ body > footer {
 
 .post .image {
   min-width: 100%;
+  max-width: 100%;
   margin-bottom: 20px; }
 
 #Streets {
