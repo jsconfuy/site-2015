@@ -78,15 +78,15 @@ block content
             | <b>Make a nice submission,</b> and make sure we see you care about it. Avoid typos, sloppy formatting and all-lowercase text. Be concise: If you need more than two paragraphs to get to the point of your topic, it is likely you won’t make it in 30 minutes. Please make our reading of your proposal easy.
           p
             | <b>Original Topics.</b> We favor original content. If you want to discuss a topic that you have talked about elsewhere, try to add a twist, or new research, or development, something unique. Please bear in mind that we want this conference to be enjoyable for everyone, therefore we expect you to adhere to the JSConf <a href='http://jsconf.com/codeofconduct.html'>code of conduct</a>. And of course, if your talk is plain awesome as it is,  just go for it!
-    h2#submit Submit
     .container
       .row
         .col-md-8.col-md-offset-2
           if cfp.submitted
-            h2 Thanks
+            h2#submit Thanks
             h3 Your proposal was submitted.
             p We'll contact you shortly.
           else
+            h2#submit Submit
             // +flash-messages(messages)
             form(method='post', action='/proposals#submit')
               - var errors = cfp.errors || {}

@@ -1,0 +1,85 @@
+extends ../layouts/default
+
+block vars
+  - var section = 'cfw';
+  - var klass = 'cfw';
+
+block content
+  .proposals
+    h2 Submit your workshop
+    .container
+      .row
+        .col-md-12
+          h3 Invitation
+          p
+            | In addition to the talks this year we are inviting the JavaScript and CSS communities to submit workshops for the upcoming JSConfUY and CSSConfUY.
+            | This Call for Workshops' deadline is March 10th, 2015.
+          p
+            | The workshop should be of practical approach. The topic is up to you, please bear in mind that the duration should be between 1 and 2 hours.
+            | We are expecting a limit of 30 attendees to the workshop, if you have other requirements please specify, max. capacity is 50 attendees.
+            | The conference does not cover travelling nor accomodation costs for the workshop teachers.
+            | All instructors are invited to taste uruguayan food at a dinner the evening before the event.
+            | Feel free to refer to other JSConf/CSSConf programmes to check for additional topics.
+          p
+            | If you have any questions just contact us: hola@jsconf.uy (please note: to submit a proposal, use the form below).
+          p
+            | Let us know if you need help with anything that is not listed here, we'll be more than happy to help.
+      .row
+        .col-md-6
+          h3 The Selection Process
+          p
+            | How we choose the workshops:
+            ul
+              li We anonymize submissions, so we don’t bias against anything related to the author.
+              li We follow two rounds of voting:
+              li The first round rates each talk on a scale from 1 to 5.
+              li Submissions with higher average are rated again on a 3-point scale: “fair”, “good”, “MUST HAVE”.
+              li De-anonymize so we can finally bias against author details.
+            p
+            | We expect many excellent submissions for the speaking slots. This process helps us to select the right ones and play nice.
+        .col-md-6
+          h3 Guidelines for workshops proposals
+          p
+            | Submit your workshop by <b>March 10th 2015, 23:59:59 UYT(GMT-3).</b>
+          p
+            | Workshops may be in <b>English or Spanish</b>. Please choose the language you feel more comfortable with.
+          p
+            | <b>Your workshop may take between 1h and 2hs </b>.
+          p
+            | <b>Make a nice submission,</b> and make sure we see you care about it. Avoid typos, sloppy formatting and all-lowercase text. Be concise: If you need more than two paragraphs to get to the point of your topic, it is likely you won’t make it in 30 minutes. Please make our reading of your proposal easy.
+    .container
+      .row
+        .col-md-8.col-md-offset-2
+          if cfw.submitted
+            h2#submit Thanks
+            h3 Your workshop was submitted.
+            p We'll contact you shortly.
+          else
+            h2#submit Submit
+            // +flash-messages(messages)
+            form(method='post', action='/workshops#submit')
+              - var errors = cfw.errors || {}
+              - var data = cfw.data || {}
+              input(type='hidden', name='action', value='submit')
+              .form-group(class=errors.topic ? 'has-error' : null)
+                label(for='topic') Workshop's Topic *
+                input#topic(type='text', name='topic', value=data['topic']).form-control
+              .form-group(class=errors.summary ? 'has-error' : null)
+                label(for='summary') Workshop's Summary *
+                textarea#summary(name='summary', rows=4).form-control= data.summary
+              .form-group(class=errors.name ? 'has-error' : null)
+                label(for='name') Instructor's Name *
+                input#name(type='text', name='name', value=data['name']).form-control
+              .form-group(class=errors.email ? 'has-error' : null)
+                label(for='email') Instructor's Email *
+                input#email(type='email', name='email', value=data.email).form-control
+              .form-group(class=errors.notes ? 'has-error' : null)
+                label(for='notes') Notes
+                textarea#notes(name='notes', placeholder='Anything else you would like to mention...' rows=4).form-control= data.notes
+              .form-group(class=errors.coasted ? 'has-error' : null)
+                .checkbox
+                  label(for='coasted')
+                    input#coasted(type='checkbox', checked, name='coasted', value=data.coasted, disabled)
+                    | My company may pay for travel and/or stay expenses
+              .form-actions.text-center
+                button(type='submit').btn.btn-primary Submit
