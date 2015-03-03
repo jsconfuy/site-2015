@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(//fonts.googleapis.com/css?family=Open+Sans);
 @font-face {
   font-family: 'Rambla';
   font-style: normal;
@@ -5271,7 +5271,7 @@ body > footer {
         .home body .top {
           height: 100%;
           min-height: 100%;
-          padding: 5% 0; } }
+          padding: 0 0 5%; } }
       .home body .top svg {
         display: block;
         height: 100%;
