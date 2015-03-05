@@ -6,20 +6,22 @@ block vars
 
 block top
   .top
-    include ../../public/images/city.svg
+    include ../../public/images/home/city.svg
     ul
       li(class=(section == 'home' ? 'active' : null))
         a(href='/') Home
       // li(class=(section == 'cfp' ? 'active' : null))
       //  a(href='/proposals') Call for Proposals
+      li(class=(section == 'cfw' ? 'active' : null))
+        a(href='/workshops') Call for Workshops
       li
         a(href='/#speakers') Speakers
       li
         a(href='/#sponsors') Sponsors
       li(class=(section == 'venue' ? 'active' : null))
         a(href='/venue') Venue
-      li(class=(section == 'hotels' ? 'active' : null))
-        a(href='/hotels') Hotels
+      // li(class=(section == 'hotels' ? 'active' : null))
+      //   a(href='/hotels') Hotels
       li(class=(section == 'coc' ? 'active' : null))
         a(href='/code-of-conduct') Code of Conduct
       li(class=(section == 'blog' ? 'active' : null))
@@ -36,7 +38,7 @@ block content
         each speaker in speakers
           li
             if speaker.picture.exists
-              .img(style='background-image: url(#{speaker.picture.url})')
+              .img(style='background-image: url(#{speaker.picture.secure_url})')
             else
               .img.empty
             .name
@@ -55,7 +57,7 @@ block content
       each organizer in organizers
         li
           if organizer.picture.exists
-            .img(style='background-image: url(#{organizer.picture.url})')
+            .img(style='background-image: url(#{organizer.picture.secure_url})')
           else
             .img.empty
           a.name(href='https://twitter.com/#{organizer.twitter}')

@@ -5,7 +5,7 @@ body {
 /* Begin Base */
 
 h1 {
-  font-size: 4.750em;
+  // font-size: 4.750em;
   text-align: center;
   margin: 30px auto;
 }
@@ -29,17 +29,6 @@ body > header {
   z-index: 1;
   top: 0;
   left: 0;
-}
-
-@media (min-width: 768px) {
-  body > header.sticky nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 99999;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.07);
-  }
 }
 
 .navbar {
@@ -80,7 +69,6 @@ body > header {
 }
 
 .navbar-toggle {
-  margin-top: 24px;
   border: 0;
   border-radius: 0;
 }
@@ -161,7 +149,7 @@ body > footer {
           color: $white;
         }
         h1 {
-          background: transparent url('../images/isometric-03.svg') no-repeat 50% 0;
+          background: transparent url('../images/base/tower.svg') no-repeat 50% 0;
           background-size: 230px auto;
           padding-top: 250px;
         }

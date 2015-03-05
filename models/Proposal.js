@@ -35,9 +35,11 @@ Proposal.add(
     biography: { type: Types.Textarea },
     notes: { type: Types.Markdown },
     tags: { type: Types.Relationship, ref: 'Tag', many: true },
+    assignee: { type: Types.Relationship, ref: 'Organizer', index: true },
   },
   'Votes',
   {
+    score: { type: Types.Number, noedit: true, default: 0 },
     votes: {
       // TODO: Custom field type Vote / Organizer
       pricco: { label: 'Pablo Ricco', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
@@ -49,14 +51,29 @@ Proposal.add(
       mprunell: { label: 'Martin Prunell', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
       gcura: { label: 'Guillermo Cura', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
     },
+    comments: { type: Types.Markdown },
   }
 );
 
-Proposal.schema.virtual('score').get(function() {
-  var v = this.votes;
-  return (v.pricco + v.gchertok + v.pdejuan + v.respinosa + v.lcal + v.ssassi + v.mprunell + v.gcura) / 8;
-}).depends = 'votes.pricco, votes.gchertok, votes.pdejuan, votes.respinosa, votes.lcal, votes.ssassi, votes.mprunell, votes.gcura';
+Proposal.schema.pre('save', function(next) {
+    var votes = 0;
+    var score = 0;
+    var inc = function(vote) {
+      score += vote || 0;
+      votes += vote ? 1 : 0;
+    }
+    inc(this.votes.pricco);
+    inc(this.votes.gchertok);
+    inc(this.votes.pdejuan);
+    inc(this.votes.respinosa);
+    inc(this.votes.lcal);
+    inc(this.votes.ssassi);
+    inc(this.votes.mprunell);
+    inc(this.votes.gcura);
+    this.score = (votes ? score / votes : 0).toFixed(1);
+    next();
+});
 
 Proposal.relationship({ ref: 'Tag', path: 'tags' });
-Proposal.defaultColumns = 'topic|30%, name, coasted, type, tags, status, score';
+Proposal.defaultColumns = 'topic|30%, name, coasted, tags, status, score';
 Proposal.register();

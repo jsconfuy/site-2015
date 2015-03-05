@@ -1,0 +1,37 @@
+$gold:       #D4AF37;
+
+.gold {
+  a {
+    color: $gold;
+  }
+  &.home {
+    .top {
+      background: transparent url('/images/base/gold.jpg') repeat;
+      ul li a {
+        color: $white;
+      }
+    }
+    .organizers {
+      background: transparent url('/images/base/gold.jpg') repeat;
+    }
+    .speakers {
+      ul li .name {
+        color: $gold;
+      }
+    }
+  }
+  h1, h2, h3 {
+    color: $gold;
+  }
+  body > footer {
+    background: $white;
+    .footer .venue-info .venue h1,
+    .footer .venue-info .venue h2,
+    .footer .venue-info .info h3 {
+      color: $gold;
+    }
+    .footer .venue-info .info .data button {
+      background-color: $gold;
+    }
+  }
+}

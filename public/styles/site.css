@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(//fonts.googleapis.com/css?family=Open+Sans);
 @font-face {
   font-family: 'Rambla';
   font-style: normal;
@@ -949,22 +949,22 @@ h4, .h4, h5, .h5, h6, .h6 {
     font-size: 75%; }
 
 h1, .h1 {
-  font-size: 100px; }
+  font-size: 4.35em; }
 
 h2, .h2 {
-  font-size: 74px; }
+  font-size: 2.5em; }
 
 h3, .h3 {
-  font-size: 31px; }
+  font-size: 1.7em; }
 
 h4, .h4 {
-  font-size: 23px; }
+  font-size: 1.4em; }
 
 h5, .h5 {
   font-size: 18px; }
 
 h6, .h6 {
-  font-size: 16px; }
+  font-size: 0.8em; }
 
 p {
   margin: 0 0 14px; }
@@ -4826,7 +4826,6 @@ body {
 
 /* Begin Base */
 h1 {
-  font-size: 4.75em;
   text-align: center;
   margin: 30px auto; }
 
@@ -4848,16 +4847,6 @@ body > header {
   z-index: 1;
   top: 0;
   left: 0; }
-
-@media (min-width: 768px) {
-  body > header.sticky nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 99999;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.07); }
- }
 
 .navbar {
   border: none; }
@@ -4890,7 +4879,6 @@ body > header {
   background-color: #fff; }
 
 .navbar-toggle {
-  margin-top: 24px;
   border: 0;
   border-radius: 0; }
 
@@ -4966,7 +4954,7 @@ body > footer {
         body > footer .footer .venue-info .venue h1, body > footer .footer .venue-info .venue h2 {
           color: #ffffff; }
         body > footer .footer .venue-info .venue h1 {
-          background: transparent url('../images/isometric-03.svg') no-repeat 50% 0;
+          background: transparent url('../images/base/tower.svg') no-repeat 50% 0;
           background-size: 230px auto;
           padding-top: 250px; }
       body > footer .footer .venue-info .info {
@@ -5283,7 +5271,7 @@ body > footer {
         .home body .top {
           height: 100%;
           min-height: 100%;
-          padding: 5% 0; } }
+          padding: 0 0 5%; } }
       .home body .top svg {
         display: block;
         height: 100%;
@@ -5326,11 +5314,10 @@ body > footer {
     .home body .speakers {
       padding: 30px 0; }
       .home body .speakers ul {
+        margin: 90px auto;
         max-width: 1200px;
-        margin: 0 auto;
         padding: 0;
-        text-align: center;
-        margin: 90px auto; }
+        text-align: center; }
         .home body .speakers ul li {
           list-style: none;
           display: inline-block;
@@ -5342,10 +5329,10 @@ body > footer {
             display: block;
             height: 230px;
             width: 230px;
-            -webkit-mask: url('../images/mask.svg') no-repeat;
-            -moz-mask: url('../images/mask.svg') no-repeat;
-            -o-mask: url('../images/mask.svg') no-repeat;
-            mask: url('../images/mask.svg') no-repeat;
+            -webkit-mask: url('../images/home/mask.svg') no-repeat;
+            -moz-mask: url('../images/home/mask.svg') no-repeat;
+            -o-mask: url('../images/home/mask.svg') no-repeat;
+            mask: url('../images/home/mask.svg') no-repeat;
             background-repeat: no-repeat;
             background-position: center center;
             -webkit-background-size: cover;
@@ -5353,7 +5340,7 @@ body > footer {
             -o-background-size: cover;
             background-size: cover; }
             .home body .speakers ul li .img.empty {
-              background: transparent url('../images/george.svg') no-repeat 50% 50%;
+              background: transparent url('../images/base/george.svg') no-repeat 50% 50%;
               background-size: 70% auto; }
           .home body .speakers ul li .name {
             display: block;
@@ -5378,7 +5365,7 @@ body > footer {
       padding: 30px 0;
       background-color: #162636; }
       .home body .organizers h1 {
-        background: transparent url('../images/ballon.svg') no-repeat 50% 0;
+        background: transparent url('../images/home/ballon.svg') no-repeat 50% 0;
         background-size: 230px auto;
         padding-top: 250px;
         color: #ffffff; }
@@ -5399,10 +5386,10 @@ body > footer {
             display: block;
             height: 230px;
             width: 230px;
-            -webkit-mask: url('../images/mask.svg') no-repeat;
-            -moz-mask: url('../images/mask.svg') no-repeat;
-            -o-mask: url('../images/mask.svg') no-repeat;
-            mask: url('../images/mask.svg') no-repeat;
+            -webkit-mask: url('../images/home/mask.svg') no-repeat;
+            -moz-mask: url('../images/home/mask.svg') no-repeat;
+            -o-mask: url('../images/home/mask.svg') no-repeat;
+            mask: url('../images/home/mask.svg') no-repeat;
             background-repeat: no-repeat;
             background-position: center center;
             -webkit-background-size: cover;
@@ -5410,7 +5397,7 @@ body > footer {
             -o-background-size: cover;
             background-size: cover; }
             .home body .organizers ul li .img.empty {
-              background: transparent url('../images/george.svg') no-repeat 50% 50%;
+              background: transparent url('../images/base/george.svg') no-repeat 50% 50%;
               background-size: 70% auto; }
           .home body .organizers ul li .name {
             display: block;
@@ -5422,6 +5409,7 @@ body > footer {
 
 .blog .image {
   min-width: 100%;
+  max-width: 100%;
   margin-bottom: 20px; }
 .blog .categories {
   margin: 40px 0 0;
@@ -5444,6 +5432,7 @@ body > footer {
 
 .post .image {
   min-width: 100%;
+  max-width: 100%;
   margin-bottom: 20px; }
 
 #Streets {
@@ -5801,3 +5790,22 @@ body > footer {
 
   100% {
     transform: translateY(90px); } }
+
+.gold a {
+  color: #D4AF37; }
+.gold.home .top {
+  background: transparent url('/images/base/gold.jpg') repeat; }
+  .gold.home .top ul li a {
+    color: #ffffff; }
+.gold.home .organizers {
+  background: transparent url('/images/base/gold.jpg') repeat; }
+.gold.home .speakers ul li .name {
+  color: #D4AF37; }
+.gold h1, .gold h2, .gold h3 {
+  color: #D4AF37; }
+.gold body > footer {
+  background: #ffffff; }
+  .gold body > footer .footer .venue-info .venue h1, .gold body > footer .footer .venue-info .venue h2, .gold body > footer .footer .venue-info .info h3 {
+    color: #D4AF37; }
+  .gold body > footer .footer .venue-info .info .data button {
+    background-color: #D4AF37; }

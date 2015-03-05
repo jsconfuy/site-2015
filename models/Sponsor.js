@@ -27,6 +27,7 @@ Sponsor.add({
     name: { type: String },
     email: { type: Types.Email },
   },
+  price: { type: Types.Money, required: true, default: 0 },
   paid: { type: Types.Datetime },
   published: { type: Types.Datetime },
   notes: { type: Types.Markdown },

@@ -14,7 +14,11 @@ exports.initLocals = function(req, res, next) {
   };
   locals.twoco_seller_id = process.env.TWOCO_SELLER_ID;
   locals.twoco_public_key = process.env.TWOCO_PUBLIC_KEY;
-
+  // locals.gold = req.query.r == '' ? (Math.random() > 0.5 ? 'gold' : '') : '';
+  // locals.gold = req.query.g == '' ? 'gold' : locals.gold;
+  // locals.gold = req.query.b == '' ? '' : locals.gold;
+  // locals.gold = Math.random() > 0.5 ? 'gold' : '';
+  locals.gold = '';
 
   next();
 

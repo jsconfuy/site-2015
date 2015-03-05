@@ -19,6 +19,7 @@ exports = module.exports = function(app) {
   app.get('/code-of-conduct', routes.views.coc);
   app.all('/contact', routes.views.contact);
   app.all('/proposals', routes.views.cfp);
+  app.all('/workshops', routes.views.cfw);
   app.get('/blog/:category?', routes.views.blog);
   app.get('/blog/post/:post', routes.views.post);
 
