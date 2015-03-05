@@ -17,7 +17,8 @@ exports.initLocals = function(req, res, next) {
   // locals.gold = req.query.r == '' ? (Math.random() > 0.5 ? 'gold' : '') : '';
   // locals.gold = req.query.g == '' ? 'gold' : locals.gold;
   // locals.gold = req.query.b == '' ? '' : locals.gold;
-  locals.gold = Math.random() > 0.5 ? 'gold' : '';
+  // locals.gold = Math.random() > 0.5 ? 'gold' : '';
+  locals.gold = '';
 
   next();
 
