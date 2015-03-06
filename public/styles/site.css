@@ -5012,6 +5012,11 @@ body > footer {
             transition: all 100ms; }
             body > footer .footer .venue-info .info .data button:hover {
               background-color: #2c4d77; }
+        body > footer .footer .venue-info .info .social {
+          display: block;
+          text-align: center;
+          margin: 20px 0 0 0;
+          text-transform: uppercase; }
   body > footer .copy {
     background-color: #1A1A1A;
     display: block;
