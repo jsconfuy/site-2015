@@ -1,6 +1,6 @@
 include ../mixins/flash-messages
 
-- var title = 'JSConfUY April 24th and 25th - Montevideo';
+- var title = 'JSConf Uruguay 2015 - Montevideo, April 24th-25th';
 - var section = '';
 - var klass = '';
 block vars
@@ -14,6 +14,7 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
 
     title= title
+    meta(name='description', content='A Javascript conference made with love for the latin american community.')
 
     link(href="/styles/site.css", rel="stylesheet")
     if user && user.canAccessKeystone
@@ -21,21 +22,25 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
 
     meta(name='robots', content='INDEX, FOLLOW')
     meta(name='geo.region', content='UY')
-    link(rel='canonical', href='https://jscon.uy')
 
     meta(property='og:type', content='website')
-    meta(property='og:site_name', content='JSConf Uruguay 2015')
-    meta(property='og:title', content='JSConf Uruguay 2015')
-    meta(property='og:description', content='JSConf Uruguay 2015 - Montevideo, April 24th-25th')
-    // meta(property='og:image', content='') // 1200x630
+    meta(property='og:site_name', content='JSConfUY')
+    meta(property='og:title', content='JSConf Uruguay 2015 - Montevideo, April 24th-25th')
+    meta(property='og:description', content='A Javascript conference made with love for the latin american community.')
+    meta(property='og:image', content='/images/meta/facebook-1200x630.png')
+    meta(property='og:image:type', content='image/png')
+    meta(property='og:image:width', content='1200')
+    meta(property='og:image:height', content='630')
     meta(property='og:url', content='https://jsconf.uy')
-    // meta(property='fb:app_id', content='JSConfUY')
 
     meta(property='twitter:card', content='summary_large_image')
     meta(property='twitter:site', content='@JSConfUY')
+    meta(property='twitter:creator', content='@JSConfUY')
     meta(property='twitter:title', content='JSConf Uruguay 2015 - Montevideo, April 24th-25th')
-    // meta(property='twitter:description', content='JSConf Urugua')
-    // meta(property='twitter:image', content='')
+    meta(property='twitter:description', content='A Javascript conference made with love for the latin american community.')
+    meta(property='twitter:image:src', content='/images/meta/twitter-post-750x560.png')
+    meta(property='twitter:image:width', content='435')
+    meta(property='twitter:image:height', content='375')
     meta(property='twitter:url', content='https://jsconf.uy')
 
     link(rel='apple-touch-icon', sizes='57x57', href='/images/meta/apple-icon-57x57.png')
@@ -190,6 +195,12 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
               .data
                 input(name='email', placeholder='Email address')
                 button Subscribe
+              .social
+                a(href='https://twitter.com/jsconfuy') Twitter
+                | -
+                a(href='https://www.facebook.com/JSConfUY') Facebook
+                | -
+                a(href='https://www.youtube.com/user/jsconfuy') YouTube
           #map.map
         .copy
           .box
