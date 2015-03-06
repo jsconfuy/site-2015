@@ -1,4 +1,5 @@
 $gold:       #D4AF37;
+$black:      #14150C;
 
 .gold {
   a {
@@ -8,7 +9,12 @@ $gold:       #D4AF37;
     .top {
       background: transparent url('/images/base/gold.jpg') repeat;
       ul li a {
-        color: $white;
+        color: $black;
+      }
+      #city {
+        #dress {
+          opacity: 1;
+        }
       }
     }
     .organizers {

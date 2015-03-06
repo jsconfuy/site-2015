@@ -5440,6 +5440,13 @@ body > footer {
   max-width: 100%;
   margin-bottom: 20px; }
 
+#dress {
+  opacity: 0;
+  -webkit-transition: all 250ms;
+  -moz-transition: all 250ms;
+  -ms-transition: all 250ms;
+  transition: all 250ms; }
+
 #Streets {
   stroke-dasharray: 100;
   -webkit-animation: dash 120s linear infinite;
@@ -5801,7 +5808,9 @@ body > footer {
 .gold.home .top {
   background: transparent url('/images/base/gold.jpg') repeat; }
   .gold.home .top ul li a {
-    color: #ffffff; }
+    color: #14150C; }
+  .gold.home .top #city #dress {
+    opacity: 1; }
 .gold.home .organizers {
   background: transparent url('/images/base/gold.jpg') repeat; }
 .gold.home .speakers ul li .name {
