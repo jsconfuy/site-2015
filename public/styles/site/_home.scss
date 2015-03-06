@@ -93,7 +93,7 @@
             display: block;
             height: 230px;
             width: 230px;
-            @include crossBrowser(mask, url('../images/home/mask.svg') no-repeat);
+            @include crossBrowser(mask, url('../images/home/mask.png') no-repeat);
             @include background-size-cover();
             &.empty {
               background: transparent url('../images/base/george.svg') no-repeat 50% 50%;

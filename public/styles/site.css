@@ -5334,10 +5334,10 @@ body > footer {
             display: block;
             height: 230px;
             width: 230px;
-            -webkit-mask: url('../images/home/mask.svg') no-repeat;
-            -moz-mask: url('../images/home/mask.svg') no-repeat;
-            -o-mask: url('../images/home/mask.svg') no-repeat;
-            mask: url('../images/home/mask.svg') no-repeat;
+            -webkit-mask: url('../images/home/mask.png') no-repeat;
+            -moz-mask: url('../images/home/mask.png') no-repeat;
+            -o-mask: url('../images/home/mask.png') no-repeat;
+            mask: url('../images/home/mask.png') no-repeat;
             background-repeat: no-repeat;
             background-position: center center;
             -webkit-background-size: cover;
