@@ -20,7 +20,7 @@ exports = module.exports = function(req, res) {
   locals.sponsors = [];
   view.on('init', function(next) {
     var list = keystone.list('Sponsor');
-    var q = list.model.find().populate('level').where('published').lte(Date.now()).where('status', list.STATUS_CONFIRMED).sort('sortOrder');
+    var q = list.model.find({}).populate('level').where('published').lte(Date.now()).where('status', list.STATUS_CONFIRMED).sort('sortOrder');
     q.exec(function(err, results) {
       locals.sponsors = results;
       next(err);

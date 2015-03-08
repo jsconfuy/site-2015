@@ -10,8 +10,8 @@ exports = module.exports = function(req, res) {
   locals.cfp.data = req.body || {};
   locals.cfp.errors = {};
   locals.cfp.submitted = false;
-  console.log(locals.cfp.data);
 
+  /*
   view.on('post', { action: 'submit' }, function(next) {
     var proposal = new Proposal.model(),
       updater = proposal.getUpdateHandler(req);
@@ -34,5 +34,7 @@ exports = module.exports = function(req, res) {
   });
 
   view.render('cfp');
+  */
+  res.redirect('/');
 
 };

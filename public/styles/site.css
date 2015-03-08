@@ -5334,13 +5334,15 @@ body > footer {
             display: block;
             height: 230px;
             width: 230px;
-            -webkit-mask: url('../images/home/mask.png') no-repeat;
-            -moz-mask: url('../images/home/mask.png') no-repeat;
-            -o-mask: url('../images/home/mask.png') no-repeat;
-            mask: url('../images/home/mask.png') no-repeat;
             -webkit-clip-path: url(../images/home/mask.svg);
             clip-path: url(../images/home/mask.svg#hexagonPath);
-            -webkit-mask: url(../images/home/mask.svg); }
+            -webkit-mask: url(../images/home/mask.svg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover; }
             .home body .speakers ul li .img.empty {
               background: transparent url('../images/base/george.svg') no-repeat 50% 50%;
               background-size: 70% auto; }

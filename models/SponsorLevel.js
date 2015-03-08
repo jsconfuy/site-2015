@@ -16,10 +16,12 @@ var SponsorLevel = new keystone.List('SponsorLevel', {
 SponsorLevel.add({
   name: { type: String, required: true },
   summary: { type: Types.Markdown },
-  price: { type: Types.Money, required: true, default: 0 }
+  size: { type: Types.Number, required: true, default: 230 },
+  max: { type: Types.Number, required: true, default: 20 },
+  price: { type: Types.Money, required: true, default: 0 },
 });
 
 SponsorLevel.relationship({ ref: 'Sponsor', refPath: 'level', path: 'sponsors' });
 
-SponsorLevel.defaultColumns = 'name, slug, order, cost';
+SponsorLevel.defaultColumns = 'name, slug, max, size, price';
 SponsorLevel.register();
