@@ -153,7 +153,12 @@
             display: block;
             height: 230px;
             width: 230px;
-            @include crossBrowser(mask, url('../images/home/mask.svg') no-repeat);
+            //@include crossBrowser(clip-path, url('../images/home/mask.svg#polymasksvg') no-repeat);
+            // clip-path: url('../images/home/mask.svg#svgClip');
+            -webkit-clip-path: url(../images/home/mask.svg);
+            clip-path: url(../images/home/mask.svg#hexagonPath);
+             -webkit-mask: url(../images/home/mask.svg);
+
             @include background-size-cover();
             &.empty {
               background: transparent url('../images/base/george.svg') no-repeat 50% 50%;
