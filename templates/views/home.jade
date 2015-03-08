@@ -38,7 +38,7 @@ block content
         each speaker in speakers
           li
             if speaker.picture.exists
-              .img(style='background-image: url(#{speaker.picture.secure_url})')
+              .img(style='background-image: url(#{speaker._.picture.fill(230,230)})')
             else
               .img.empty
             .name
@@ -57,7 +57,7 @@ block content
       each organizer in organizers
         li
           if organizer.picture.exists
-            .img(style='background-image: url(#{organizer.picture.secure_url})')
+            .img(style='background-image: url(#{organizer._.picture.fill(230,230)})')
           else
             .img.empty
           a.name(href='https://twitter.com/#{organizer.twitter}')

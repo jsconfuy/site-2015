@@ -5338,12 +5338,9 @@ body > footer {
             -moz-mask: url('../images/home/mask.png') no-repeat;
             -o-mask: url('../images/home/mask.png') no-repeat;
             mask: url('../images/home/mask.png') no-repeat;
-            background-repeat: no-repeat;
-            background-position: center center;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover; }
+            -webkit-clip-path: url(../images/home/mask.svg);
+            clip-path: url(../images/home/mask.svg#hexagonPath);
+            -webkit-mask: url(../images/home/mask.svg); }
             .home body .speakers ul li .img.empty {
               background: transparent url('../images/base/george.svg') no-repeat 50% 50%;
               background-size: 70% auto; }

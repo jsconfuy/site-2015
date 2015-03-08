@@ -6,7 +6,7 @@
     "2checkout-node": "0.0.1",
     "async": "^0.9.0",
     "dotenv": "^0.5.1",
-    "keystone": "https://github.com/pricco/keystone/tarball/master",
+    "keystone": "^0.3.2",
     "keystone-utils": "^0.1.13",
     "moment": "^2.9.0",
     "node-sass": "~1.0.1",
