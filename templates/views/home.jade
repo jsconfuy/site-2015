@@ -47,6 +47,17 @@ block content
               != speaker.biography.short.html
   #sponsors.sponsors
     h1 Sponsors
+    
+    ul
+      each sponsorLevel in sponsorsLevels
+        ul
+          .name
+            != sponsorLevel.name
+            each sponsor in sponsorLevel.sponsors
+              .sponsor
+                != sponsor.name
+          
+    
     h2 Interested?
     p.text-center
       | Contact us at 
