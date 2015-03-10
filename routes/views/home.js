@@ -23,39 +23,39 @@ exports = module.exports = function(req, res) {
   //
 
   // Initialize the sponsorsLevels table.
-  locals.sponsorsLevels = {};
+  locals.sponsorLevels = [];
 
   view.on('init', function(next) {
-    var Sponsor = keystone.list('Sponsor').model;
+    var Sponsor = keystone.list('Sponsor');
 
-    // TODO Clean the query
-    // var q = Sponsor.find({}).populate('level').where('published').lte(Date.now()).where('status', SponsorList.STATUS_CONFIRMED).sort('sortOrder');
-
-    // Get the sponsors that are confirmed and published.
-    var q = Sponsor.find({
-        status: Sponsor.STATUS_CONFIRMED
-    });
-
-    // Populate the sponsors with thier levels.
-    q.populate('level');
+    var q = Sponsor.model.find({}).where('published').lte(Date.now()).where('status', Sponsor.STATUS_CONFIRMED).sort('sortOrder').populate('level');
 
     q.exec(function (err, results) {
 
       if (err) console.error(err);
 
       results.forEach(function (sponsor) {
-        // Check if the current sponsor does not have a level.
         if (!sponsor.level) return undefined;
 
-        // Check if the level has been initialized.
-        if (!Array.isArray(locals.sponsorsLevels[sponsor.level.name])) {
-          // Initialize the array for the level.
-          locals.sponsorsLevels[sponsor.level.name] = sponsor.level;
-          locals.sponsorsLevels[sponsor.level.name].sponsors = [];
+        // Insert level ordered
+        var found = false;
+        for (var index=0; index<locals.sponsorLevels.length; index++) {
+          var sponsorLevel = locals.sponsorLevels[index];
+          if (sponsorLevel._id == sponsor.level._id) {
+            found = true;
+            break;
+          } else if (sponsorLevel.sortOrder > sponsor.level.sortOrder) {
+            break;
+          }
+        }
+        if (!found) {
+          locals.sponsorLevels.splice(index, 0, sponsor.level);
         }
 
-        // Append the current sponsor to his sponsor level list.
-        locals.sponsorsLevels[sponsor.level.name].sponsors.push(sponsor);
+        // Add sponsor to level
+        var sponsorLevel = locals.sponsorLevels[index];
+        sponsorLevel.sponsors = sponsorLevel.sponsors || [];
+        sponsorLevel.sponsors.push(sponsor);
       });
 
       next(err);

@@ -47,17 +47,13 @@ block content
               != speaker.biography.short.html
   #sponsors.sponsors
     h1 Sponsors
-    
     ul
-      each sponsorLevel in sponsorsLevels
+      each sponsorLevel in sponsorLevels
         ul
-          .name
-            != sponsorLevel.name
-            each sponsor in sponsorLevel.sponsors
-              .sponsor
-                != sponsor.name
-          
-    
+          each sponsor in sponsorLevel.sponsors
+            li
+              a.img(href='#{sponsor.url}', target='_blank', style='height: #{sponsor.level.size}px; width: #{sponsor.level.size}px; background-image: url(#{sponsor._.logo.fill(sponsor.level.size,sponsor.level.size)})')
+
     h2 Interested?
     p.text-center
       | Contact us at 
