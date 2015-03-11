@@ -11,6 +11,7 @@ exports = module.exports = function(req, res) {
   locals.cfw.errors = {};
   locals.cfw.submitted = false;
 
+  /*
   view.on('post', { action: 'submit' }, function(next) {
     var proposal = new Proposal.model(),
       updater = proposal.getUpdateHandler(req);
@@ -35,5 +36,7 @@ exports = module.exports = function(req, res) {
   });
 
   view.render('cfw');
+  */
+  res.redirect('/');
 
 };

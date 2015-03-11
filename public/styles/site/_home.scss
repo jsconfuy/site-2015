@@ -110,11 +110,13 @@
             font-weight: bold;
             font-size: $font-size-large;
             font-family: $headings-font-family;
+            text-decoration: none;
           }
           .bio {
-            margin: 10px 0 0;
-            color: $text-color;
-            font-size: $font-size-medium;
+            margin: 10px 16px 0;
+            color: $gray;
+            font-size: $font-size-small;
+            line-height: 1.4em;
           }
         }
       }
@@ -140,6 +142,7 @@
               margin: 0 auto;
               display: block;
               @include background-size-cover();
+              text-decoration: none;
             }
           }
       }
@@ -188,6 +191,7 @@
             color: $white;
             font-size: $font-size-large;
             font-family: $headings-font-family;
+            text-decoration: none;
           }
         }
       }

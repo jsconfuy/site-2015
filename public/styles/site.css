@@ -5353,11 +5353,13 @@ body > footer {
             color: #254164;
             font-weight: bold;
             font-size: 23px;
-            font-family: "Rambla", Helvetica, Arial, sans-serif; }
+            font-family: "Rambla", Helvetica, Arial, sans-serif;
+            text-decoration: none; }
           .home body .speakers ul li .bio {
-            margin: 10px 0 0;
-            color: #666666;
-            font-size: 18px; }
+            margin: 10px 16px 0;
+            color: #999999;
+            font-size: 16px;
+            line-height: 1.4em; }
     .home body .sponsors {
       padding: 30px 0; }
       .home body .sponsors ul {
@@ -5383,7 +5385,8 @@ body > footer {
               -webkit-background-size: cover;
               -moz-background-size: cover;
               -o-background-size: cover;
-              background-size: cover; }
+              background-size: cover;
+              text-decoration: none; }
     .home body .organizers {
       padding: 30px 0;
       background-color: #162636; }
@@ -5427,7 +5430,8 @@ body > footer {
             text-transform: uppercase;
             color: #ffffff;
             font-size: 23px;
-            font-family: "Rambla", Helvetica, Arial, sans-serif; }
+            font-family: "Rambla", Helvetica, Arial, sans-serif;
+            text-decoration: none; }
 
 .blog .image {
   min-width: 100%;

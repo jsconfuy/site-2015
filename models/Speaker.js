@@ -30,6 +30,7 @@ Speaker.add({
     short: { type: Types.Markdown },
     full: { type: Types.Markdown },
   },
+  twitter: { type: String },
   published: { type: Types.Datetime },
   notes: { type: Types.Markdown },
   tags: { type: Types.Relationship, ref: 'Tag', many: true },

@@ -11,9 +11,9 @@ block top
       li(class=(section == 'home' ? 'active' : null))
         a(href='/') Home
       // li(class=(section == 'cfp' ? 'active' : null))
-      //  a(href='/proposals') Call for Proposals
-      li(class=(section == 'cfw' ? 'active' : null))
-        a(href='/workshops') Call for Workshops
+      //   a(href='/proposals') Call for Proposals
+      // li(class=(section == 'cfw' ? 'active' : null))
+      //   a(href='/workshops') Call for Workshops
       li
         a(href='/#speakers') Speakers
       li
@@ -41,8 +41,12 @@ block content
               .img(style='background-image: url(#{speaker._.picture.fill(230,230)})')
             else
               .img.empty
-            .name
-              != speaker.name
+            if speaker.twitter
+              a.name(href='//twitter.com/#{speaker.twitter}')
+                != speaker.name
+            else
+              .name
+                != speaker.name
             .bio
               != speaker.biography.short.html
   #sponsors.sponsors
