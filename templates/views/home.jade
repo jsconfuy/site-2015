@@ -41,14 +41,13 @@ block content
               .img(style='background-image: url(#{speaker._.picture.fill(230,230)})')
             else
               .img.empty
-            if speaker.twitter
-              a.name(href='//twitter.com/#{speaker.twitter}')
-                != speaker.name
-            else
-              .name
-                != speaker.name
+            .name
+              != speaker.name
             .bio
               != speaker.biography.short.html
+            if speaker.twitter
+              a(href='//twitter.com/#{speaker.twitter}')
+                i(class='fa fa-twitter')
   #sponsors.sponsors
     h1 Sponsors
     ul
