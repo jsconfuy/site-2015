@@ -55,7 +55,7 @@ block content
         ul
           each sponsor in sponsorLevel.sponsors
             li
-              a.img(href='#{sponsor.url}', target='_blank', style='height: #{sponsor.level.size}px; width: #{sponsor.level.size}px; background-image: url(#{sponsor._.logo.fill(sponsor.level.size,sponsor.level.size)})')
+              a.img(href='#{sponsor.url}', target='_blank', style='height: #{sponsor.level.size}px; width: #{sponsor.level.size}px; background-image: url(#{sponsor._.logo.pad(sponsor.level.size, sponsor.level.size)})')
 
     h2 Interested?
     p.text-center

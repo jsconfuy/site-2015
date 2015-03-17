@@ -6461,6 +6461,10 @@ body > footer {
             color: #999999;
             font-size: 16px;
             line-height: 1.4em; }
+          .home body .speakers ul li a {
+            color: #5596C0; }
+            .home body .speakers ul li a:hover {
+              color: #7aadce; }
     .home body .sponsors {
       padding: 30px 0; }
       .home body .sponsors ul {

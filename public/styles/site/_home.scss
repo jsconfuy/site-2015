@@ -118,6 +118,12 @@
             font-size: $font-size-small;
             line-height: 1.4em;
           }
+          a {
+            color: $blue-light;
+            &:hover {
+              color: lighten($blue-light, 10%);
+            }
+          }
         }
       }
     }
