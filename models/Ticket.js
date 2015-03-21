@@ -8,6 +8,7 @@ var keystone = require('keystone'),
 
 var Ticket = new keystone.List('Ticket', {
   map: { name: 'name' },
+  autokey: { path: 'code', from: 'name', unique: true },
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true},
 });
 
@@ -28,5 +29,5 @@ Ticket.schema.virtual('total').get(function() {
   return this.limit || '∞';
 }).depends = 'limit';
 
-Ticket.defaultColumns = 'name, saleFrom, saleUntil, price, sold, total, secret';
+Ticket.defaultColumns = 'code, name, saleFrom, saleUntil, price, sold, total, secret';
 Ticket.register();

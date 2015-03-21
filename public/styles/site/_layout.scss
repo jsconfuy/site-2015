@@ -261,6 +261,19 @@ body > footer {
 
 // Tickets
 #buy {
+  .intro {
+    button {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+    }
+    img {
+      display: block;
+      width: 60%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
   .indicators {
     margin: 0;
     padding: 0;
@@ -273,16 +286,22 @@ body > footer {
       font-size: 30px;
       i {
         vertical-align: middle;
+        color: $gray-light;
       }
       span {
         display: block;
         margin: 10px 0 0 0;
         font-size: 14px;
         text-align: center;
+        color: $gray-light;
       }
       &.active {
-        background-color: $blue;
-        color: $white;
+        span {
+          color: $gray;
+        }
+        i {
+          color: $blue;
+        }
       }
     }
   }
@@ -299,7 +318,7 @@ body > footer {
             text-align: center;
             text-transform: uppercase;
             font-weight: bold;
-            color: $blue;
+            color: $white;
             font-size: 24px;
             margin: 20px 0;
           }
@@ -344,13 +363,17 @@ body > footer {
                 text-align: right;
                 input {
                   padding: 2px;
-                  border: 2px solid $blue;
+                  border: 2px solid $gray;
+                  border-right-color: $blue;
                   width: 3em;
                   margin: 0 0 0 4px;
                   text-align: center;
+                  &:focus {
+                    outline: 2px solid $blue;
+                  }
                 }
                 button {
-                  padding: 4px 8px;
+                  padding: 4px 14px;
                   background-color: $blue;
                   color: $white;
                   border: 0;
@@ -390,10 +413,20 @@ body > footer {
             }
             padding: 0 10px;
             input {
-              border: 1px solid $blue;
+              border: 1px solid $gray-light;
               width: 100%;
               padding: 4px;
               margin: 0 0 10px 0;
+              &[name=card_expiration_month],
+              &[name=card_expiration_year] {
+                width: 40%;
+              }
+              &:focus {
+                outline: 2px solid $blue;
+              }
+              &.error {
+                border-color: red;
+              }
             }
           }
           .title {
@@ -418,13 +451,32 @@ body > footer {
           .action {
             text-align: right;
             button {
-              padding: 4px 8px;
+              padding: 4px 14px;
               background-color: $blue;
               color: $white;
               border: 0;
             }
           }
-
+        }
+      }
+      &.step-assign {
+        .loading {
+          position: relative;
+          height: 150px;
+        }
+        .thanks {
+          text-align: center;
+          text-transform: uppercase;
+          font-weight: bold;
+          padding: 10px 20px;
+          border: 3px solid $blue;
+          color: $blue;
+          font-size: 20px;
+          width: 270px;
+          margin: 40px auto;
+        }
+        .more {
+          text-align: center;
         }
       }
     }

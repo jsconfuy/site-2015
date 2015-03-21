@@ -7,11 +7,13 @@ var keystone = require('keystone'),
  */
 
 var Discount = new keystone.List('Discount', {
-  map: { name: 'code' },
+  map: { name: 'name' },
+  autokey: { path: 'code', from: 'name', unique: true },
+  track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true},
 });
 
 Discount.add({
-  code: { type: String, required: true, unique: true },
+  name: { type: String, required: true },
   valid: {
     from: { type: Types.Datetime },
     until: { type: Types.Datetime },
@@ -23,5 +25,5 @@ Discount.add({
   tickets: { type: Types.Relationship, ref: 'Ticket', many: true },
 });
 
-Discount.defaultColumns = 'code, valid.from, valid.until, percentage, flat, limit, tickets';
+Discount.defaultColumns = 'code, name, valid.from, valid.until, percentage, flat, limit, tickets';
 Discount.register();

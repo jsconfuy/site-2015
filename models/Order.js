@@ -9,7 +9,7 @@ var keystone = require('keystone'),
 var Order = new keystone.List('Order', {
   map: { name: 'id' },
   // nocreate: true,
-  // noedit: true,
+  noedit: true,
 });
 
 Order.add({
@@ -27,7 +27,7 @@ Order.add({
   price: { type: Types.Money },
   quantity: { type: Types.Number, default: 1 },
   total: { type: Types.Money },
-  reserved: { type: Types.Datetime, default: Date.now },
+  reserved: { type: Types.Datetime },
   paid: { type: Types.Datetime },
   canceled: { type: Types.Datetime },
   payment: {

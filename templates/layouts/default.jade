@@ -115,6 +115,10 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
         .modal-dialog
           .modal-content
             .modal-body
+              .intro
+                button(type='button', class='close', data-dismiss='modal', aria-label='Close')
+                  span(aria-hidden='true') &times;
+                img(src='images/base/asap.png')
               .indicators
                 .indicator.indicator-select
                   i(class='fa fa-shopping-cart')
@@ -123,7 +127,7 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                   i(class='fa fa-credit-card')
                   span Payment
                 .indicator.indicator-assign
-                  i(class='fa fa-tag')
+                  i(class='fa fa-ticket')
                   span Assign
               .steps
                 .step.step-select
@@ -147,37 +151,45 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                       .title Personal Info
                   .info
                     .data
-                      input(name='name', placeholder='Full name')
+                      input(name='name', required='true', placeholder='Full name', value='Joe Flagster')
                     .data
-                      input(name='email', placeholder='Email address')
+                      input(name='email', required='true', placeholder='Email address', value='pricco@jsconf.uy')
                   .info
                     .data
                       .title Billing Details
-                      input(name='address1', placeholder='Address')
+                      input(name='address1', required='true', placeholder='Address', value='123 Main Street')
                       input(name='address2', placeholder='')
-                      input(name='city', placeholder='City')
-                      input(name='state', placeholder='State')
-                      input(name='postcode', placeholder='Zip code')
-                      input(name='country', placeholder='Country')
+                      input(name='city', required='true', placeholder='City', value='Townsville')
+                      input(name='state', required='true', placeholder='State', value='Ohio')
+                      input(name='postcode', required='true', placeholder='Zip code', value='43206')
+                      input(name='country', required='true', placeholder='Country', value='USA')
                     .data
                       .title Card
-                      input(name='card_number', autocomplete='off', placeholder='Card number')
+                      input(name='card_number', required='true', autocomplete='off', placeholder='Card number', value='4000000000000002')
                       .info
                         .data
-                          input(name='card_expiration', autocomplete='off', placeholder='MM/YY')
+                          input(name='card_expiration_month', required='true', autocomplete='off', placeholder='MM', value='12')
+                          |  /
+                          input(name='card_expiration_year', required='true', autocomplete='off', placeholder='YY', value='16')
                         .data
-                          input(name='card_cvc', autocomplete='off', placeholder='CVC')
+                          input(name='card_cvc', required='true', autocomplete='off', placeholder='CVC', value='999')
                       .separator
-                      .detail 3 Early Bird x $ 100
-                      .total Total: $ 300
+                      .detail
+                      .total
                       .action
                         button Place Order
                   .note
+                    | We don't store your credit card information.
+                    br
                     | Any questions please contact 
                     a(href='mailto:hola@jsonf.uy') hola@jsconf.uy
                 .step.step-assign
                   .loading
                     .loader
+                  .thanks
+                    | Thank you!
+                  .more
+                    a(href='#') Please set the persornal information for each attendee.
 
     block footer
       footer
@@ -208,6 +220,7 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
             a(href='/code-of-conduct') Code of Conduct
 
     script.
+      var TWOCO_ENV = '#{twoco_env}';
       var TWOCO_SELLER_ID = '#{twoco_seller_id}';
       var TWOCO_PUBLIC_KEY = '#{twoco_public_key}';
     script(src='//www.2checkout.com/checkout/api/2co.min.js')

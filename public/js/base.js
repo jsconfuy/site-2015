@@ -32,6 +32,14 @@
   // Tickets
   var modal = $('#buy');
 
+  var showError = function(message, exit) {
+    alert(message);
+    if (exit) {
+      modal.modal('hide');
+    }
+    return false;
+  }
+
   var show = function(ticket, discount) {
     modal.find('.indicator').removeClass('active');
     modal.find('.indicator-select').addClass('active');
@@ -45,14 +53,13 @@
     });
     $.get('/api/tickets/available', {ticket: ticket, discount: discount}, function(response) {
       if(response.error) {
-        // TODO: show error
+        return showError(reponse.error, true);
+      }
+      if (response.messages.invalid_discount) {
+        modal.find('.discount').show().find('.code').addClass('error').text('Invalid Code');
       }
       if (response.discount) {
-        if (response.discount.id) {
-          modal.find('.discount').show().find('.code').removeClass('error').text('Code Applied: ' + response.discount.code);
-        } else if (response.discount.invalid) {
-          modal.find('.discount').show().find('.code').addClass('error').text('Invalid Code: ' + response.discount.code);
-        }
+        modal.find('.discount').show().find('.code').removeClass('error').text('Code Applied: ' + response.discount.code);
       }
       if (response.tickets.length) {
         modal.find('.tickets ul').html('');
@@ -64,8 +71,8 @@
               $('<div />').addClass('buy').append(
                 $('<span />').text((ticket.price > 0 ? '$ ' + ticket.price : 'Free') + ' x'),
                 input,
-                $('<button />').text('Buy').click(function(e) {
-                  reserve(ticket.id, response.discount ? response.discount.id : null, input.val());
+                $('<button />').text('Select').click(function(e) {
+                  select(ticket.code, response.discount && response.discount.code, input.val());
                 })
               )
             )
@@ -80,43 +87,91 @@
     });
   };
 
-  var reserve = function(ticket, discount, quantity) {
+  var select = function(ticket, discount, quantity) {
     modal.find('.indicator').removeClass('active');
     modal.find('.indicator-payment').addClass('active');
     modal.find('.step').hide();
     modal.find('.step-payment > *').hide();
     modal.find('.step-payment .loading').show();
     modal.find('.step-payment').show();
-    $.post('/api/tickets/reserve', {ticket: ticket, discount: discount, quantity: quantity}, function(response) {
+    $.post('/api/tickets/select', {ticket: ticket, discount: discount, quantity: quantity}, function(response) {
       if(response.error) {
-        // TODO: show error
+        return showError(response.error, true);
+      } else {
+        modal.find('.step-payment .detail').text(response.order.quantity + ' ' +  response.order.ticket + ' x $ ' + response.order.price);
+        modal.find('.step-payment .total').text('Total $ ' + response.order.total);
+        modal.find('.step-payment .action button').data('order', response.order.id);
+        modal.find('.step-payment > *').show();
+        modal.find('.step-payment .loading').hide();
       }
-      modal.find('.step-payment > *').show();
-      modal.find('.step-payment .loading').hide();
     });
   };
 
-  var checkout = function() {
-    var data = {};
+  var checkout = function(order) {
+    modal.find('.indicator').removeClass('active');
+    modal.find('.indicator-assign').addClass('active');
+    modal.find('.step').hide();
+    modal.find('.step-assign > *').hide();
+    modal.find('.step-assign .loading').show();
+    modal.find('.step-assign').show();
+    var data = {order: order};
+    var card = {};
     var ok = true;
     modal.find('.step-payment').find('input').removeClass('error').each(function(){
       var value = $.trim($(this).val());
-      if(!value) {
+      if(!value && $(this).attr('required')) {
         $(this).addClass('error');
         ok = false;
       } else {
-        data[$(this).attr('name')] = value;
+        var name = $(this).attr('name');
+        if (name.slice(0, 'card'.length) == 'card') {
+          card[name] = value;
+        } else {
+          data[name] = value;
+        }
       }
     });
-    if (ok) {
-      alert('ok');
-    }
-
+    if (!ok) return;
+    var tokenRequest = function() {
+      var args = {
+          sellerId: TWOCO_SELLER_ID,
+          publishableKey: TWOCO_PUBLIC_KEY,
+          ccNo: card.card_number,
+          cvv: card.card_cvc,
+          expMonth: card.card_expiration_month,
+          expYear: card.card_expiration_year,
+      };
+      TCO.requestToken(tokenOK, tokenError, args);
+    };
+    var tokenOK = function(response) {
+      if (response.response && response.response.token) {
+        data.token = response.response.token.token;
+        $.post('/api/tickets/checkout', data, function(response) {
+          if (response.error) {
+            return showError(response.error);
+          } else {
+            modal.find('.step-assign .more a').attr('href', '/attendees/' + response.order.id);
+            modal.find('.step-assign > *').show();
+            modal.find('.step-assign .loading').hide();
+          }
+        });
+      }
+      // TODO: else???
+    };
+    var tokenError = function(response) {
+      if (response.errorCode === 200) {
+        tokenRequest();
+      } else {
+        showError(response.errorMsg);
+      }
+    };
+    tokenRequest();
   };
 
-  modal.find('.step-payment .action button').click(function(e){ checkout(); });
+  TCO.loadPubKey(TWOCO_ENV);
+  modal.find('.step-payment .action button').click(function(e){ checkout($(this).data('order')); });
   $('*[data-buy]').click(function(e){ show(); });
-  if (modal.data('ticket') || modal.data('discount')) {
+  if (modal.data('ticket') || modal.data('discount') || document.location.hash == '#now') {
     show(modal.data('ticket'), modal.data('discount'));
   }
 
