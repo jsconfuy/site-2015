@@ -136,13 +136,12 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                   .soldout
                     | We're sold out.
                   .tickets
-                    .title Tickets
                     ul
                   .discount
                     .code
                   .note
                     | Any questions please contact 
-                    a(href='mailto:hola@jsonf.uy') hola@jsconf.uy
+                    a(href='mailto:hola@jsonf.uy', target='_blank') hola@jsconf.uy
                 .step.step-payment
                   .loading
                     .loader
@@ -156,7 +155,7 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                       input(name='email', required='true', placeholder='Email address', value='pricco@jsconf.uy')
                   .info
                     .data
-                      .title Billing Details
+                      .title Billing Address
                       input(name='address1', required='true', placeholder='Address', value='123 Main Street')
                       input(name='address2', placeholder='')
                       input(name='city', required='true', placeholder='City', value='Townsville')
@@ -173,7 +172,8 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                           input(name='card_expiration_year', required='true', autocomplete='off', placeholder='YY', value='16')
                         .data
                           input(name='card_cvc', required='true', autocomplete='off', placeholder='CVC', value='999')
-                      .separator
+                      .legendary
+                        img(src='/images/base/2checkout.png')
                       .detail
                       .total
                       .action
@@ -181,15 +181,17 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                   .note
                     | We don't store your credit card information.
                     br
+                    | At this point your tickets has been reserved. You have 12 minutes to complete your payment or these will be released.
+                    br
                     | Any questions please contact 
-                    a(href='mailto:hola@jsonf.uy') hola@jsconf.uy
+                    a(href='mailto:hola@jsonf.uy', target='_blank') hola@jsconf.uy
                 .step.step-assign
                   .loading
                     .loader
                   .thanks
                     | Thank you!
                   .more
-                    a(href='#') Please set the persornal information for each attendee.
+                    a(href='#', target='_blank') Please set the persornal information for each attendee.
 
     block footer
       footer
@@ -201,7 +203,7 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
             .info
               h3 Additional Information
               | Please feel free to contact us at
-              a(href='mailto:hola@jsonf.uy') hola@jsconf.uy
+              a(href='mailto:hola@jsonf.uy', target='_blank') hola@jsconf.uy
               | if you need assistance with flight, hotel bookings and with general rules about getting to the country, we are glad to help.
               h3 Stay In Touch
               form.data(action="//jsconf.us7.list-manage.com/subscribe/post?u=522df5bbc3b97d9e5f5c16fe0&id=7f258c3ebb", method="post")

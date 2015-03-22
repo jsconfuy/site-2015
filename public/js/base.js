@@ -131,7 +131,15 @@
         }
       }
     });
-    if (!ok) return;
+    if (!ok) {
+      modal.find('.indicator').removeClass('active');
+      modal.find('.indicator-payment').addClass('active');
+      modal.find('.step').hide();
+      modal.find('.step-payment').show();
+      modal.find('.step-payment > *').show();
+      modal.find('.step-payment .loading').hide();
+      return;
+    }
     var tokenRequest = function() {
       var args = {
           sellerId: TWOCO_SELLER_ID,

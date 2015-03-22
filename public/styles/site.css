@@ -6196,16 +6196,15 @@ body > footer {
       color: #254164; }
 #buy .steps .step {
   margin: 20px 0 0 0; }
+  #buy .steps .step .note {
+    border-top: 1px solid #e0e0d9;
+    margin: 10px 0 0 0;
+    padding: 10px 0 0 0;
+    font-size: 80%;
+    color: #999999; }
   #buy .steps .step.step-select .loading {
     position: relative;
     height: 150px; }
-  #buy .steps .step.step-select .tickets .title {
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #ffffff;
-    font-size: 24px;
-    margin: 20px 0; }
   #buy .steps .step.step-select .tickets .discount {
     text-align: right;
     text-transform: uppercase;
@@ -6307,6 +6306,9 @@ body > footer {
     font-weight: bold;
     color: #254164;
     font-size: 20px; }
+  #buy .steps .step.step-payment .info .legendary img {
+    display: block;
+    width: 100%; }
   #buy .steps .step.step-payment .info .separator {
     border-top: 1px dashed #666666;
     margin: 20px 0 20px 0; }

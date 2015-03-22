@@ -109,11 +109,11 @@ var select = function(ticket, discount, quantity, callback) {
     function(next) {
       available(ticket, discount, next);
     },
+    // Create order
     function(tickets, discount, messages, next) {
       // TODO: check tickets
       // TODO: check discount
       var ticket = tickets[0];
-      var price = discount ? (ticket.price - discount.flat) * (1 - discount.percentage / 100)  : ticket.price;
       var order = Order.model({
         ticket: ticket.id,
         discount: discount && discount.id,
@@ -121,14 +121,15 @@ var select = function(ticket, discount, quantity, callback) {
         reserved: null,
         canceled: null,
         quantity: 0,
-        price: price,
-        total: price * quantity,
+        price: ticket.price,
+        total: ticket.price * quantity,
       });
       order.save(function(err) {
         if (err) return next(err);
         next(null, order, messages);
       });
     },
+    // Reserve order
     function(order, messages, next) {
       // FIXME: We cannot use Timestamp in mongoose.
       // We need to $set almost one field to get $currentDate works properly.
@@ -201,6 +202,7 @@ var checkout = function(data, callback) {
           {reserved: {$gte: new Date(Date.now() - USER_RESERVATION * 60000)}}
         ]
       }).populate('ticket discount').exec(function(err, result){
+        // TODO: check error
         if (err) return next(err);
         next(null, result, messages);
       });
@@ -216,7 +218,7 @@ var checkout = function(data, callback) {
         'merchantOrderId': order._id,
         'token': data.token,
         'currency': 'USD',
-        'total': order.total,
+        // 'total': order.total,
         'lineItems': [{
           'type': 'product',
           'name': order.ticket.name + (order.discount ? ' (CODE: ' + order.discount.name  + ')' : ''),

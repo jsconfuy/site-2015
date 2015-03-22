@@ -308,20 +308,19 @@ body > footer {
   .steps {
     .step {
       margin: 20px 0 0 0;
+      .note {
+        border-top: 1px solid $gray-light;
+        margin: 10px 0 0 0;
+        padding: 10px 0 0 0;
+        font-size: 80%;
+        color: $gray;
+      }
       &.step-select {
         .loading {
           position: relative;
           height: 150px;
         }
         .tickets {
-          .title {
-            text-align: center;
-            text-transform: uppercase;
-            font-weight: bold;
-            color: $white;
-            font-size: 24px;
-            margin: 20px 0;
-          }
           .discount {
             text-align: right;
             text-transform: uppercase;
@@ -435,6 +434,12 @@ body > footer {
             font-weight: bold;
             color: $blue;
             font-size: 20px;
+          }
+          .legendary {
+            img {
+              display: block;
+              width: 100%;
+            }
           }
           .separator {
             border-top: 1px dashed $gray-dark;
