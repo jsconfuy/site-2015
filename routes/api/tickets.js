@@ -283,7 +283,7 @@ var select = function(ticket_code, discount_code, quantity, callback) {
       });
     },
   ], function(err, order, messages) {
-    console.log(order, messages);
+    console.log(err);
     callback(err, order, messages);
   });
 };

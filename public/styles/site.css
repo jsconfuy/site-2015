@@ -6111,6 +6111,8 @@ body > footer {
             -moz-transition: all 100ms;
             -o-transition: all 100ms;
             transition: all 100ms; }
+            body > footer .footer .venue-info .info .data button:focus {
+              outline: none; }
             body > footer .footer .venue-info .info .data button:hover {
               background-color: #2c4d77; }
         body > footer .footer .venue-info .info .social {
@@ -6263,6 +6265,8 @@ body > footer {
           background-color: #254164;
           color: #ffffff;
           border: 0; }
+          #buy .steps .step.step-select .tickets ul li .buy button:focus {
+            outline: none; }
   #buy .steps .step.step-select .soldout {
     text-align: center;
     text-transform: uppercase;
@@ -6301,6 +6305,8 @@ body > footer {
         background-color: #254164;
         color: #ffffff;
         border: 0; }
+        #buy .steps .step.step-payment .invoice .pay button:focus {
+          outline: none; }
   #buy .steps .step.step-assign .thanks {
     text-align: center;
     text-transform: uppercase;
@@ -6317,6 +6323,8 @@ body > footer {
       background-color: #254164;
       color: #ffffff;
       border: 0; }
+      #buy .steps .step.step-assign .save button:focus {
+        outline: none; }
   #buy .steps .step.step-assign ul {
     padding: 0;
     margin: 0; }

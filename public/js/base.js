@@ -69,7 +69,7 @@
             .append($('<div />').addClass('name').text(ticket.name))
             .append(
               $('<div />').addClass('buy').append(
-                $('<span />').text((ticket.price > 0 ? '$ ' + ticket.price : 'Free') + ' x'),
+                $('<span />').text((ticket.price > 0 ? 'USD ' + ticket.price : 'Free') + ' × '),
                 input,
                 $('<button />').text(ticket.price ? 'Select' : 'Confirm').click(function(e) {
                   select(ticket.code, response.discount && response.discount.code, input.val());
@@ -109,8 +109,8 @@
         } else if (response.order.paid) {
           assign(response.order.id);
         } else {
-          modal.find('.step-payment .invoice .detail').text(response.order.quantity + ' ' +  response.order.ticket + ' x $ ' + response.order.price);
-          modal.find('.step-payment .invoice .pay button').data('order', response.order.id).text('Pay $ ' + response.order.total);
+          modal.find('.step-payment .invoice .detail').text(response.order.quantity + ' ' +  response.order.ticket + ' × $ ' + response.order.price + ' USD');
+          modal.find('.step-payment .invoice .pay button').data('order', response.order.id).text('Pay $ ' + response.order.total + ' USD');
           modal.find('.step-payment > *').show();
           modal.find('.step-payment .loading').hide();
         }

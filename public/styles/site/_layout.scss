@@ -193,6 +193,9 @@ body > footer {
             @include crossBrowser(appearance, none);
             @include crossBrowser(border-radius, 0 3px 3px 0);
             @include crossBrowser(transition, all 100ms);
+            &:focus{
+              outline: none;
+            }
             &:hover{
               background-color: lighten($blue, 5%)
             }
@@ -377,6 +380,9 @@ body > footer {
                   background-color: $blue;
                   color: $white;
                   border: 0;
+                  &:focus{
+                    outline: none;
+                  }
                 }
               }
             }
@@ -421,6 +427,9 @@ body > footer {
               background-color: $blue;
               color: $white;
               border: 0;
+              &:focus{
+                outline: none;
+              }
             }
           }
         }
@@ -443,6 +452,9 @@ body > footer {
             background-color: $blue;
             color: $white;
             border: 0;
+            &:focus{
+              outline: none;
+            }
           }
         }
         ul {
