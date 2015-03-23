@@ -9,22 +9,35 @@ exports = module.exports = function(req, res) {
 
   locals.processed = false;
   locals.order = null;
+  locals.error = null;
 
-  if (req.params.order) {
+  if (req.params.order) { // Intentional purchase
     Order.model.findOne({
-      _id: req.params.order
+      _id: req.params.order,
+      canceled: null,
     }).populate('ticket discount').exec(function(err, order) {
       locals.order = order;
+      if (order.paid) {
+        locals.processed = true;
+        view.render('purchase');
+        return;
+      }
+      // TODO: check reserved!
+      // {reserved: {$gte: new Date(Date.now() - USER_RESERVATION * 60000)}}
       view.render('purchase');
     });
-  } else if (req.query.key) {
+  } else if (req.query.key) { // Back from 2CO
     Order.model.findOne({
-      _id: req.query.merchant_order_id
+      _id: req.query.merchant_order_id,
+      canceled: null,
     }).populate('ticket discount').exec(function(err, order) {
+      // TODO: err
       locals.order = order;
       locals.processed = true;
       var key = process.env.TWOCO_SECRET_WORD + '' + process.env.TWOCO_SELLER_ID + '' + req.query.order_number  + order.total.toFixed(2);
       var hash = require('crypto').createHash('md5').update(key).digest('hex').toUpperCase();
+      // TODO: check reserved!
+      // {reserved: {$gte: new Date(Date.now() - USER_RESERVATION * 60000)}}
       if (req.query.key == hash) {
         order.name = req.query.first_name + ' ' + req.query.last_name;
         order.email = req.query.email;
@@ -32,124 +45,21 @@ exports = module.exports = function(req, res) {
         order.payment.order = req.query.order_number;
         order.payment.invoice = req.query.invoice_id;
         order.save(function(err){
-          view.render('purchase');
+          // TODO: err
+          order.sendOrderConfirmation(function(err){
+            // TODO: err
+            view.render('purchase');
+          });
         });
       } else {
+        // TODO: hacker!!!!
         view.render('purchase');
       }
     });
-  } else {
+  } else { // ERROR!
+    locals.processed = true;
+    locals.error = {code: 'INVALID_PURCHASE', message: 'Invalid parameters for purchase.'};
     view.render('purchase');
   }
-
-  // <?php
-  // $hashSecretWord = 'tango'; //2Checkout Secret Word
-  // $hashSid = 1303908; //2Checkout account number
-  // $hashTotal = '1.00'; //Sale total to validate against
-  // $hashOrder = $_REQUEST['order_number']; //2Checkout Order Number
-  // $StringToHash = strtoupper(md5($hashSecretWord . $hashSid . $hashOrder . $hashTotal));
-  // if ($StringToHash != $_REQUEST['key']) {
-  //   $result = 'Fail - Hash Mismatch';
-  // } else {
-  //   $result = 'Success - Hash Matched';
-  // }
-  // echo $result;
-
-  // locals.cfp = {};
-  // locals.cfp.data = req.body || {};
-  // locals.cfp.errors = {};
-  // locals.cfp.submitted = false;
-
-  /*
-  view.on('post', { action: 'submit' }, function(next) {
-    var proposal = new Proposal.model(),
-      updater = proposal.getUpdateHandler(req);
-
-    updater.process(req.body, {
-      flashErrors: true,
-      required: 'topic, summary, name, email, residence',
-      fields: 'topic, summary, name, email, residence, notes, coasted',
-      errorMessage: 'There was a problem submitting your proposal:'
-    }, function(err) {
-      if (err) {
-        console.log(err);
-        locals.cfp.errors = err.errors;
-      } else {
-        locals.cfp.submitted = true;
-      }
-      next();
-    });
-
-  });
-
-  view.render('cfp');
-  */
-  // res.redirect('/');
-  //
-  // async.waterfall([
-  //   // Get and validate ticket
-  //   function(next) {
-  //     var messages = {};
-  //     Order.model.findOne({
-  //       _id: data.order,
-  //       canceled: null,
-  //       $or: [
-  //         {paid: {$ne: null}},
-  //         {reserved: {$gte: new Date(Date.now() - USER_RESERVATION * 60000)}}
-  //       ]
-  //     }).populate('ticket discount').exec(function(err, result){
-  //       // TODO: check error
-  //       if (err) return next(err);
-  //       next(null, result, messages);
-  //     });
-  //   },
-  //   // Make purchase
-  //   function(order, messages, next) {
-  //     var tco = new Twocheckout({
-  //       sellerId: process.env.TWOCO_SELLER_ID,
-  //       privateKey: process.env.TWOCO_PRIVATE_KEY,
-  //       sandbox: process.env.TWOCO_ENV == 'sandbox' ? true : false,
-  //     });
-  //     var params = {
-  //       'merchantOrderId': order._id,
-  //       'token': data.token,
-  //       'currency': 'USD',
-  //       // 'total': order.total,
-  //       'lineItems': [{
-  //         'type': 'product',
-  //         'name': order.ticket.name + (order.discount ? ' (CODE: ' + order.discount.name  + ')' : ''),
-  //         'productId': order.ticket._id,
-  //         'tangible': 'N',
-  //         'quantity': order.quantity,
-  //         'price': order.price,
-  //       }],
-  //       'billingAddr': {
-  //         'name': data.name,
-  //         'email': data.email,
-  //         'addrLine1': data.address1,
-  //         'addrLine2': data.address2,
-  //         'city': data.city,
-  //         'state': data.state,
-  //         'zipCode': data.postcode,
-  //         'country': data.country,
-  //       }
-  //     };
-  //     tco.checkout.authorize(params, function (error, data) {
-  //       if (error) {
-  //         return next(error.message);
-  //       } else {
-  //         // TODO: mark as paid
-  //         // response.send(data.response.responseMsg);
-  //         next(null, order, messages);
-  //       }
-  //     });
-  //   },
-  //   // TODO: Send email!
-  //   function(order, messages, next) {
-  //     next(null, order, messages);
-  //   },
-  // ], function(err, order, messages) {
-  //   callback(err, order, messages);
-  // });
 
 };

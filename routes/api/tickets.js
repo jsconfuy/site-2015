@@ -2,6 +2,7 @@ var keystone = require('keystone'),
   async = require('async'),
   Ticket = keystone.list('Ticket'),
   Discount = keystone.list('Discount'),
+  Attendee = keystone.list('Attendee'),
   Order = keystone.list('Order');
 
 var USER_RESERVATION = 12; // Minutes
@@ -42,29 +43,29 @@ var validate = function(ticket_code, discount_code, callback) {
     // Check if the discount exists or if it is valid
     function(tickets, messages, next) {
       if (!discount_code) return next(null, tickets, null, messages);
-      Discount.model.findOne().where('code', discount_code).where('valid.from').lte(Date.now()).where('valid.until').gte(Date.now()).exec(function(err, result) {
+      Discount.model.findOne().where('code', discount_code).where('valid.from').lte(Date.now()).where('valid.until').gte(Date.now()).exec(function(err, discount) {
         if (err) return next(err);
-        if (!result) {
+        if (!discount) {
           messages.invalid_discount = true;
           return next(null, tickets, null, messages);
         }
-        var discount = {
-          id: result._id,
-          code: result.code,
-          flat: result.flat,
-          percentage: result.percentage,
-          limit: result.limit || 10000000,
-          available: result.limit || 10000000,
-          min: result.min,
-          max: result.max,
-        };
         tickets = tickets.filter(function(ticket) {
-          return result.tickets.indexOf(ticket.id) >= 0;
+          return discount.tickets.indexOf(ticket.id) >= 0;
         });
         if (tickets.length == 0) {
           messages.invalid_discount = true;
           return next(null, [], null, messages);
         }
+        var discount = {
+          id: discount._id,
+          code: discount.code,
+          flat: discount.flat,
+          percentage: discount.percentage,
+          limit: discount.limit || 10000000,
+          available: discount.limit || 10000000,
+          min: discount.min,
+          max: discount.max,
+        };
         next(null, tickets, discount, messages);
       });
     },
@@ -267,11 +268,18 @@ var select = function(ticket_code, discount_code, quantity, callback) {
       order.price.ticket = priceTicket;
       order.price.discount = priceDiscount;
       order.total = (priceTicket - priceDiscount) * order.quantity;
-      console.log(order.total);
       order.paid = order.total > 0 ? order.paid : Date.now();
       order.update({$set: {'price.ticket': order.price.ticket, 'price.discount': order.price.discount, 'total': order.total, paid: order.paid}}, {}, function(err) {
         if (err) return next(err);
-        next(null, order, messages);
+        if (order.paid) {
+          // Send email if paid
+          order.sendOrderConfirmation(function(err){
+            if (err) return next(err);
+            next(null, order, messages);
+          });
+        } else {
+          next(null, order, messages);
+        }
       });
     },
   ], function(err, order, messages) {
@@ -280,15 +288,82 @@ var select = function(ticket_code, discount_code, quantity, callback) {
   });
 };
 
-var assign = function(data, callback) {
-    callback(err);
+var assign = function(order_id, callback) {
+  async.waterfall([
+    function(next) {
+      var messages = [];
+      Order.model.findOne({_id: order_id, paid: {$ne: null}}).populate('ticket discount').exec(function(err, order){
+        if (err) return next(err);
+        // TODO: check order!
+        Attendee.model.find({order: order._id}).exec(function(err, attendees){
+          if (err) return next(err);
+          next(null, order, attendees, messages);
+        });
+      });
+    },
+    function(order, attendees, messages, next) {
+      var remaining = order.quantity - attendees.length;
+      var create = function() {
+        if (remaining <= 0) return next(null, order, attendees, messages);
+        var attendee = Attendee.model({
+          order: order._id,
+          ticket: order.ticket._id,
+          discount: order.discount ? order.discount._id : null,
+          price: order.price.ticket - order.price.discount,
+        });
+        attendee.save(function(err) {
+          if (err) return next(err);
+          attendees.push(attendee);
+          remaining -= 1;
+          create();
+        });
+      }
+      create();
+    },
+  ], function(err, order, attendees, messages) {
+    console.log(err);
+    callback(err, order, attendees, messages);
+  });
 };
 
+var save = function(data, callback) {
+  async.waterfall([
+    function(next) {
+      var messages = [];
+      Order.model.findOne({_id: data.order, paid: {$ne: null}}).populate('ticket discount').exec(function(err, order){
+        if (err) return next(err);
+        // TODO: check order!
+        Attendee.model.find({order: order._id}).exec(function(err, attendees){
+          if (err) return next(err);
+          next(null, order, attendees, messages);
+        });
+      });
+    },
+    function(order, attendees, messages, next) {
+      var saveAll = function(){
+        if (attendees.length == 0) return next(null, messages);
+        var attendee = attendees.pop();
+        attendee.name = data[attendee._id + '_name'];
+        attendee.email = data[attendee._id + '_email'];
+        attendee.tshirt = data[attendee._id + '_tshirt'];
+        attendee.comments = data[attendee._id + '_comments'];
+        attendee.save(function(err){
+          if (err) return next(err);
+          saveAll();
+        })
+      }
+      saveAll();
+    },
+  ], function(err, messages) {
+    console.log(err);
+    callback(err, messages);
+  });
+};
 
 exports = module.exports = {
   available: function(req, res) {
     available(req.query.ticket, req.query.discount, function(err, tickets, discount, messages) {
-      // TODO: Check err
+      if (err) return res.apiResponse({error: err});
       tickets = tickets.filter(function(ticket) {
         return ticket.available > 0 && (!discount || discount.available > 0);
       }).map(function(ticket) {
@@ -301,7 +376,6 @@ exports = module.exports = {
           price: (Math.round(ticket.price * 100) / 100) - (Math.round(Ticket.calculateDiscount(ticket, discount) * 100) / 100),
         };
       });
-      console.log(tickets);
       if (discount) {
         discount = {
           code: discount.code
@@ -312,26 +386,41 @@ exports = module.exports = {
   },
   select: function(req, res) {
     select(req.body.ticket, req.body.discount, req.body.quantity, function(err, order, messages) {
-      // TODO: Check err
-      if (order) {
-        order = {
-          id: order._id,
-          ticket: order.ticket.name,
-          quantity: order.quantity,
-          price: order.price.ticket - order.price.discount,
-          total: order.total
-        }
+      if (err) return res.apiResponse({error: err});
+      order = {
+        id: order._id,
+        ticket: order.ticket.name,
+        quantity: order.quantity,
+        paid: !!order.paid,
+        price: order.price.ticket - order.price.discount,
+        total: order.total
       }
       return res.apiResponse({order: order, messages: messages});
     });
   },
   assign: function(req, res) {
-    assign(req.body, function(err, order, messages) {
-      // TODO: Check err
-      if (order) {
-        order = {id: order._id}
+    assign(req.query.order, function(err, order, attendees, messages) {
+      if (err) return res.apiResponse({error: err});
+      order = {
+        id: order._id,
+        paid: !!order.paid,
       }
-      return res.apiResponse({order: order, messages: messages});
+      attendees = attendees.map(function(attendee) {
+        return {
+          id: attendee._id,
+          name: attendee.name,
+          email: attendee.email,
+          tshirt: attendee.tshirt,
+          comments: attendee.comments,
+        };
+      });
+      return res.apiResponse({order: order, attendees: attendees, messages: messages});
+    });
+  },
+  save: function(req, res) {
+    save(req.body, function(err,  messages) {
+      if (err) return res.apiResponse({error: err});
+      return res.apiResponse({messages: messages});
     });
   }
 };

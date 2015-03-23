@@ -51,7 +51,7 @@ Enquiry.schema.methods.sendNotificationEmail = function(callback) {
       to: admins,
       from: {
         name: 'JSConfUY',
-        email: 'contact@jsconfuy.com'
+        email: 'hola@jsconfuy.com'
       },
       subject: 'New Enquiry for JSConfUY',
       enquiry: enquiry

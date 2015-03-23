@@ -11,6 +11,7 @@ exports.initLocals = function(req, res, next) {
   locals.buy = {
     ticket: req.query.ticket,
     discount: req.query.discount,
+    order: req.query.order,
   };
   locals.twoco_env = process.env.TWOCO_ENV;
   locals.twoco_seller_id = process.env.TWOCO_SELLER_ID;

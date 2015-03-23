@@ -111,7 +111,7 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
       block content
 
     block modals
-      #buy.modal.fade(tabindex='-1', role='dialog', aria-hidden='true', data-ticket='#{buy.ticket || ""}', data-discount='#{buy.discount || ""}')
+      #buy.modal.fade(tabindex='-1', role='dialog', aria-hidden='true', data-order='#{buy.order || ""}', data-ticket='#{buy.ticket || ""}', data-discount='#{buy.discount || ""}')
         .modal-dialog
           .modal-content
             .modal-body
@@ -159,17 +159,13 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                 .step.step-assign
                   .loading
                     .loader
+                  .attendees
+                    ul
                   .thanks
                     | Thank you!
-                  .attendees
-                    .help You can complete this step later.
-                    ul
-                      li
-                        .title
-                        .name
-                          input(name='name', required='true', placeholder='Name', value='Joe Flagster')
-                        .email
-                          input(name='email', required='true', placeholder='Email address', value='pricco@jsconf.uy')
+                  .save
+                    button Save & Close
+                  .note You can complete this step later.
     block footer
       footer
         .footer

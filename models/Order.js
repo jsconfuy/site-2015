@@ -8,8 +8,9 @@ var keystone = require('keystone'),
 
 var Order = new keystone.List('Order', {
   map: { name: 'id' },
-  nocreate: true,
-  noedit: true,
+  track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true },
+  // nocreate: true,
+  // noedit: true,
 });
 
 Order.add({
@@ -37,5 +38,22 @@ Order.relationship({ ref: 'Attendee', refPath: 'order', path: 'attendees' });
 // The order should be paid before 15 minutes.
 // We should check the created and paid fields to reserve
 
-Order.defaultColumns = 'id, name, email, reserved, paid';
+Order.schema.methods.sendOrderConfirmation = function(callback) {
+  if ('function' !== typeof callback) {
+    callback = function() {};
+  }
+  var order = this;
+
+  new keystone.Email('order-confirmation').send({
+    to: order.email,
+    from: {
+      name: 'JSConfUY',
+      email: 'hola@jsconfuy.com'
+    },
+    subject: 'Thank you!',
+    order: order
+  }, callback);
+};
+
+Order.defaultColumns = 'id, name, email, reserved, paid, ticket, discount';
 Order.register();

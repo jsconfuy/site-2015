@@ -1,10 +1,6 @@
 html
   body
-  if processed
-    script.
-      window.opener.purchaseCompleted(null);
-      window.close();
-  else
+  if !processed && order
     if order
       form#purchase(action=twoco_env == 'sandbox' ? 'https://sandbox.2checkout.com/checkout/purchase': 'https://www.2checkout.com/checkout/purchase', method='post')
         input(type='hidden', name='merchant_order_id', value=order._id)
@@ -33,6 +29,8 @@ html
           input(type='hidden', name='zip', value='43228')
           input(type='hidden', name='country', value='USA')
         script.
-          document.getElementById("purchase").submit();
-    else
-      h1 ERROR
+          document.getElementById('purchase').submit();
+  else
+    script.
+      window.opener.purchaseCompleted(null);
+      window.close();

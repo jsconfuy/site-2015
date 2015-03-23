@@ -8,14 +8,12 @@ var keystone = require('keystone'),
 
 var Attendee = new keystone.List('Attendee', {
   map: { name: 'name' },
+  track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true },
 });
 
 Attendee.add({
-  ticket: { type: Types.Relationship, ref: 'Ticket', index: true },
-  name: { type: String, required: true },
+  name: { type: String },
   email: { type: Types.Email },
-  order: { type: Types.Relationship, ref: 'Order', index: true, noedit: true },
-  price: { type: Types.Money },
   tshirt: {
     label: 'T-Shirt', type: Types.Select, options: [
       { value: 'XS', label: 'XS' },
@@ -25,7 +23,12 @@ Attendee.add({
       { value: 'XL', label: 'XL' },
       { value: 'XXL', label: 'XXL' },
     ]},
+  comments: { type: Types.Textarea },
+  order: { type: Types.Relationship, ref: 'Order', index: true, noedit: true },
+  ticket: { type: Types.Relationship, ref: 'Ticket', index: true },
+  discount: { type: Types.Relationship, ref: 'Discount', index: true },
+  price: { type: Types.Money },
 });
 
-Attendee.defaultColumns = 'name, tshirt, ticket, email, order';
+Attendee.defaultColumns = 'name, email, tshirt, ticket, discount, order';
 Attendee.register();

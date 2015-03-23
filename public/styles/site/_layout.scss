@@ -431,74 +431,97 @@ body > footer {
           text-transform: uppercase;
           font-weight: bold;
           padding: 10px 20px;
-          border: 3px solid $blue;
           color: $blue;
           font-size: 20px;
-          width: 270px;
-          margin: 40px auto;
+          margin: 20px auto 0;
         }
-        .info {
-          @include clearfix();
-          .data {
-            @include clearfix();
-            float: left;
-            width: 50%;
-            &:nth-child(odd) {
-              padding: 0 10px 0 0;
+        .save {
+          text-align: center;
+          margin: 10px auto 20px;
+          button {
+            padding: 4px 14px;
+            background-color: $blue;
+            color: $white;
+            border: 0;
+          }
+        }
+        ul {
+          padding: 0;
+          margin: 0;
+          li {
+            padding: 0;
+            margin: 0 0 20px 0;
+            list-style: none;
+            .title {
+              text-align: center;
+              text-transform: uppercase;
+              font-weight: bold;
+              padding: 10px;
+              color: $blue;
+              font-size: 18px;
+              width: 200px;
+              margin: 0 auto 10px;
             }
-            &:nth-child(even) {
-              padding: 0 0 0 10px;
-            }
-            padding: 0 10px;
-            input {
-              border: 1px solid $gray-light;
-              width: 100%;
-              padding: 4px;
-              margin: 0 0 10px 0;
-              &[name=card_expiration_month],
-              &[name=card_expiration_year] {
+            .personal {
+              @include clearfix();
+              padding: 0 0 10px 0;
+              .name {
+                float: left;
                 width: 40%;
+                padding: 0 10px 0 0;
+                input {
+                  display: block;
+                  width: 100%;
+                  padding: 4px 8px;
+                  border: 1px solid $gray;
+                  &:focus {
+                    outline: 2px solid $blue;
+                  }
+                }
               }
-              &:focus {
-                outline: 2px solid $blue;
+              .email {
+                float: left;
+                padding: 0 10px 0 0;
+                width: 40%;
+                input {
+                  display: block;
+                  width: 100%;
+                  padding: 4px 8px;
+                  border: 1px solid $gray;
+                  &:focus {
+                    outline: 2px solid $blue;
+                  }
+                }
               }
-              &.error {
-                border-color: red;
+              .tshirt {
+                float: left;
+                width: 20%;
+                select {
+                  display: block;
+                  width: 100%;
+                  height: 38px;
+                  padding: 4px 8px;
+                  border: 1px solid $gray;
+                  border-radius: none;
+                  background: $white;
+                  &:focus {
+                    outline: 2px solid $blue;
+                  }
+                }
               }
             }
-          }
-          .title {
-            margin: 15px 0 10px 0;
-            text-transform: uppercase;
-            font-weight: bold;
-            color: $blue;
-            font-size: 20px;
-          }
-          .legendary {
-            img {
-              display: block;
+            .comments {
+              @include clearfix();
               width: 100%;
-            }
-          }
-          .separator {
-            border-top: 1px dashed $gray-dark;
-            margin: 20px 0 20px 0;
-          }
-          .detail {
-            text-align: right;
-            margin: 0 0 10px 0;
-          }
-          .total {
-            text-align: right;
-            margin: 0 0 10px 0;
-          }
-          .action {
-            text-align: right;
-            button {
-              padding: 4px 14px;
-              background-color: $blue;
-              color: $white;
-              border: 0;
+              textarea {
+                width: 100%;
+                height: 80px;
+                padding: 4px 8px;
+                border: 1px solid $gray;
+                &:focus {
+                  outline: 2px solid $blue;
+                }
+              }
             }
           }
         }

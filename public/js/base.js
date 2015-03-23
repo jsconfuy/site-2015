@@ -53,7 +53,7 @@
     });
     $.get('/api/tickets/available', {ticket: ticket, discount: discount}, function(response) {
       if(response.error) {
-        return showError(reponse.error, true);
+        return showError(response.error, true);
       }
       if (response.messages.invalid_discount) {
         modal.find('.discount').show().find('.code').addClass('error').text('Invalid Code');
@@ -94,6 +94,10 @@
     modal.find('.step-payment > *').hide();
     modal.find('.step-payment .loading').show();
     modal.find('.step-payment').show();
+    modal.modal({
+      backdrop: 'static',
+      keyboard: false
+    });
     $.post('/api/tickets/select', {ticket: ticket, discount: discount, quantity: quantity}, function(response) {
       if(response.error) {
         return showError(response.error, true);
@@ -102,13 +106,13 @@
           assign(response.order.id);
         } else if (response.order.quantity == 0) {
           show(modal.data('ticket'), modal.data('discount'));
-        } else if (response.order.price > 0) {
+        } else if (response.order.paid) {
+          assign(response.order.id);
+        } else {
           modal.find('.step-payment .invoice .detail').text(response.order.quantity + ' ' +  response.order.ticket + ' x $ ' + response.order.price);
           modal.find('.step-payment .invoice .pay button').data('order', response.order.id).text('Pay $ ' + response.order.total);
           modal.find('.step-payment > *').show();
           modal.find('.step-payment .loading').hide();
-        } else {
-          assign(response.order.id);
         }
       }
     });
@@ -121,14 +125,62 @@
     modal.find('.step-assign > *').hide();
     modal.find('.step-assign .loading').show();
     modal.find('.step-assign').show();
-    var data = {order: order};
-    $.post('/api/tickets/assign', data, function(response) {
+    modal.modal({
+      backdrop: 'static',
+      keyboard: false
+    });
+    $.get('/api/tickets/assign', {order: order}, function(response) {
       if (response.error) {
         return showError(response.error);
       } else {
-        // TODO: Add attendees placeholders
+        modal.find('.step-assign .attendees ul').empty();
+        response.attendees.forEach(function(attendee, index) {
+          var li = $('<li />').append(
+            $('<div class="title" />').text('Attendee #' + (index + 1)),
+            $('<div class="personal" />').append(
+              $('<div class="name" />').append(
+                $('<input placeholder="Full Name" />').attr('name', attendee.id + '_name').val(attendee.name)
+              ),
+              $('<div class="email" />').append(
+                $('<input type="email" placeholder="Email" />').attr('name', attendee.id + '_email').val(attendee.email)
+              ),
+              $('<div class="tshirt" />').append(
+                $('<select placeholdecommentsT-Shirt" />').attr('name', attendee.id + '_tshirt').append(
+                  $('<option />', {value: 'XS', text: 'Size XS'}),
+                  $('<option />', {value: 'S', text: 'Size S'}),
+                  $('<option />', {value: 'M', text: 'Size M'}),
+                  $('<option />', {value: 'L', text: 'Size L'}),
+                  $('<option />', {value: 'XL', text: 'Size XL'}),
+                  $('<option />', {value: 'XXL', text: 'Size XXL'})
+                ).val(attendee.tshirt || 'L')
+              )
+            ),
+            $('<div class="comments" />').append(
+              $('<textarea />')
+                .attr('name', attendee.id + '_comments')
+                .attr('placeholder', 'Anything you would like us to know. E.g: Meal requisites (vegan, vegetarian, diabetic, coeliac), Accessibility, etc.')
+                .val(attendee.comments)
+            )
+          );
+          modal.find('.step-assign .attendees ul').append(li);
+        });
+        modal.find('.step-assign .save button').data('order', response.order.id);
         modal.find('.step-assign > *').show();
         modal.find('.step-assign .loading').hide();
+      }
+    });
+  };
+
+  var save = function(order) {
+    var data = {order: order};
+    modal.find('.step-assign').find('input, textarea, select').each(function(){
+      data[$(this).attr('name')] = $(this).val();
+    });
+    $.post('/api/tickets/save', data, function(response) {
+      if (response.error) {
+        return showError(response.error);
+      } else {
+        modal.modal('hide');
       }
     });
   };
@@ -137,18 +189,27 @@
     var order = $(this).data('order');
     window.purchaseCompleted = function(err) {
       if (err) {
-        // TODO: check err!
+        // TODO: check error!
+        showError(err.message);
       } else {
         assign(order);
       }
     };
-    var newwindow = window.open('/purchase/' + order, 'Payment','height=400,width=350');
+    var newwindow = window.open('/purchase/' + order, 'Payment','height=550,width=800');
     if (window.focus) {newwindow.focus()}
     return false;
   });
 
+  modal.find('.step-assign .save button').click(function(e){
+    var order = $(this).data('order');
+    save(order);
+  });
+
   $('*[data-buy]').click(function(e){ show(); });
-  if (modal.data('ticket') || modal.data('discount') || document.location.hash == '#asap') {
+
+  if (modal.data('order')) {
+    assign(modal.data('order'));
+  } else if (modal.data('ticket') || modal.data('discount') || document.location.hash == '#asap') {
     show(modal.data('ticket'), modal.data('discount'));
   }
 

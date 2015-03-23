@@ -6306,65 +6306,89 @@ body > footer {
     text-transform: uppercase;
     font-weight: bold;
     padding: 10px 20px;
-    border: 3px solid #254164;
     color: #254164;
     font-size: 20px;
-    width: 270px;
-    margin: 40px auto; }
-  #buy .steps .step.step-assign .info:before, #buy .steps .step.step-assign .info:after {
-    content: " ";
-    display: table; }
-  #buy .steps .step.step-assign .info:after {
-    clear: both; }
-  #buy .steps .step.step-assign .info .data {
-    float: left;
-    width: 50%;
-    padding: 0 10px; }
-    #buy .steps .step.step-assign .info .data:before, #buy .steps .step.step-assign .info .data:after {
-      content: " ";
-      display: table; }
-    #buy .steps .step.step-assign .info .data:after {
-      clear: both; }
-    #buy .steps .step.step-assign .info .data:nth-child(odd) {
-      padding: 0 10px 0 0; }
-    #buy .steps .step.step-assign .info .data:nth-child(even) {
-      padding: 0 0 0 10px; }
-    #buy .steps .step.step-assign .info .data input {
-      border: 1px solid #e0e0d9;
-      width: 100%;
-      padding: 4px;
-      margin: 0 0 10px 0; }
-      #buy .steps .step.step-assign .info .data input[name=card_expiration_month], #buy .steps .step.step-assign .info .data input[name=card_expiration_year] {
-        width: 40%; }
-      #buy .steps .step.step-assign .info .data input:focus {
-        outline: 2px solid #254164; }
-      #buy .steps .step.step-assign .info .data input.error {
-        border-color: red; }
-  #buy .steps .step.step-assign .info .title {
-    margin: 15px 0 10px 0;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #254164;
-    font-size: 20px; }
-  #buy .steps .step.step-assign .info .legendary img {
-    display: block;
-    width: 100%; }
-  #buy .steps .step.step-assign .info .separator {
-    border-top: 1px dashed #666666;
-    margin: 20px 0 20px 0; }
-  #buy .steps .step.step-assign .info .detail {
-    text-align: right;
-    margin: 0 0 10px 0; }
-  #buy .steps .step.step-assign .info .total {
-    text-align: right;
-    margin: 0 0 10px 0; }
-  #buy .steps .step.step-assign .info .action {
-    text-align: right; }
-    #buy .steps .step.step-assign .info .action button {
+    margin: 20px auto 0; }
+  #buy .steps .step.step-assign .save {
+    text-align: center;
+    margin: 10px auto 20px; }
+    #buy .steps .step.step-assign .save button {
       padding: 4px 14px;
       background-color: #254164;
       color: #ffffff;
       border: 0; }
+  #buy .steps .step.step-assign ul {
+    padding: 0;
+    margin: 0; }
+    #buy .steps .step.step-assign ul li {
+      padding: 0;
+      margin: 0 0 20px 0;
+      list-style: none; }
+      #buy .steps .step.step-assign ul li .title {
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: 10px;
+        color: #254164;
+        font-size: 18px;
+        width: 200px;
+        margin: 0 auto 10px; }
+      #buy .steps .step.step-assign ul li .personal {
+        padding: 0 0 10px 0; }
+        #buy .steps .step.step-assign ul li .personal:before, #buy .steps .step.step-assign ul li .personal:after {
+          content: " ";
+          display: table; }
+        #buy .steps .step.step-assign ul li .personal:after {
+          clear: both; }
+        #buy .steps .step.step-assign ul li .personal .name {
+          float: left;
+          width: 40%;
+          padding: 0 10px 0 0; }
+          #buy .steps .step.step-assign ul li .personal .name input {
+            display: block;
+            width: 100%;
+            padding: 4px 8px;
+            border: 1px solid #999999; }
+            #buy .steps .step.step-assign ul li .personal .name input:focus {
+              outline: 2px solid #254164; }
+        #buy .steps .step.step-assign ul li .personal .email {
+          float: left;
+          padding: 0 10px 0 0;
+          width: 40%; }
+          #buy .steps .step.step-assign ul li .personal .email input {
+            display: block;
+            width: 100%;
+            padding: 4px 8px;
+            border: 1px solid #999999; }
+            #buy .steps .step.step-assign ul li .personal .email input:focus {
+              outline: 2px solid #254164; }
+        #buy .steps .step.step-assign ul li .personal .tshirt {
+          float: left;
+          width: 20%; }
+          #buy .steps .step.step-assign ul li .personal .tshirt select {
+            display: block;
+            width: 100%;
+            height: 38px;
+            padding: 4px 8px;
+            border: 1px solid #999999;
+            border-radius: none;
+            background: #ffffff; }
+            #buy .steps .step.step-assign ul li .personal .tshirt select:focus {
+              outline: 2px solid #254164; }
+      #buy .steps .step.step-assign ul li .comments {
+        width: 100%; }
+        #buy .steps .step.step-assign ul li .comments:before, #buy .steps .step.step-assign ul li .comments:after {
+          content: " ";
+          display: table; }
+        #buy .steps .step.step-assign ul li .comments:after {
+          clear: both; }
+        #buy .steps .step.step-assign ul li .comments textarea {
+          width: 100%;
+          height: 80px;
+          padding: 4px 8px;
+          border: 1px solid #999999; }
+          #buy .steps .step.step-assign ul li .comments textarea:focus {
+            outline: 2px solid #254164; }
 
 /* Loader */
 .loader:before, .loader:after, .loader {
