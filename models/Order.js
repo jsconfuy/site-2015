@@ -43,6 +43,7 @@ Order.schema.methods.sendOrderConfirmation = function(callback) {
     callback = function() {};
   }
   var order = this;
+  if (!order.email) return callback();
 
   new keystone.Email('order-confirmation').send({
     to: order.email,
