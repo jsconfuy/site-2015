@@ -8,31 +8,27 @@ var keystone = require('keystone'),
 
 var Order = new keystone.List('Order', {
   map: { name: 'id' },
-  // nocreate: true,
+  nocreate: true,
   noedit: true,
 });
 
 Order.add({
   name: { type: String },
   email: { type: Types.Email },
-  address: {
-    address1: String,
-    address2: String,
-    city: String,
-    postcode: String,
-    country:  String,
-  },
   ticket: { type: Types.Relationship, ref: 'Ticket', index: true },
   discount: { type: Types.Relationship, ref: 'Discount', index: true },
-  price: { type: Types.Money },
+  price: {
+    ticket: { type: Types.Money },
+    discount: { type: Types.Money, default: 0 },
+  },
   quantity: { type: Types.Number, default: 1 },
   total: { type: Types.Money },
   reserved: { type: Types.Datetime },
   paid: { type: Types.Datetime },
   canceled: { type: Types.Datetime },
   payment: {
-    order: { type: String, noedit: true },
-    token: { type: String, noedit: true },
+    order: { type: String },
+    invoice: { type: String },
   }
 });
 

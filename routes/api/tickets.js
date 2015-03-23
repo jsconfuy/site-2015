@@ -2,20 +2,20 @@ var keystone = require('keystone'),
   async = require('async'),
   Ticket = keystone.list('Ticket'),
   Discount = keystone.list('Discount'),
-  Order = keystone.list('Order'),
-  Twocheckout = require('2checkout-node');
+  Order = keystone.list('Order');
 
 var USER_RESERVATION = 12; // Minutes
 var CHECK_RESERVATION = USER_RESERVATION + 2;
 
-var available = function(ticket, discount, callback) {
+
+var validate = function(ticket_code, discount_code, callback) {
   async.waterfall([
     // Get valid tickets
     function(next) {
       var messages = {};
       var query = Ticket.model.find();
-      if (ticket) {
-        query = query.where('code', ticket);
+      if (ticket_code) {
+        query = query.where('code', ticket_code);
       } else {
         query = query.where('secret', false);
       }
@@ -29,8 +29,11 @@ var available = function(ticket, discount, callback) {
             id: ticket._id,
             code: ticket.code,
             name: ticket.name,
-            price: ticket.price,
+            price: Math.round(ticket.price * 100) / 100,
+            limit: ticket.limit || 10000000,
             available: ticket.limit || 10000000,
+            min: ticket.min,
+            max: ticket.max,
           }
         });
         next(null, tickets, messages);
@@ -38,8 +41,8 @@ var available = function(ticket, discount, callback) {
     },
     // Check if the discount exists or if it is valid
     function(tickets, messages, next) {
-      if (!discount) return next(null, tickets, null, messages);
-      Discount.model.findOne().where('code', discount).where('valid.from').lte(Date.now()).where('valid.until').gte(Date.now()).exec(function(err, result) {
+      if (!discount_code) return next(null, tickets, null, messages);
+      Discount.model.findOne().where('code', discount_code).where('valid.from').lte(Date.now()).where('valid.until').gte(Date.now()).exec(function(err, result) {
         if (err) return next(err);
         if (!result) {
           messages.invalid_discount = true;
@@ -50,15 +53,31 @@ var available = function(ticket, discount, callback) {
           code: result.code,
           flat: result.flat,
           percentage: result.percentage,
-          limit: result.limit,
+          limit: result.limit || 10000000,
+          available: result.limit || 10000000,
+          min: result.min,
+          max: result.max,
         };
         tickets = tickets.filter(function(ticket) {
           return result.tickets.indexOf(ticket.id) >= 0;
         });
-        if (tickets.length) return next(null, tickets, discount, messages);
-        messages.invalid_discount = true;
-        next(null, [], null, messages);
+        if (tickets.length == 0) {
+          messages.invalid_discount = true;
+          return next(null, [], null, messages);
+        }
+        next(null, tickets, discount, messages);
       });
+    },
+  ], function(err, tickets, discount, messages) {
+    callback(err, tickets, discount, messages);
+  });
+};
+
+var available = function(ticket_code, discount_code, callback) {
+  async.waterfall([
+    // Get valid tickets and discount
+    function(next) {
+      validate(ticket_code, discount_code, next);
     },
     // Tickets Availabilty
     function(tickets, discount, messages, next) {
@@ -82,37 +101,52 @@ var available = function(ticket, discount, callback) {
         result.forEach(function(reserved){
           ticket = tickets.filter(function(t) { return t.id.equals(reserved._id); })[0];
           ticket.available -= reserved.total;
+          ticket.max = Math.min(ticket.available, ticket.max);
         });
         next(null, tickets, discount, messages);
       });
     },
-    // TODO: Discounts Availabilty
+    // Discounts Availabilty
     function(tickets, discount, messages, next) {
-      next(null, tickets, discount, messages);
-    },
-    function(tickets, discount, messages, next) {
-      tickets = tickets.filter(function(ticket) {
-        return ticket.available > 0;
+      if (!discount || discount.limit == 0) return next(null, tickets, discount, messages);
+      Order.model.aggregate([
+        {
+          $match: {
+            discount: discount.id,
+            canceled: null,
+            $or: [
+              {paid: {$ne: null}},
+              {reserved: {$gte: new Date(Date.now() - CHECK_RESERVATION * 60000)}}
+            ]
+          }
+        },{
+          $group: {
+            _id: '$discount',
+            total: { $sum: '$quantity'}}
+        }
+      ]).exec(function(err, result) {
+        if (err) return next(err);
+        if (result.length) {
+          discount.available -= result[0].total;
+          discount.max = Math.min(discount.available, discount.max);
+        }
+        next(null, tickets, discount, messages);
       });
-      tickets.forEach(function(ticket) {
-        ticket.price = discount ? (ticket.price - discount.flat) * (1 - discount.percentage / 100)  : ticket.price;
-      });
-      next(null, tickets, discount, messages);
     },
   ], function(err, tickets, discount, messages) {
     callback(err, tickets, discount, messages);
   });
 };
 
-var select = function(ticket, discount, quantity, callback) {
+var select = function(ticket_code, discount_code, quantity, callback) {
   async.waterfall([
     function(next) {
-      available(ticket, discount, next);
+      validate(ticket_code, discount_code, next);
     },
     // Create order
     function(tickets, discount, messages, next) {
-      // TODO: check tickets
-      // TODO: check discount
+      if (tickets.length == 0) return next({code: 'INVALID_TICKET', message: 'Invalid ticket: ' + ticket_code});
+      if (discount_code && !discount) return next({code: 'INVALID_DISCOUNT', message: 'Invalid discount: ' + discount_code});
       var ticket = tickets[0];
       var order = Order.model({
         ticket: ticket.id,
@@ -121,9 +155,8 @@ var select = function(ticket, discount, quantity, callback) {
         reserved: null,
         canceled: null,
         quantity: 0,
-        price: ticket.price,
-        total: ticket.price * quantity,
       });
+      quantity = Math.max(Math.min(quantity, ticket.max, discount ? discount.max : ticket.max), ticket.min, discount ? discount.min : ticket.min);
       order.save(function(err) {
         if (err) return next(err);
         next(null, order, messages);
@@ -141,8 +174,9 @@ var select = function(ticket, discount, quantity, callback) {
         });
       });
     },
-    // Check ticket availability
+    // Check ticket availability if applied
     function(order, messages, next) {
+      if (order.ticket.limit == 0) return next(null, order, messages);
       Order.model.aggregate([
         {
           $match: {
@@ -152,7 +186,7 @@ var select = function(ticket, discount, quantity, callback) {
               {paid: {$ne: null}},
               {reserved: {
                 $gte: new Date(Date.now() - CHECK_RESERVATION * 60000),
-                $lt: order.reserved,
+                $lte: order.reserved,
               }}
             ]
           }
@@ -163,20 +197,19 @@ var select = function(ticket, discount, quantity, callback) {
         }
       ]).exec(function(err, result) {
         if (err) return next(err);
-        var available = {}
         var total = 0;
-        if (result.length) {
-          total = result[0].total;
-        }
-        if (order.ticket.total > 0 && order.ticket.total < total + order.quantity) {
+        if (result.length) total = result[0].total;
+        if (total > order.ticket.limit) {
           messages.less_available = true;
-          quantity = order.ticket.total - total;
+          quantity = order.quantity - (total - order.ticket.limit);
           if (quantity <= 0) {
             messages.sold_out = true;
             quantity = 0;
-            // TODO: mark as canceled
           }
-          order.update({$set: {quantity: quantity}}, {}, function(err){
+          order.quantity = quantity;
+          order.canceled = quantity == 0 ? order.canceled : Date.now();
+          order.update({$set: {quantity: order.quantity, canceled: order.canceled}}, {}, function(err) {
+            if (err) return next(err);
             next(null, order, messages);
           });
         } else {
@@ -184,77 +217,71 @@ var select = function(ticket, discount, quantity, callback) {
         }
       });
     },
-  ], function(err, order, messages) {
-    callback(err, order, messages);
-  });
-};
-
-var checkout = function(data, callback) {
-  async.waterfall([
-    // Get and validate ticket
-    function(next) {
-      var messages = {};
-      Order.model.findOne({
-        _id: data.order,
-        canceled: null,
-        $or: [
-          {paid: {$ne: null}},
-          {reserved: {$gte: new Date(Date.now() - USER_RESERVATION * 60000)}}
-        ]
-      }).populate('ticket discount').exec(function(err, result){
-        // TODO: check error
-        if (err) return next(err);
-        next(null, result, messages);
-      });
-    },
-    // Make purchase
+    // Check discount availability
     function(order, messages, next) {
-      var tco = new Twocheckout({
-        sellerId: process.env.TWOCO_SELLER_ID,
-        privateKey: process.env.TWOCO_PRIVATE_KEY,
-        sandbox: process.env.TWOCO_ENV == 'sandbox' ? true : false,
-      });
-      var params = {
-        'merchantOrderId': order._id,
-        'token': data.token,
-        'currency': 'USD',
-        // 'total': order.total,
-        'lineItems': [{
-          'type': 'product',
-          'name': order.ticket.name + (order.discount ? ' (CODE: ' + order.discount.name  + ')' : ''),
-          'productId': order.ticket._id,
-          'tangible': 'N',
-          'quantity': order.quantity,
-          'price': order.price,
-        }],
-        'billingAddr': {
-          'name': data.name,
-          'email': data.email,
-          'addrLine1': data.address1,
-          'addrLine2': data.address2,
-          'city': data.city,
-          'state': data.state,
-          'zipCode': data.postcode,
-          'country': data.country,
+      if (!order.discount || order.discount.limit == 0) return next(null, order, messages);
+      Order.model.aggregate([
+        {
+          $match: {
+            discount: order.discount._id,
+            canceled: null,
+            $or: [
+              {paid: {$ne: null}},
+              {reserved: {
+                $gte: new Date(Date.now() - CHECK_RESERVATION * 60000),
+                $lte: order.reserved,
+              }}
+            ]
+          }
+        },{
+          $group: {
+            _id: '$discount',
+            total: { $sum: '$quantity'}}
         }
-      };
-      tco.checkout.authorize(params, function (error, data) {
-        if (error) {
-          return next(error.message);
+      ]).exec(function(err, result) {
+        if (err) return next(err);
+        var total = 0;
+        if (result.length) total = result[0].total;
+        if (total > order.discount.limit) {
+          messages.less_available = true;
+          quantity = order.quantity - (total - order.discount.limit);
+          if (quantity <= 0) {
+            messages.sold_out = true;
+            quantity = 0;
+          }
+          order.quantity = quantity;
+          order.canceled = quantity == 0 ? order.canceled : Date.now();
+          order.update({$set: {quantity: order.quantity, canceled: order.canceled}}, {}, function(err) {
+            if (err) return next(err);
+            next(null, order, messages);
+          });
         } else {
-          // TODO: mark as paid
-          // response.send(data.response.responseMsg);
           next(null, order, messages);
         }
       });
     },
-    // TODO: Send email!
+    // Set price
     function(order, messages, next) {
-      next(null, order, messages);
+      var priceTicket = Math.round(order.ticket.price * 100) / 100;
+      var priceDiscount = Math.round(Ticket.calculateDiscount(order.ticket, order.discount) * 100) / 100;
+      order.price.ticket = priceTicket;
+      order.price.discount = priceDiscount;
+      order.total = (priceTicket - priceDiscount) * order.quantity;
+      console.log(order.total);
+      order.paid = order.total > 0 ? order.paid : Date.now();
+      order.update({$set: {'price.ticket': order.price.ticket, 'price.discount': order.price.discount, 'total': order.total, paid: order.paid}}, {}, function(err) {
+        if (err) return next(err);
+        next(null, order, messages);
+      });
     },
   ], function(err, order, messages) {
+    console.log(order, messages);
     callback(err, order, messages);
   });
+};
+
+var assign = function(data, callback) {
+    callback(err);
 };
 
 
@@ -262,13 +289,19 @@ exports = module.exports = {
   available: function(req, res) {
     available(req.query.ticket, req.query.discount, function(err, tickets, discount, messages) {
       // TODO: Check err
-      tickets = tickets.map(function(ticket) {
+      tickets = tickets.filter(function(ticket) {
+        return ticket.available > 0 && (!discount || discount.available > 0);
+      }).map(function(ticket) {
         return {
           code: ticket.code,
           name: ticket.name,
-          price: ticket.price,
+          available: Math.min(ticket.available, discount ? discount.available : ticket.available),
+          min: Math.max(ticket.min, discount ? discount.min : ticket.min),
+          max: Math.min(ticket.max, discount ? discount.max : ticket.max),
+          price: (Math.round(ticket.price * 100) / 100) - (Math.round(Ticket.calculateDiscount(ticket, discount) * 100) / 100),
         };
       });
+      console.log(tickets);
       if (discount) {
         discount = {
           code: discount.code
@@ -285,15 +318,15 @@ exports = module.exports = {
           id: order._id,
           ticket: order.ticket.name,
           quantity: order.quantity,
-          price: order.price,
+          price: order.price.ticket - order.price.discount,
           total: order.total
         }
       }
       return res.apiResponse({order: order, messages: messages});
     });
   },
-  checkout: function(req, res) {
-    checkout(req.body, function(err, order, messages) {
+  assign: function(req, res) {
+    assign(req.body, function(err, order, messages) {
       // TODO: Check err
       if (order) {
         order = {id: order._id}

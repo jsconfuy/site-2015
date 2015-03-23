@@ -22,13 +22,13 @@ exports = module.exports = function(app) {
   app.all('/workshops', routes.views.cfw);
   app.get('/blog/:category?', routes.views.blog);
   app.get('/blog/post/:post', routes.views.post);
-  app.get('/attendees/:order', routes.views.attendees);
+  app.get('/purchase/:order?', routes.views.purchase);
 
   // API
   app.all('/api*', keystone.middleware.api);
   app.get('/api/tickets/available', routes.api.tickets.available);
   app.post('/api/tickets/select', routes.api.tickets.select);
-  app.post('/api/tickets/checkout', routes.api.tickets.checkout);
+  app.post('/api/tickets/assign', routes.api.tickets.assign);
 
   // app.get('/protected', middleware.requireUser, routes.views.protected);
 

@@ -133,53 +133,24 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                 .step.step-select
                   .loading
                     .loader
+                  .discount
+                    .code
                   .soldout
                     | We're sold out.
                   .tickets
                     ul
-                  .discount
-                    .code
                   .note
                     | Any questions please contact 
                     a(href='mailto:hola@jsonf.uy', target='_blank') hola@jsconf.uy
                 .step.step-payment
                   .loading
                     .loader
-                  .info
-                    .data
-                      .title Personal Info
-                  .info
-                    .data
-                      input(name='name', required='true', placeholder='Full name', value='Joe Flagster')
-                    .data
-                      input(name='email', required='true', placeholder='Email address', value='pricco@jsconf.uy')
-                  .info
-                    .data
-                      .title Billing Address
-                      input(name='address1', required='true', placeholder='Address', value='123 Main Street')
-                      input(name='address2', placeholder='')
-                      input(name='city', required='true', placeholder='City', value='Townsville')
-                      input(name='state', required='true', placeholder='State', value='Ohio')
-                      input(name='postcode', required='true', placeholder='Zip code', value='43206')
-                      input(name='country', required='true', placeholder='Country', value='USA')
-                    .data
-                      .title Card
-                      input(name='card_number', required='true', autocomplete='off', placeholder='Card number', value='4000000000000002')
-                      .info
-                        .data
-                          input(name='card_expiration_month', required='true', autocomplete='off', placeholder='MM', value='12')
-                          |  /
-                          input(name='card_expiration_year', required='true', autocomplete='off', placeholder='YY', value='16')
-                        .data
-                          input(name='card_cvc', required='true', autocomplete='off', placeholder='CVC', value='999')
-                      .legendary
-                        img(src='/images/base/2checkout.png')
-                      .detail
-                      .total
-                      .action
-                        button Place Order
+                  .invoice
+                    .detail
+                    .pay
+                      button Pay
                   .note
-                    | We don't store your credit card information.
+                    | A popup will be open to process with the checkout.
                     br
                     | At this point your tickets has been reserved. You have 12 minutes to complete your payment or these will be released.
                     br
@@ -190,9 +161,15 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                     .loader
                   .thanks
                     | Thank you!
-                  .more
-                    a(href='#', target='_blank') Please set the persornal information for each attendee.
-
+                  .attendees
+                    .help You can complete this step later.
+                    ul
+                      li
+                        .title
+                        .name
+                          input(name='name', required='true', placeholder='Name', value='Joe Flagster')
+                        .email
+                          input(name='email', required='true', placeholder='Email address', value='pricco@jsconf.uy')
     block footer
       footer
         .footer
@@ -221,11 +198,6 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
             a(href='//meetup.com/mvd-js') Open Web Uruguay
             a(href='/code-of-conduct') Code of Conduct
 
-    script.
-      var TWOCO_ENV = '#{twoco_env}';
-      var TWOCO_SELLER_ID = '#{twoco_seller_id}';
-      var TWOCO_PUBLIC_KEY = '#{twoco_public_key}';
-    script(src='//www.2checkout.com/checkout/api/2co.min.js')
     script(src='//maps.googleapis.com/maps/api/js?sensor=false')
     script(src='/js/lib/jquery/jquery-2.1.1.min.js')
     script(src='/js/lib/bootstrap/bootstrap-3.2.0.min.js')

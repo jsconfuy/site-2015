@@ -1,0 +1,38 @@
+html
+  body
+  if processed
+    script.
+      window.opener.purchaseCompleted(null);
+      window.close();
+  else
+    if order
+      form#purchase(action=twoco_env == 'sandbox' ? 'https://sandbox.2checkout.com/checkout/purchase': 'https://www.2checkout.com/checkout/purchase', method='post')
+        input(type='hidden', name='merchant_order_id', value=order._id)
+        input(type='hidden', name='sid', value=twoco_seller_id)
+        input(type='hidden', name='mode', value='2CO')
+        input(type='hidden', name='li_0_type', value='product')
+        input(type='hidden', name='li_0_name', value='#{order.ticket.name}')
+        input(type='hidden', name='li_0_product_id', value='#{order.ticket.code}')
+        input(type='hidden', name='li_0_price', value='#{order.price.ticket}')
+        input(type='hidden', name='li_0_quantity', value='#{order.quantity}')
+        input(type='hidden', name='li_0_tangible', value='N')
+        if order.discount
+          input(type='hidden', name='li_1_type', value='coupon')
+          input(type='hidden', name='li_1_name', value='#{order.discount.name}')
+          input(type='hidden', name='li_1_product_id', value='#{order.discount.code}')
+          input(type='hidden', name='li_1_price', value='#{order.price.discount}')
+          input(type='hidden', name='li_1_quantity', value='#{order.quantity}')
+          input(type='hidden', name='li_1_tangible', value='N')
+        if twoco_env == 'sandbox'
+          input(type='hidden', name='card_holder_name', value='Pablo Ricco')
+          input(type='hidden', name='email', value='pricco@jsconf.uy')
+          input(type='hidden', name='street_address', value='123 Test St')
+          input(type='hidden', name='street_address2', value='Suite 200')
+          input(type='hidden', name='city', value='Columbus')
+          input(type='hidden', name='state', value='OH')
+          input(type='hidden', name='zip', value='43228')
+          input(type='hidden', name='country', value='USA')
+        script.
+          document.getElementById("purchase").submit();
+    else
+      h1 ERROR

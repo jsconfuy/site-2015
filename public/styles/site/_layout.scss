@@ -309,6 +309,7 @@ body > footer {
     .step {
       margin: 20px 0 0 0;
       .note {
+        @include clearfix();
         border-top: 1px solid $gray-light;
         margin: 10px 0 0 0;
         padding: 10px 0 0 0;
@@ -320,26 +321,26 @@ body > footer {
           position: relative;
           height: 150px;
         }
-        .tickets {
-          .discount {
-            text-align: right;
-            text-transform: uppercase;
-            font-weight: bold;
-            font-size: 20px;
-            margin: 0 0 20px 0;
-            .code {
-              display: inline-block;
-              padding: 4px 8px;
-              border: 2px solid $blue;
-              background-color: $white;
-              color: $blue;
-              &.error {
-                border: 2px solid $brand-danger;
-                background-color: $brand-danger;
-                color: $white;
-              }
+        .discount {
+          text-align: center;
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: 16px;
+          margin: 0 0 20px 0;
+          .code {
+            display: inline-block;
+            padding: 4px 8px;
+            border: 2px solid $blue;
+            background-color: $white;
+            color: $blue;
+            &.error {
+              border: 2px solid $brand-danger;
+              background-color: $brand-danger;
+              color: $white;
             }
           }
+        }
+        .tickets {
           ul {
             padding: 0;
             margin: 0 0 40px 0;
@@ -397,6 +398,44 @@ body > footer {
         .loading {
           position: relative;
           height: 150px;
+        }
+        .invoice {
+          @include clearfix();
+          display: block;
+          padding: 0;
+          margin: 0 0 20px 0;
+          .detail {
+            text-align: left;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: $blue;
+            float: left;
+            width: 60%;
+          }
+          .pay {
+            float: left;
+            width: 40%;
+            text-align: right;
+            button {
+              padding: 4px 14px;
+              background-color: $blue;
+              color: $white;
+              border: 0;
+            }
+          }
+        }
+      }
+      &.step-assign {
+        .thanks {
+          text-align: center;
+          text-transform: uppercase;
+          font-weight: bold;
+          padding: 10px 20px;
+          border: 3px solid $blue;
+          color: $blue;
+          font-size: 20px;
+          width: 270px;
+          margin: 40px auto;
         }
         .info {
           @include clearfix();
@@ -462,26 +501,6 @@ body > footer {
               border: 0;
             }
           }
-        }
-      }
-      &.step-assign {
-        .loading {
-          position: relative;
-          height: 150px;
-        }
-        .thanks {
-          text-align: center;
-          text-transform: uppercase;
-          font-weight: bold;
-          padding: 10px 20px;
-          border: 3px solid $blue;
-          color: $blue;
-          font-size: 20px;
-          width: 270px;
-          margin: 40px auto;
-        }
-        .more {
-          text-align: center;
         }
       }
     }

@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "2checkout-node": "0.0.1",
     "async": "^0.9.0",
     "dotenv": "^0.5.1",
     "keystone": "^0.3.2",

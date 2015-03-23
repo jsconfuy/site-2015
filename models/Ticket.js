@@ -21,6 +21,8 @@ Ticket.add({
   },
   price: { type: Types.Money },
   limit: { type: Types.Number, default: 0, note: '0 for no limit.' },
+  min: { type: Types.Number, default: 1, note: 'Minimun per purchase' },
+  max: { type: Types.Number, default: 5, note: 'Maximun per purchase' },
   sold: { type: Types.Number, default: 0, noedit: true },
   secret: { type: Types.Boolean, default: true, indent: true },
 });
@@ -28,6 +30,14 @@ Ticket.add({
 Ticket.schema.virtual('total').get(function() {
   return this.limit || '∞';
 }).depends = 'limit';
+
+Ticket.calculateDiscount = function(ticket, discount) {
+  var value = discount ? discount.flat + (discount.percentage / 100 * ticket.price) : 0;
+  if (value > ticket.price) {
+    return ticket.price;
+  }
+  return value;
+};
 
 Ticket.defaultColumns = 'code, name, saleFrom, saleUntil, price, sold, total, secret';
 Ticket.register();

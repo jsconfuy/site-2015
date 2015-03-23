@@ -6202,22 +6202,27 @@ body > footer {
     padding: 10px 0 0 0;
     font-size: 80%;
     color: #999999; }
+    #buy .steps .step .note:before, #buy .steps .step .note:after {
+      content: " ";
+      display: table; }
+    #buy .steps .step .note:after {
+      clear: both; }
   #buy .steps .step.step-select .loading {
     position: relative;
     height: 150px; }
-  #buy .steps .step.step-select .tickets .discount {
-    text-align: right;
+  #buy .steps .step.step-select .discount {
+    text-align: center;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 16px;
     margin: 0 0 20px 0; }
-    #buy .steps .step.step-select .tickets .discount .code {
+    #buy .steps .step.step-select .discount .code {
       display: inline-block;
       padding: 4px 8px;
       border: 2px solid #254164;
       background-color: #ffffff;
       color: #254164; }
-      #buy .steps .step.step-select .tickets .discount .code.error {
+      #buy .steps .step.step-select .discount .code.error {
         border: 2px solid #d9534f;
         background-color: #d9534f;
         color: #ffffff; }
@@ -6271,63 +6276,31 @@ body > footer {
   #buy .steps .step.step-payment .loading {
     position: relative;
     height: 150px; }
-  #buy .steps .step.step-payment .info:before, #buy .steps .step.step-payment .info:after {
-    content: " ";
-    display: table; }
-  #buy .steps .step.step-payment .info:after {
-    clear: both; }
-  #buy .steps .step.step-payment .info .data {
-    float: left;
-    width: 50%;
-    padding: 0 10px; }
-    #buy .steps .step.step-payment .info .data:before, #buy .steps .step.step-payment .info .data:after {
+  #buy .steps .step.step-payment .invoice {
+    display: block;
+    padding: 0;
+    margin: 0 0 20px 0; }
+    #buy .steps .step.step-payment .invoice:before, #buy .steps .step.step-payment .invoice:after {
       content: " ";
       display: table; }
-    #buy .steps .step.step-payment .info .data:after {
+    #buy .steps .step.step-payment .invoice:after {
       clear: both; }
-    #buy .steps .step.step-payment .info .data:nth-child(odd) {
-      padding: 0 10px 0 0; }
-    #buy .steps .step.step-payment .info .data:nth-child(even) {
-      padding: 0 0 0 10px; }
-    #buy .steps .step.step-payment .info .data input {
-      border: 1px solid #e0e0d9;
-      width: 100%;
-      padding: 4px;
-      margin: 0 0 10px 0; }
-      #buy .steps .step.step-payment .info .data input[name=card_expiration_month], #buy .steps .step.step-payment .info .data input[name=card_expiration_year] {
-        width: 40%; }
-      #buy .steps .step.step-payment .info .data input:focus {
-        outline: 2px solid #254164; }
-      #buy .steps .step.step-payment .info .data input.error {
-        border-color: red; }
-  #buy .steps .step.step-payment .info .title {
-    margin: 15px 0 10px 0;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #254164;
-    font-size: 20px; }
-  #buy .steps .step.step-payment .info .legendary img {
-    display: block;
-    width: 100%; }
-  #buy .steps .step.step-payment .info .separator {
-    border-top: 1px dashed #666666;
-    margin: 20px 0 20px 0; }
-  #buy .steps .step.step-payment .info .detail {
-    text-align: right;
-    margin: 0 0 10px 0; }
-  #buy .steps .step.step-payment .info .total {
-    text-align: right;
-    margin: 0 0 10px 0; }
-  #buy .steps .step.step-payment .info .action {
-    text-align: right; }
-    #buy .steps .step.step-payment .info .action button {
-      padding: 4px 14px;
-      background-color: #254164;
-      color: #ffffff;
-      border: 0; }
-  #buy .steps .step.step-assign .loading {
-    position: relative;
-    height: 150px; }
+    #buy .steps .step.step-payment .invoice .detail {
+      text-align: left;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: #254164;
+      float: left;
+      width: 60%; }
+    #buy .steps .step.step-payment .invoice .pay {
+      float: left;
+      width: 40%;
+      text-align: right; }
+      #buy .steps .step.step-payment .invoice .pay button {
+        padding: 4px 14px;
+        background-color: #254164;
+        color: #ffffff;
+        border: 0; }
   #buy .steps .step.step-assign .thanks {
     text-align: center;
     text-transform: uppercase;
@@ -6338,8 +6311,60 @@ body > footer {
     font-size: 20px;
     width: 270px;
     margin: 40px auto; }
-  #buy .steps .step.step-assign .more {
-    text-align: center; }
+  #buy .steps .step.step-assign .info:before, #buy .steps .step.step-assign .info:after {
+    content: " ";
+    display: table; }
+  #buy .steps .step.step-assign .info:after {
+    clear: both; }
+  #buy .steps .step.step-assign .info .data {
+    float: left;
+    width: 50%;
+    padding: 0 10px; }
+    #buy .steps .step.step-assign .info .data:before, #buy .steps .step.step-assign .info .data:after {
+      content: " ";
+      display: table; }
+    #buy .steps .step.step-assign .info .data:after {
+      clear: both; }
+    #buy .steps .step.step-assign .info .data:nth-child(odd) {
+      padding: 0 10px 0 0; }
+    #buy .steps .step.step-assign .info .data:nth-child(even) {
+      padding: 0 0 0 10px; }
+    #buy .steps .step.step-assign .info .data input {
+      border: 1px solid #e0e0d9;
+      width: 100%;
+      padding: 4px;
+      margin: 0 0 10px 0; }
+      #buy .steps .step.step-assign .info .data input[name=card_expiration_month], #buy .steps .step.step-assign .info .data input[name=card_expiration_year] {
+        width: 40%; }
+      #buy .steps .step.step-assign .info .data input:focus {
+        outline: 2px solid #254164; }
+      #buy .steps .step.step-assign .info .data input.error {
+        border-color: red; }
+  #buy .steps .step.step-assign .info .title {
+    margin: 15px 0 10px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #254164;
+    font-size: 20px; }
+  #buy .steps .step.step-assign .info .legendary img {
+    display: block;
+    width: 100%; }
+  #buy .steps .step.step-assign .info .separator {
+    border-top: 1px dashed #666666;
+    margin: 20px 0 20px 0; }
+  #buy .steps .step.step-assign .info .detail {
+    text-align: right;
+    margin: 0 0 10px 0; }
+  #buy .steps .step.step-assign .info .total {
+    text-align: right;
+    margin: 0 0 10px 0; }
+  #buy .steps .step.step-assign .info .action {
+    text-align: right; }
+    #buy .steps .step.step-assign .info .action button {
+      padding: 4px 14px;
+      background-color: #254164;
+      color: #ffffff;
+      border: 0; }
 
 /* Loader */
 .loader:before, .loader:after, .loader {
