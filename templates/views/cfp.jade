@@ -87,7 +87,6 @@ block content
             p We'll contact you shortly.
           else
             h2#submit Submit
-            // +flash-messages(messages)
             form(method='post', action='/proposals#submit')
               - var errors = cfp.errors || {}
               - var data = cfp.data || {}
