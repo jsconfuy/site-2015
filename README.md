@@ -1,29 +1,17 @@
-# TODO
-- [ ] Add bower
-- [ ] Create VoteField for proposals
-- [ ] Autoload scss changes
-- [ ] Wait for patch: https://github.com/keystonejs/keystone/issues/1065
-- [ ] Add jshintrc
+# JSConf Uruguay Site 2015
+[![travis][travis-image]][travis-url]
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/feross/standard)
 
-# Design
-- [ ] Apply design
-- [ ] Fix navbar (fixed)
-- [ ] Fill venue page
-- [ ] Add footer
+[travis-image]: https://img.shields.io/travis/jsconfuy/site-2015.svg?style=flat
+[travis-url]: https://travis-ci.org/jsconfuy/site-2015
 
-# Tickets
-- [ ] Allow null for valid from and until
-- [ ] Allow null for sale from and until
+## 2Checkout Test:
+Sample Test Data:
 
+k
+Card Authorization Success: 4000000000000002
 
-# 2Checkout Test:
-Sample Test Data
-
-Card Authorization Success
-4000000000000002
-
-Card Authorization Success
-4222222222222220
+Card Authorization Success: 4222222222222220
 
 Card Authorization Decline
 4333433343334333
