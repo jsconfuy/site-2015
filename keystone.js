@@ -1,8 +1,8 @@
-require('dotenv').load();
+require('dotenv').load()
 
-var keystone = require('keystone');
+var keystone = require('keystone')
 
-require('./lib/patchs');
+require('./lib/patchs')
 
 keystone.init({
 
@@ -23,9 +23,9 @@ keystone.init({
   'user model': 'User',
   'cookie secret': '^v]|AGh(!xqsSq>OUl%<vSwxEh6WzFyN&v"Si0auh<xW1.6p_>lt>u8N"m.Q_Hzu'
 
-});
+})
 
-keystone.import('models');
+keystone.import('models')
 
 // Setup common locals for your templates. The following are required for the
 // bundled templates and layouts. Any runtime locals (that should be set uniquely
@@ -36,16 +36,16 @@ keystone.set('locals', {
   env: keystone.get('env'),
   utils: keystone.utils,
   editable: keystone.content.editable
-});
+})
 
 // Load your project's Routes
 
-keystone.set('routes', require('./routes'));
+keystone.set('routes', require('./routes'))
 
-if (keystone.get('env') != 'production') {
-  keystone.set('sass options', { force: true });
+if (keystone.get('env') !== 'production') {
+  keystone.set('sass options', { force: true })
 }
-keystone.set('cloudinary secure', true);
+keystone.set('cloudinary secure', true)
 
 // Setup common locals for your emails. The following are required by Keystone's
 // default email templates, you may remove them if you're using your own.
@@ -63,7 +63,7 @@ keystone.set('email locals', {
       border_color: '#1a7cb7'
     }
   }
-});
+})
 
 // Setup replacement rules for emails, to automate the handling of differences
 // between development a production.
@@ -73,15 +73,15 @@ keystone.set('email locals', {
 
 keystone.set('email rules', [{
   find: '/images/',
-  replace: (keystone.get('env') == 'production') ? 'https://jsconf.uy/images/' : 'http://localhost:3000/images/'
+  replace: (keystone.get('env') === 'production') ? 'https://jsconf.uy/images/' : 'http://localhost:3000/images/'
 }, {
   find: '/keystone/',
-  replace: (keystone.get('env') == 'production') ? 'https://jsconf.uy/keystone/' : 'http://localhost:3000/keystone/'
-}]);
+  replace: (keystone.get('env') === 'production') ? 'https://jsconf.uy/keystone/' : 'http://localhost:3000/keystone/'
+}])
 
 // Load your project's email test routes
 
-keystone.set('email tests', require('./routes/emails'));
+keystone.set('email tests', require('./routes/emails'))
 
 // Configure the navigation bar in Keystone's Admin UI
 
@@ -89,8 +89,7 @@ keystone.set('nav', {
   'conference': ['proposals', 'speakers', 'talks', 'workshops', 'organizers'],
   'sales': ['tickets', 'orders', 'attendees', 'discounts', 'sponsors', 'sponsor-levels'],
   'blog': ['posts', 'post-categories'],
-  'others': ['users', 'tags', 'galleries'],
-  'enquiries': 'enquiries',
-});
+  'others': ['users', 'tags', 'galleries']
+})
 
-keystone.start();
+keystone.start()
