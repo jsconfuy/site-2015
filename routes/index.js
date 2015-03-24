@@ -15,7 +15,6 @@ exports = module.exports = function (app) {
   app.get('/hotels', routes.views.hotels)
   app.get('/agenda', routes.views.agenda)
   app.get('/code-of-conduct', routes.views.coc)
-  app.all('/contact', routes.views.contact)
   app.all('/proposals', routes.views.cfp)
   app.all('/workshops', routes.views.cfw)
   app.get('/blog/:category?', routes.views.blog)

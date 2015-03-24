@@ -1,5 +1,5 @@
-var keystone = require('keystone'),
-  Types = keystone.Field.Types;
+var keystone = require('keystone')
+var Types = keystone.Field.Types
 
 /**
  * Speakers Model
@@ -10,10 +10,10 @@ var Speaker = new keystone.List('Speaker', {
   map: { name: 'name' },
   autokey: { path: 'slug', from: 'name', unique: true },
   sortable: true,
-  track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true},
-});
+  track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true}
+})
 
-Speaker.STATUS_CONFIRMED = 'C';
+Speaker.STATUS_CONFIRMED = 'C'
 
 Speaker.add({
   name: { type: String, required: true },
@@ -28,16 +28,16 @@ Speaker.add({
   picture: { type: Types.CloudinaryImage },
   biography: {
     short: { type: Types.Markdown },
-    full: { type: Types.Markdown },
+    full: { type: Types.Markdown }
   },
   twitter: { type: String },
   published: { type: Types.Datetime },
   notes: { type: Types.Markdown },
-  tags: { type: Types.Relationship, ref: 'Tag', many: true },
-});
+  tags: { type: Types.Relationship, ref: 'Tag', many: true }
+})
 
-Speaker.relationship({ ref: 'Talk', refPath: 'speakers', path: 'talks' });
-Speaker.relationship({ ref: 'Workshop', refPath: 'speakers', path: 'workshops' });
+Speaker.relationship({ ref: 'Talk', refPath: 'speakers', path: 'talks' })
+Speaker.relationship({ ref: 'Workshop', refPath: 'speakers', path: 'workshops' })
 
-Speaker.defaultColumns = 'name, email, residence, tags, status, assignee, published';
-Speaker.register();
+Speaker.defaultColumns = 'name, email, residence, tags, status, assignee, published'
+Speaker.register()

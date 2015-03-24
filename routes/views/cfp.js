@@ -2,14 +2,14 @@
 // var Proposal = keystone.list('Proposal')
 
 exports = module.exports = function (req, res) {
-  // var view = new keystone.View(req, res)
+  /*
+  var view = new keystone.View(req, res)
   var locals = res.locals
   locals.cfp = {}
   locals.cfp.data = req.body || {}
   locals.cfp.errors = {}
   locals.cfp.submitted = false
 
-  /*
   view.on('post', { action: 'submit' }, function (next) {
     var proposal = new Proposal.model()
     var updater = proposal.getUpdateHandler(req)

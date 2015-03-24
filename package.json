@@ -29,7 +29,7 @@
   },
   "standard": {
     "ignore": [
-      "**/lib/jquery/**"
+      "**/js/**"
     ]
   },
   "main": "keystone.js"

@@ -1,23 +1,22 @@
-var keystone = require('keystone'),
-  Proposal = keystone.list('Proposal');
+// var keystone = require('keystone')
+// var  Proposal = keystone.list('Proposal')
 
-exports = module.exports = function(req, res) {
-
-  var view = new keystone.View(req, res),
-    locals = res.locals;
-
-  locals.cfw = {};
-  locals.cfw.data = req.body || {};
-  locals.cfw.errors = {};
-  locals.cfw.submitted = false;
-
+exports = module.exports = function (req, res) {
   /*
+  var view = new keystone.View(req, res)
+  var locals = res.locals
+
+  locals.cfw = {}
+  locals.cfw.data = req.body || {}
+  locals.cfw.errors = {}
+  locals.cfw.submitted = false
+
   view.on('post', { action: 'submit' }, function(next) {
     var proposal = new Proposal.model(),
-      updater = proposal.getUpdateHandler(req);
+      updater = proposal.getUpdateHandler(req)
 
-    proposal.type = 'W';
-    proposal.coasted = true;
+    proposal.type = 'W'
+    proposal.coasted = true
 
     updater.process(req.body, {
       flashErrors: true,
@@ -26,17 +25,17 @@ exports = module.exports = function(req, res) {
       errorMessage: 'There was a problem submitting your workshop proposal:'
     }, function(err) {
       if (err) {
-        locals.cfw.errors = err.errors;
+        locals.cfw.errors = err.errors
       } else {
-        locals.cfw.submitted = true;
+        locals.cfw.submitted = true
       }
-      next();
-    });
+      next()
+    })
 
-  });
+  })
 
-  view.render('cfw');
+  view.render('cfw')
   */
-  res.redirect('/');
+  res.redirect('/')
 
-};
+}
