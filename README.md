@@ -1,4 +1,6 @@
 # JSConf Uruguay Site 2015
+
+[![Join the chat at https://gitter.im/jsconfuy/site-2015](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jsconfuy/site-2015?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![travis][travis-image]][travis-url]
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/feross/standard)
 [![dependency status](https://david-dm.org/jsconfuy/site-2015.svg?theme=shields.io)](https://david-dm.org/jsconfuy/site-2015)
