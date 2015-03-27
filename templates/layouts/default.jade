@@ -127,6 +127,13 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                 .indicator.indicator-assign
                   i(class='fa fa-ticket')
                   span Assign
+              .product-description
+                | A Ticket includes:
+                ul
+                  li Two day access Lanyard.
+                  li Lunch both days.
+                  li Breakfast and coffee-breaks.
+                  li A cool T-Shirt.
               .steps
                 .step.step-select
                   .loading
@@ -138,7 +145,8 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                   .tickets
                     ul
                   .note
-                    | Any questions please contact 
+                    | To participate in the conference you must adhere to
+                    a(href='/code-of-conduct', target='_blank') our code of conduct. Any questions you may have email us at
                     a(href='mailto:hola@jsconf.uy', target='_blank') hola@jsconf.uy
                 .step.step-payment
                   .loading
