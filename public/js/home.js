@@ -13,7 +13,8 @@
     }
   });
 
-  $('#tickets-sale .countdown').countdown('2015/03/27 12:00:00', function (clock) {
+  var start = new Date(Date.UTC(2015, 2, 27, 17, 0, 0));
+  $('#tickets-sale .countdown').countdown(start, function (clock) {
     countdownTime = clock.strftime('%D day%!d %H:%M:%S');
     $(this).text(countdownTime);
   });

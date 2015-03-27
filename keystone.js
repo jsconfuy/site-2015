@@ -48,7 +48,7 @@ keystone.set('cloudinary secure', true)
 // Setup common locals for your emails. The following are required by Keystone's
 // default email templates, you may remove them if you're using your own.
 keystone.set('email locals', {
-  base_url: process.env.BASE_URL,
+  base_url: process.env.BASE_URL
 })
 
 // Configure the navigation bar in Keystone's Admin UI

@@ -9,6 +9,7 @@
     "dotenv": "^1.0.0",
     "keystone": "^0.3.4",
     "keystone-utils": "^0.1.13",
+    "loggly": "^1.0.8",
     "moment": "^2.9.0",
     "node-sass": "^2.0.1",
     "node-sass-middleware": "^0.5.0",

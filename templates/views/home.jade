@@ -26,12 +26,16 @@ block top
         a(href='/code-of-conduct') Code of Conduct
       li(class=(section == 'blog' ? 'active' : null))
         a(href='/blog') Blog
-      // li
-      //  a(href='javascript:void(0);', data-buy) Buy
       li
         a(href='http://2014.jsconf.uy/') Last Year
+      li
+        a(href='javascript:void(0);', data-buy) Buy Ticket!
 
 block content
+  #tickets-sale.tickets-sale
+    h2.countdown-title
+      | Early birds begins in...
+    span.countdown
   #speakers.speakers
       h1 Meet the Speakers
       ul
@@ -48,11 +52,6 @@ block content
             if speaker.twitter
               a(href='//twitter.com/#{speaker.twitter}')
                 i(class='fa fa-twitter')
-  #tickets-sale.tickets-sale
-    h2.countdown-title
-      | Early birds begins in...
-    span.countdown
-  
   #sponsors.sponsors
     h1 Sponsors
     ul
