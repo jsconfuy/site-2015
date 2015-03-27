@@ -135,8 +135,9 @@
 
       .buy-tickets {
         display: none;
+        text-align: center;
 
-        a {
+        a, .sold-out {
           display: block;
           background: url("/images/home/tickets.svg") no-repeat;
           background-position: center;
@@ -152,6 +153,11 @@
                -moz-transform: scale(1.05);
                     transform: scale(1.05);
           }
+        }
+
+        .sold-out {
+          background: url("/images/home/tickets-sold.svg") no-repeat;
+          background-position: center;
         }
       }
 

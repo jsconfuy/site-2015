@@ -6361,8 +6361,9 @@ body > footer {
       padding: 80px;
       width: 100%; }
       .home body .tickets-sale .buy-tickets {
-        display: none; }
-        .home body .tickets-sale .buy-tickets a {
+        display: none;
+        text-align: center; }
+        .home body .tickets-sale .buy-tickets a, .home body .tickets-sale .buy-tickets .sold-out {
           display: block;
           background: url("/images/home/tickets.svg") no-repeat;
           background-position: center;
@@ -6372,10 +6373,15 @@ body > footer {
           -moz-transition: transform 200ms;
           transition: transform 200ms;
           width: 100%; }
-          .home body .tickets-sale .buy-tickets a:hover {
+          .home body .tickets-sale .buy-tickets a:hover, .home body .tickets-sale .buy-tickets .sold-out:hover {
             -webkit-transform: scale(1.05);
             -moz-transform: scale(1.05);
             transform: scale(1.05); }
+        .home body .tickets-sale .buy-tickets .sold-out {
+          margin: auto auto;
+          text-align: center;
+          background: url("/images/home/tickets-sold.svg") no-repeat;
+          background-position: center; }
       .home body .tickets-sale .countdown .countdown-title {
         color: #ffffff; }
       .home body .tickets-sale .countdown .countdown-clock {
