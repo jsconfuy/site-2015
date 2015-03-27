@@ -128,23 +128,46 @@
       }
     }
     .tickets-sale {
-      background: $gray-lighter;
+      background: $red;
+      color: $white;
       padding: 80px;
       width: 100%;
-      .countdown-title {
 
+      .buy-tickets {
+        display: none;
+
+        a {
+          display: block;
+          background: url("/images/home/tickets.svg") no-repeat;
+          background-position: center;
+          height: 300px;
+          margin: auto;
+          -webkit-transition: transform 200ms;
+             -moz-transition: transform 200ms;
+                  transition: transform 200ms;
+          width: 100%;
+
+          &:hover {
+            -webkit-transform: scale(1.05);
+               -moz-transform: scale(1.05);
+                    transform: scale(1.05);
+          }
+        }
       }
+
       .countdown {
-        border: 3px solid $blue;
-        color: $blue;
-        display: block;
-        font-size: 20px;
-        font-weight: bold;
-        margin: 40px auto;
-        padding: 10px 20px;
-        text-align: center;
-        text-transform: uppercase;
-        width: 270px;
+        .countdown-title {
+          color: $white;
+        }
+        .countdown-clock {
+          display: block;
+          font-size: 3em;
+          margin: auto;
+          text-align: center;
+          .days {
+            font-size: 0.5em;
+          }
+        }
       }
     }
     .sponsors {

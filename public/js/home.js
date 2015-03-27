@@ -14,9 +14,25 @@
   });
 
   var start = new Date(Date.UTC(2015, 2, 27, 17, 0, 0));
-  $('#tickets-sale .countdown').countdown(start, function (clock) {
-    countdownTime = clock.strftime('%D day%!d %H:%M:%S');
-    $(this).text(countdownTime);
+  var countdown = $('.countdown-clock').countdown(start);
+
+  countdown.on('update.countdown', function (clock) {
+    countdownTime = '';
+
+    if (clock.offset.days > 1) {
+      countdownTime += clock.strftime('%D ');
+      countdownTime += '<span class="days">';
+      countdownTime += clock.strftime('day%!d');
+      countdownTime += '</span> ';
+    }
+    countdownTime += clock.strftime('%H:%M:%S');
+
+    $(this).html(countdownTime);
+  });
+
+  countdown.on('finish.countdown', function () {
+    $('.countdown').hide();
+    $('.buy-tickets').fadeIn(200);
   });
 
 }());
