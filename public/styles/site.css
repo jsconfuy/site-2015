@@ -190,7 +190,7 @@ td, th {
     display: none; }
   .table td, .table th {
     background-color: #fff !important; }
-  .btn > .caret, .dropup > .btn > .caret {
+  .btn > .caret, .hotels .book-hotel-btn > .caret, .dropup > .btn > .caret, .hotels .dropup > .book-hotel-btn > .caret {
     border-top-color: #000 !important; }
   .label {
     border: 1px solid #000; }
@@ -1305,9 +1305,9 @@ input[type="search"] {
 input[type="date"], input[type="time"], input[type="datetime-local"], input[type="month"] {
   line-height: 42px;
   line-height: 1.6 \0; }
-  input[type="date"].input-sm, .form-horizontal .form-group-sm input[type="date"].form-control, .input-group-sm > input[type="date"].form-control, .input-group-sm > input[type="date"].input-group-addon, .input-group-sm > .input-group-btn > input[type="date"].btn, input[type="time"].input-sm, .form-horizontal .form-group-sm input[type="time"].form-control, .input-group-sm > input[type="time"].form-control, .input-group-sm > input[type="time"].input-group-addon, .input-group-sm > .input-group-btn > input[type="time"].btn, input[type="datetime-local"].input-sm, .form-horizontal .form-group-sm input[type="datetime-local"].form-control, .input-group-sm > input[type="datetime-local"].form-control, .input-group-sm > input[type="datetime-local"].input-group-addon, .input-group-sm > .input-group-btn > input[type="datetime-local"].btn, input[type="month"].input-sm, .form-horizontal .form-group-sm input[type="month"].form-control, .input-group-sm > input[type="month"].form-control, .input-group-sm > input[type="month"].input-group-addon, .input-group-sm > .input-group-btn > input[type="month"].btn {
+  input[type="date"].input-sm, .form-horizontal .form-group-sm input[type="date"].form-control, .input-group-sm > input[type="date"].form-control, .input-group-sm > input[type="date"].input-group-addon, .input-group-sm > .input-group-btn > input[type="date"].btn, .hotels .input-group-sm > .input-group-btn > input[type="date"].book-hotel-btn, input[type="time"].input-sm, .form-horizontal .form-group-sm input[type="time"].form-control, .input-group-sm > input[type="time"].form-control, .input-group-sm > input[type="time"].input-group-addon, .input-group-sm > .input-group-btn > input[type="time"].btn, .hotels .input-group-sm > .input-group-btn > input[type="time"].book-hotel-btn, input[type="datetime-local"].input-sm, .form-horizontal .form-group-sm input[type="datetime-local"].form-control, .input-group-sm > input[type="datetime-local"].form-control, .input-group-sm > input[type="datetime-local"].input-group-addon, .input-group-sm > .input-group-btn > input[type="datetime-local"].btn, .hotels .input-group-sm > .input-group-btn > input[type="datetime-local"].book-hotel-btn, input[type="month"].input-sm, .form-horizontal .form-group-sm input[type="month"].form-control, .input-group-sm > input[type="month"].form-control, .input-group-sm > input[type="month"].input-group-addon, .input-group-sm > .input-group-btn > input[type="month"].btn, .hotels .input-group-sm > .input-group-btn > input[type="month"].book-hotel-btn {
     line-height: 36px; }
-  input[type="date"].input-lg, .form-horizontal .form-group-lg input[type="date"].form-control, .input-group-lg > input[type="date"].form-control, .input-group-lg > input[type="date"].input-group-addon, .input-group-lg > .input-group-btn > input[type="date"].btn, input[type="time"].input-lg, .form-horizontal .form-group-lg input[type="time"].form-control, .input-group-lg > input[type="time"].form-control, .input-group-lg > input[type="time"].input-group-addon, .input-group-lg > .input-group-btn > input[type="time"].btn, input[type="datetime-local"].input-lg, .form-horizontal .form-group-lg input[type="datetime-local"].form-control, .input-group-lg > input[type="datetime-local"].form-control, .input-group-lg > input[type="datetime-local"].input-group-addon, .input-group-lg > .input-group-btn > input[type="datetime-local"].btn, input[type="month"].input-lg, .form-horizontal .form-group-lg input[type="month"].form-control, .input-group-lg > input[type="month"].form-control, .input-group-lg > input[type="month"].input-group-addon, .input-group-lg > .input-group-btn > input[type="month"].btn {
+  input[type="date"].input-lg, .form-horizontal .form-group-lg input[type="date"].form-control, .input-group-lg > input[type="date"].form-control, .input-group-lg > input[type="date"].input-group-addon, .input-group-lg > .input-group-btn > input[type="date"].btn, .hotels .input-group-lg > .input-group-btn > input[type="date"].book-hotel-btn, input[type="time"].input-lg, .form-horizontal .form-group-lg input[type="time"].form-control, .input-group-lg > input[type="time"].form-control, .input-group-lg > input[type="time"].input-group-addon, .input-group-lg > .input-group-btn > input[type="time"].btn, .hotels .input-group-lg > .input-group-btn > input[type="time"].book-hotel-btn, input[type="datetime-local"].input-lg, .form-horizontal .form-group-lg input[type="datetime-local"].form-control, .input-group-lg > input[type="datetime-local"].form-control, .input-group-lg > input[type="datetime-local"].input-group-addon, .input-group-lg > .input-group-btn > input[type="datetime-local"].btn, .hotels .input-group-lg > .input-group-btn > input[type="datetime-local"].book-hotel-btn, input[type="month"].input-lg, .form-horizontal .form-group-lg input[type="month"].form-control, .input-group-lg > input[type="month"].form-control, .input-group-lg > input[type="month"].input-group-addon, .input-group-lg > .input-group-btn > input[type="month"].btn, .hotels .input-group-lg > .input-group-btn > input[type="month"].book-hotel-btn {
     line-height: 53px; }
 
 .form-group {
@@ -1358,36 +1358,36 @@ input[type="radio"][disabled], input[type="radio"].disabled, fieldset[disabled] 
   padding-top: 7px;
   padding-bottom: 7px;
   margin-bottom: 0; }
-  .form-control-static.input-lg, .form-horizontal .form-group-lg .form-control-static.form-control, .input-group-lg > .form-control-static.form-control, .input-group-lg > .form-control-static.input-group-addon, .input-group-lg > .input-group-btn > .form-control-static.btn, .form-control-static.input-sm, .form-horizontal .form-group-sm .form-control-static.form-control, .input-group-sm > .form-control-static.form-control, .input-group-sm > .form-control-static.input-group-addon, .input-group-sm > .input-group-btn > .form-control-static.btn {
+  .form-control-static.input-lg, .form-horizontal .form-group-lg .form-control-static.form-control, .input-group-lg > .form-control-static.form-control, .input-group-lg > .form-control-static.input-group-addon, .input-group-lg > .input-group-btn > .form-control-static.btn, .hotels .input-group-lg > .input-group-btn > .form-control-static.book-hotel-btn, .form-control-static.input-sm, .form-horizontal .form-group-sm .form-control-static.form-control, .input-group-sm > .form-control-static.form-control, .input-group-sm > .form-control-static.input-group-addon, .input-group-sm > .input-group-btn > .form-control-static.btn, .hotels .input-group-sm > .input-group-btn > .form-control-static.book-hotel-btn {
     padding-left: 0;
     padding-right: 0; }
 
-.input-sm, .form-horizontal .form-group-sm .form-control, .input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn {
+.input-sm, .form-horizontal .form-group-sm .form-control, .input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn, .hotels .input-group-sm > .input-group-btn > .book-hotel-btn {
   height: 36px;
   padding: 5px 10px;
   font-size: 16px;
   line-height: 1.5;
   border-radius: 0; }
 
-select.input-sm, .form-horizontal .form-group-sm select.form-control, .input-group-sm > select.form-control, .input-group-sm > select.input-group-addon, .input-group-sm > .input-group-btn > select.btn {
+select.input-sm, .form-horizontal .form-group-sm select.form-control, .input-group-sm > select.form-control, .input-group-sm > select.input-group-addon, .input-group-sm > .input-group-btn > select.btn, .hotels .input-group-sm > .input-group-btn > select.book-hotel-btn {
   height: 36px;
   line-height: 36px; }
 
-textarea.input-sm, .form-horizontal .form-group-sm textarea.form-control, .input-group-sm > textarea.form-control, .input-group-sm > textarea.input-group-addon, .input-group-sm > .input-group-btn > textarea.btn, select[multiple].input-sm, .form-horizontal .form-group-sm select[multiple].form-control, .input-group-sm > select[multiple].form-control, .input-group-sm > select[multiple].input-group-addon, .input-group-sm > .input-group-btn > select[multiple].btn {
+textarea.input-sm, .form-horizontal .form-group-sm textarea.form-control, .input-group-sm > textarea.form-control, .input-group-sm > textarea.input-group-addon, .input-group-sm > .input-group-btn > textarea.btn, .hotels .input-group-sm > .input-group-btn > textarea.book-hotel-btn, select[multiple].input-sm, .form-horizontal .form-group-sm select[multiple].form-control, .input-group-sm > select[multiple].form-control, .input-group-sm > select[multiple].input-group-addon, .input-group-sm > .input-group-btn > select[multiple].btn, .hotels .input-group-sm > .input-group-btn > select[multiple].book-hotel-btn {
   height: auto; }
 
-.input-lg, .form-horizontal .form-group-lg .form-control, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn {
+.input-lg, .form-horizontal .form-group-lg .form-control, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .hotels .input-group-lg > .input-group-btn > .book-hotel-btn {
   height: 53px;
   padding: 10px 16px;
   font-size: 23px;
   line-height: 1.33;
   border-radius: 0; }
 
-select.input-lg, .form-horizontal .form-group-lg select.form-control, .input-group-lg > select.form-control, .input-group-lg > select.input-group-addon, .input-group-lg > .input-group-btn > select.btn {
+select.input-lg, .form-horizontal .form-group-lg select.form-control, .input-group-lg > select.form-control, .input-group-lg > select.input-group-addon, .input-group-lg > .input-group-btn > select.btn, .hotels .input-group-lg > .input-group-btn > select.book-hotel-btn {
   height: 53px;
   line-height: 53px; }
 
-textarea.input-lg, .form-horizontal .form-group-lg textarea.form-control, .input-group-lg > textarea.form-control, .input-group-lg > textarea.input-group-addon, .input-group-lg > .input-group-btn > textarea.btn, select[multiple].input-lg, .form-horizontal .form-group-lg select[multiple].form-control, .input-group-lg > select[multiple].form-control, .input-group-lg > select[multiple].input-group-addon, .input-group-lg > .input-group-btn > select[multiple].btn {
+textarea.input-lg, .form-horizontal .form-group-lg textarea.form-control, .input-group-lg > textarea.form-control, .input-group-lg > textarea.input-group-addon, .input-group-lg > .input-group-btn > textarea.btn, .hotels .input-group-lg > .input-group-btn > textarea.book-hotel-btn, select[multiple].input-lg, .form-horizontal .form-group-lg select[multiple].form-control, .input-group-lg > select[multiple].form-control, .input-group-lg > select[multiple].input-group-addon, .input-group-lg > .input-group-btn > select[multiple].btn, .hotels .input-group-lg > .input-group-btn > select[multiple].book-hotel-btn {
   height: auto; }
 
 .has-feedback {
@@ -1406,12 +1406,12 @@ textarea.input-lg, .form-horizontal .form-group-lg textarea.form-control, .input
   line-height: 42px;
   text-align: center; }
 
-.input-lg + .form-control-feedback, .form-horizontal .form-group-lg .form-control + .form-control-feedback, .input-group-lg > .form-control + .form-control-feedback, .input-group-lg > .input-group-addon + .form-control-feedback, .input-group-lg > .input-group-btn > .btn + .form-control-feedback {
+.input-lg + .form-control-feedback, .form-horizontal .form-group-lg .form-control + .form-control-feedback, .input-group-lg > .form-control + .form-control-feedback, .input-group-lg > .input-group-addon + .form-control-feedback, .input-group-lg > .input-group-btn > .btn + .form-control-feedback, .hotels .input-group-lg > .input-group-btn > .book-hotel-btn + .form-control-feedback {
   width: 53px;
   height: 53px;
   line-height: 53px; }
 
-.input-sm + .form-control-feedback, .form-horizontal .form-group-sm .form-control + .form-control-feedback, .input-group-sm > .form-control + .form-control-feedback, .input-group-sm > .input-group-addon + .form-control-feedback, .input-group-sm > .input-group-btn > .btn + .form-control-feedback {
+.input-sm + .form-control-feedback, .form-horizontal .form-group-sm .form-control + .form-control-feedback, .input-group-sm > .form-control + .form-control-feedback, .input-group-sm > .input-group-addon + .form-control-feedback, .input-group-sm > .input-group-btn > .btn + .form-control-feedback, .hotels .input-group-sm > .input-group-btn > .book-hotel-btn + .form-control-feedback {
   width: 36px;
   height: 36px;
   line-height: 36px; }
@@ -1537,7 +1537,7 @@ textarea.input-lg, .form-horizontal .form-group-lg textarea.form-control, .input
   .form-horizontal .form-group-sm .control-label {
     padding-top: 6px; } }
 
-.btn {
+.btn, .hotels .book-hotel-btn {
   display: inline-block;
   margin-bottom: 0;
   font-weight: normal;
@@ -1555,19 +1555,19 @@ textarea.input-lg, .form-horizontal .form-group-lg textarea.form-control, .input
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
-  .btn:focus, .btn:active:focus, .btn.active:focus {
+  .btn:focus, .hotels .book-hotel-btn:focus, .btn:active:focus, .hotels .book-hotel-btn:active:focus, .btn.active:focus, .hotels .active.book-hotel-btn:focus {
     outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
-  .btn:hover, .btn:focus {
+  .btn:hover, .hotels .book-hotel-btn:hover, .btn:focus, .hotels .book-hotel-btn:focus {
     color: #333;
     text-decoration: none; }
-  .btn:active, .btn.active {
+  .btn:active, .hotels .book-hotel-btn:active, .btn.active, .hotels .active.book-hotel-btn {
     outline: 0;
     background-image: none;
     -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
-  .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+  .btn.disabled, .hotels .disabled.book-hotel-btn, .btn[disabled], .hotels [disabled].book-hotel-btn, fieldset[disabled] .btn, fieldset[disabled] .hotels .book-hotel-btn, .hotels fieldset[disabled] .book-hotel-btn {
     cursor: not-allowed;
     pointer-events: none;
     opacity: 0.65;
@@ -1575,20 +1575,20 @@ textarea.input-lg, .form-horizontal .form-group-lg textarea.form-control, .input
     -webkit-box-shadow: none;
     box-shadow: none; }
 
-.btn-default {
+.btn-default, .hotels .book-hotel-btn {
   color: #333;
   background-color: #fff;
   border-color: #ccc; }
-  .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle {
+  .btn-default:hover, .hotels .book-hotel-btn:hover, .btn-default:focus, .hotels .book-hotel-btn:focus, .btn-default:active, .hotels .book-hotel-btn:active, .btn-default.active, .hotels .active.book-hotel-btn, .open > .btn-default.dropdown-toggle, .hotels .open > .dropdown-toggle.book-hotel-btn {
     color: #333;
     background-color: #e6e6e6;
     border-color: #adadad; }
-  .btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle {
+  .btn-default:active, .hotels .book-hotel-btn:active, .btn-default.active, .hotels .active.book-hotel-btn, .open > .btn-default.dropdown-toggle, .hotels .open > .dropdown-toggle.book-hotel-btn {
     background-image: none; }
-  .btn-default.disabled, .btn-default.disabled:hover, .btn-default.disabled:focus, .btn-default.disabled:active, .btn-default.disabled.active, .btn-default[disabled], .btn-default[disabled]:hover, .btn-default[disabled]:focus, .btn-default[disabled]:active, .btn-default[disabled].active, fieldset[disabled] .btn-default, fieldset[disabled] .btn-default:hover, fieldset[disabled] .btn-default:focus, fieldset[disabled] .btn-default:active, fieldset[disabled] .btn-default.active {
+  .btn-default.disabled, .hotels .disabled.book-hotel-btn, .btn-default.disabled:hover, .hotels .disabled.book-hotel-btn:hover, .btn-default.disabled:focus, .hotels .disabled.book-hotel-btn:focus, .btn-default.disabled:active, .hotels .disabled.book-hotel-btn:active, .btn-default.disabled.active, .hotels .disabled.active.book-hotel-btn, .btn-default[disabled], .hotels [disabled].book-hotel-btn, .btn-default[disabled]:hover, .hotels [disabled].book-hotel-btn:hover, .btn-default[disabled]:focus, .hotels [disabled].book-hotel-btn:focus, .btn-default[disabled]:active, .hotels [disabled].book-hotel-btn:active, .btn-default[disabled].active, .hotels [disabled].active.book-hotel-btn, fieldset[disabled] .btn-default, fieldset[disabled] .hotels .book-hotel-btn, .hotels fieldset[disabled] .book-hotel-btn, fieldset[disabled] .btn-default:hover, fieldset[disabled] .hotels .book-hotel-btn:hover, .hotels fieldset[disabled] .book-hotel-btn:hover, fieldset[disabled] .btn-default:focus, fieldset[disabled] .hotels .book-hotel-btn:focus, .hotels fieldset[disabled] .book-hotel-btn:focus, fieldset[disabled] .btn-default:active, fieldset[disabled] .hotels .book-hotel-btn:active, .hotels fieldset[disabled] .book-hotel-btn:active, fieldset[disabled] .btn-default.active, fieldset[disabled] .hotels .active.book-hotel-btn, .hotels fieldset[disabled] .active.book-hotel-btn {
     background-color: #fff;
     border-color: #ccc; }
-  .btn-default .badge {
+  .btn-default .badge, .hotels .book-hotel-btn .badge {
     color: #fff;
     background-color: #333; }
 
@@ -1696,32 +1696,32 @@ textarea.input-lg, .form-horizontal .form-group-lg textarea.form-control, .input
     color: #e0e0d9;
     text-decoration: none; }
 
-.btn-lg, .btn-group-lg > .btn {
+.btn-lg, .btn-group-lg > .btn, .hotels .btn-group-lg > .book-hotel-btn {
   padding: 10px 16px;
   font-size: 23px;
   line-height: 1.33;
   border-radius: 0; }
 
-.btn-sm, .btn-group-sm > .btn {
+.btn-sm, .btn-group-sm > .btn, .hotels .btn-group-sm > .book-hotel-btn {
   padding: 5px 10px;
   font-size: 16px;
   line-height: 1.5;
   border-radius: 0; }
 
-.btn-xs, .btn-group-xs > .btn {
+.btn-xs, .btn-group-xs > .btn, .hotels .btn-group-xs > .book-hotel-btn {
   padding: 1px 5px;
   font-size: 16px;
   line-height: 1.5;
   border-radius: 0; }
 
-.btn-block {
+.btn-block, .hotels .book-hotel-btn {
   display: block;
   width: 100%; }
 
-.btn-block + .btn-block {
+.btn-block + .btn-block, .hotels .book-hotel-btn + .btn-block, .hotels .btn-block + .book-hotel-btn, .hotels .book-hotel-btn + .book-hotel-btn {
   margin-top: 5px; }
 
-input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="button"].btn-block {
+input[type="submit"].btn-block, .hotels input[type="submit"].book-hotel-btn, input[type="reset"].btn-block, .hotels input[type="reset"].book-hotel-btn, input[type="button"].btn-block, .hotels input[type="button"].book-hotel-btn {
   width: 100%; }
 
 .fade {
@@ -1879,15 +1879,15 @@ tbody.collapse.in {
   position: relative;
   display: inline-block;
   vertical-align: middle; }
-  .btn-group > .btn, .btn-group-vertical > .btn {
+  .btn-group > .btn, .hotels .btn-group > .book-hotel-btn, .btn-group-vertical > .btn, .hotels .btn-group-vertical > .book-hotel-btn {
     position: relative;
     float: left; }
-    .btn-group > .btn:hover, .btn-group > .btn:focus, .btn-group > .btn:active, .btn-group > .btn.active, .btn-group-vertical > .btn:hover, .btn-group-vertical > .btn:focus, .btn-group-vertical > .btn:active, .btn-group-vertical > .btn.active {
+    .btn-group > .btn:hover, .hotels .btn-group > .book-hotel-btn:hover, .btn-group > .btn:focus, .hotels .btn-group > .book-hotel-btn:focus, .btn-group > .btn:active, .hotels .btn-group > .book-hotel-btn:active, .btn-group > .btn.active, .hotels .btn-group > .active.book-hotel-btn, .btn-group-vertical > .btn:hover, .hotels .btn-group-vertical > .book-hotel-btn:hover, .btn-group-vertical > .btn:focus, .hotels .btn-group-vertical > .book-hotel-btn:focus, .btn-group-vertical > .btn:active, .hotels .btn-group-vertical > .book-hotel-btn:active, .btn-group-vertical > .btn.active, .hotels .btn-group-vertical > .active.book-hotel-btn {
       z-index: 2; }
-    .btn-group > .btn:focus, .btn-group-vertical > .btn:focus {
+    .btn-group > .btn:focus, .hotels .btn-group > .book-hotel-btn:focus, .btn-group-vertical > .btn:focus, .hotels .btn-group-vertical > .book-hotel-btn:focus {
       outline: 0; }
 
-.btn-group .btn + .btn, .btn-group .btn + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-group {
+.btn-group .btn + .btn, .btn-group .hotels .book-hotel-btn + .btn, .hotels .btn-group .book-hotel-btn + .btn, .btn-group .hotels .btn + .book-hotel-btn, .hotels .btn-group .btn + .book-hotel-btn, .btn-group .hotels .book-hotel-btn + .book-hotel-btn, .hotels .btn-group .book-hotel-btn + .book-hotel-btn, .btn-group .btn + .btn-group, .btn-group .hotels .book-hotel-btn + .btn-group, .hotels .btn-group .book-hotel-btn + .btn-group, .btn-group .btn-group + .btn, .btn-group .hotels .btn-group + .book-hotel-btn, .hotels .btn-group .btn-group + .book-hotel-btn, .btn-group .btn-group + .btn-group {
   margin-left: -1px; }
 
 .btn-toolbar {
@@ -1899,44 +1899,44 @@ tbody.collapse.in {
     clear: both; }
   .btn-toolbar .btn-group, .btn-toolbar .input-group {
     float: left; }
-  .btn-toolbar > .btn, .btn-toolbar > .btn-group, .btn-toolbar > .input-group {
+  .btn-toolbar > .btn, .hotels .btn-toolbar > .book-hotel-btn, .btn-toolbar > .btn-group, .btn-toolbar > .input-group {
     margin-left: 5px; }
 
-.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle), .hotels .btn-group > .book-hotel-btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
   border-radius: 0; }
 
-.btn-group > .btn:first-child {
+.btn-group > .btn:first-child, .hotels .btn-group > .book-hotel-btn:first-child {
   margin-left: 0; }
-  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle), .hotels .btn-group > .book-hotel-btn:first-child:not(:last-child):not(.dropdown-toggle) {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0; }
 
-.btn-group > .btn:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child) {
+.btn-group > .btn:last-child:not(:first-child), .hotels .btn-group > .book-hotel-btn:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child) {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
 .btn-group > .btn-group {
   float: left; }
 
-.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, .hotels .btn-group > .btn-group:not(:first-child):not(:last-child) > .book-hotel-btn {
   border-radius: 0; }
 
-.btn-group > .btn-group:first-child > .btn:last-child, .btn-group > .btn-group:first-child > .dropdown-toggle {
+.btn-group > .btn-group:first-child > .btn:last-child, .hotels .btn-group > .btn-group:first-child > .book-hotel-btn:last-child, .btn-group > .btn-group:first-child > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
-.btn-group > .btn-group:last-child > .btn:first-child {
+.btn-group > .btn-group:last-child > .btn:first-child, .hotels .btn-group > .btn-group:last-child > .book-hotel-btn:first-child {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
 .btn-group .dropdown-toggle:active, .btn-group.open .dropdown-toggle {
   outline: 0; }
 
-.btn-group > .btn + .dropdown-toggle {
+.btn-group > .btn + .dropdown-toggle, .hotels .btn-group > .book-hotel-btn + .dropdown-toggle {
   padding-left: 8px;
   padding-right: 8px; }
 
-.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle {
+.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, .hotels .btn-group-lg.btn-group > .book-hotel-btn + .dropdown-toggle {
   padding-left: 12px;
   padding-right: 12px; }
 
@@ -1947,17 +1947,17 @@ tbody.collapse.in {
     -webkit-box-shadow: none;
     box-shadow: none; }
 
-.btn .caret {
+.btn .caret, .hotels .book-hotel-btn .caret {
   margin-left: 0; }
 
-.btn-lg .caret, .btn-group-lg > .btn .caret {
+.btn-lg .caret, .btn-group-lg > .btn .caret, .hotels .btn-group-lg > .book-hotel-btn .caret {
   border-width: 5px 5px 0;
   border-bottom-width: 0; }
 
-.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret {
+.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret, .dropup .hotels .btn-group-lg > .book-hotel-btn .caret, .hotels .dropup .btn-group-lg > .book-hotel-btn .caret {
   border-width: 0 5px 5px; }
 
-.btn-group-vertical > .btn, .btn-group-vertical > .btn-group, .btn-group-vertical > .btn-group > .btn {
+.btn-group-vertical > .btn, .hotels .btn-group-vertical > .book-hotel-btn, .btn-group-vertical > .btn-group, .btn-group-vertical > .btn-group > .btn, .hotels .btn-group-vertical > .btn-group > .book-hotel-btn {
   display: block;
   float: none;
   width: 100%;
@@ -1967,31 +1967,31 @@ tbody.collapse.in {
   display: table; }
 .btn-group-vertical > .btn-group:after {
   clear: both; }
-.btn-group-vertical > .btn-group > .btn {
+.btn-group-vertical > .btn-group > .btn, .hotels .btn-group-vertical > .btn-group > .book-hotel-btn {
   float: none; }
-.btn-group-vertical > .btn + .btn, .btn-group-vertical > .btn + .btn-group, .btn-group-vertical > .btn-group + .btn, .btn-group-vertical > .btn-group + .btn-group {
+.btn-group-vertical > .btn + .btn, .hotels .btn-group-vertical > .book-hotel-btn + .btn, .hotels .btn-group-vertical > .btn + .book-hotel-btn, .hotels .btn-group-vertical > .book-hotel-btn + .book-hotel-btn, .btn-group-vertical > .btn + .btn-group, .hotels .btn-group-vertical > .book-hotel-btn + .btn-group, .btn-group-vertical > .btn-group + .btn, .hotels .btn-group-vertical > .btn-group + .book-hotel-btn, .btn-group-vertical > .btn-group + .btn-group {
   margin-top: -1px;
   margin-left: 0; }
 
-.btn-group-vertical > .btn:not(:first-child):not(:last-child) {
+.btn-group-vertical > .btn:not(:first-child):not(:last-child), .hotels .btn-group-vertical > .book-hotel-btn:not(:first-child):not(:last-child) {
   border-radius: 0; }
-.btn-group-vertical > .btn:first-child:not(:last-child) {
+.btn-group-vertical > .btn:first-child:not(:last-child), .hotels .btn-group-vertical > .book-hotel-btn:first-child:not(:last-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
-.btn-group-vertical > .btn:last-child:not(:first-child) {
+.btn-group-vertical > .btn:last-child:not(:first-child), .hotels .btn-group-vertical > .book-hotel-btn:last-child:not(:first-child) {
   border-bottom-left-radius: 0;
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
-.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn {
+.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, .hotels .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .book-hotel-btn {
   border-radius: 0; }
 
-.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, .hotels .btn-group-vertical > .btn-group:first-child:not(:last-child) > .book-hotel-btn:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 
-.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child {
+.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child, .hotels .btn-group-vertical > .btn-group:last-child:not(:first-child) > .book-hotel-btn:first-child {
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
@@ -2000,16 +2000,16 @@ tbody.collapse.in {
   width: 100%;
   table-layout: fixed;
   border-collapse: separate; }
-  .btn-group-justified > .btn, .btn-group-justified > .btn-group {
+  .btn-group-justified > .btn, .hotels .btn-group-justified > .book-hotel-btn, .btn-group-justified > .btn-group {
     float: none;
     display: table-cell;
     width: 1%; }
-  .btn-group-justified > .btn-group .btn {
+  .btn-group-justified > .btn-group .btn, .btn-group-justified > .btn-group .hotels .book-hotel-btn, .hotels .btn-group-justified > .btn-group .book-hotel-btn {
     width: 100%; }
   .btn-group-justified > .btn-group .dropdown-menu {
     left: auto; }
 
-[data-toggle="buttons"] > .btn > input[type="radio"], [data-toggle="buttons"] > .btn > input[type="checkbox"] {
+[data-toggle="buttons"] > .btn > input[type="radio"], .hotels [data-toggle="buttons"] > .book-hotel-btn > input[type="radio"], [data-toggle="buttons"] > .btn > input[type="checkbox"], .hotels [data-toggle="buttons"] > .book-hotel-btn > input[type="checkbox"] {
   position: absolute;
   z-index: -1;
   opacity: 0;
@@ -2050,25 +2050,25 @@ tbody.collapse.in {
   background-color: #e0e0d9;
   border: 1px solid #ccc;
   border-radius: 0; }
-  .input-group-addon.input-sm, .form-horizontal .form-group-sm .input-group-addon.form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .input-group-addon.btn {
+  .input-group-addon.input-sm, .form-horizontal .form-group-sm .input-group-addon.form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .input-group-addon.btn, .hotels .input-group-sm > .input-group-btn > .input-group-addon.book-hotel-btn {
     padding: 5px 10px;
     font-size: 16px;
     border-radius: 0; }
-  .input-group-addon.input-lg, .form-horizontal .form-group-lg .input-group-addon.form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .input-group-addon.btn {
+  .input-group-addon.input-lg, .form-horizontal .form-group-lg .input-group-addon.form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .input-group-addon.btn, .hotels .input-group-lg > .input-group-btn > .input-group-addon.book-hotel-btn {
     padding: 10px 16px;
     font-size: 23px;
     border-radius: 0; }
   .input-group-addon input[type="radio"], .input-group-addon input[type="checkbox"] {
     margin-top: 0; }
 
-.input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-group > .btn, .input-group-btn:first-child > .dropdown-toggle, .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+.input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child > .btn, .hotels .input-group-btn:first-child > .book-hotel-btn, .input-group-btn:first-child > .btn-group > .btn, .hotels .input-group-btn:first-child > .btn-group > .book-hotel-btn, .input-group-btn:first-child > .dropdown-toggle, .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), .hotels .input-group-btn:last-child > .book-hotel-btn:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-group:not(:last-child) > .btn, .hotels .input-group-btn:last-child > .btn-group:not(:last-child) > .book-hotel-btn {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
 .input-group-addon:first-child {
   border-right: 0; }
 
-.input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group > .btn, .input-group-btn:last-child > .dropdown-toggle, .input-group-btn:first-child > .btn:not(:first-child), .input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+.input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child > .btn, .hotels .input-group-btn:last-child > .book-hotel-btn, .input-group-btn:last-child > .btn-group > .btn, .hotels .input-group-btn:last-child > .btn-group > .book-hotel-btn, .input-group-btn:last-child > .dropdown-toggle, .input-group-btn:first-child > .btn:not(:first-child), .hotels .input-group-btn:first-child > .book-hotel-btn:not(:first-child), .input-group-btn:first-child > .btn-group:not(:first-child) > .btn, .hotels .input-group-btn:first-child > .btn-group:not(:first-child) > .book-hotel-btn {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
@@ -2079,15 +2079,15 @@ tbody.collapse.in {
   position: relative;
   font-size: 0;
   white-space: nowrap; }
-  .input-group-btn > .btn {
+  .input-group-btn > .btn, .hotels .input-group-btn > .book-hotel-btn {
     position: relative; }
-    .input-group-btn > .btn + .btn {
+    .input-group-btn > .btn + .btn, .hotels .input-group-btn > .book-hotel-btn + .btn, .hotels .input-group-btn > .btn + .book-hotel-btn, .hotels .input-group-btn > .book-hotel-btn + .book-hotel-btn {
       margin-left: -1px; }
-    .input-group-btn > .btn:hover, .input-group-btn > .btn:focus, .input-group-btn > .btn:active {
+    .input-group-btn > .btn:hover, .hotels .input-group-btn > .book-hotel-btn:hover, .input-group-btn > .btn:focus, .hotels .input-group-btn > .book-hotel-btn:focus, .input-group-btn > .btn:active, .hotels .input-group-btn > .book-hotel-btn:active {
       z-index: 2; }
-  .input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-group {
+  .input-group-btn:first-child > .btn, .hotels .input-group-btn:first-child > .book-hotel-btn, .input-group-btn:first-child > .btn-group {
     margin-right: -1px; }
-  .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
+  .input-group-btn:last-child > .btn, .hotels .input-group-btn:last-child > .book-hotel-btn, .input-group-btn:last-child > .btn-group {
     margin-left: -1px; }
 
 .nav {
@@ -2410,10 +2410,10 @@ tbody.collapse.in {
 .navbar-btn {
   margin-top: 14px;
   margin-bottom: 14px; }
-  .navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn {
+  .navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn, .hotels .btn-group-sm > .navbar-btn.book-hotel-btn {
     margin-top: 17px;
     margin-bottom: 17px; }
-  .navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn {
+  .navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn, .hotels .btn-group-xs > .navbar-btn.book-hotel-btn {
     margin-top: 24px;
     margin-bottom: 24px; }
 
@@ -2660,7 +2660,7 @@ tbody.collapse.in {
   border-radius: .25em; }
   .label:empty {
     display: none; }
-  .btn .label {
+  .btn .label, .hotels .book-hotel-btn .label {
     position: relative;
     top: -1px; }
 
@@ -2714,10 +2714,10 @@ a.label:hover, a.label:focus {
   border-radius: 10px; }
   .badge:empty {
     display: none; }
-  .btn .badge {
+  .btn .badge, .hotels .book-hotel-btn .badge {
     position: relative;
     top: -1px; }
-  .btn-xs .badge, .btn-group-xs > .btn .badge {
+  .btn-xs .badge, .btn-group-xs > .btn .badge, .hotels .btn-group-xs > .book-hotel-btn .badge {
     top: 0;
     padding: 1px 5px; }
   a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
@@ -3415,12 +3415,12 @@ button.close {
     display: table; }
   .modal-footer:after {
     clear: both; }
-  .modal-footer .btn + .btn {
+  .modal-footer .btn + .btn, .modal-footer .hotels .book-hotel-btn + .btn, .hotels .modal-footer .book-hotel-btn + .btn, .modal-footer .hotels .btn + .book-hotel-btn, .hotels .modal-footer .btn + .book-hotel-btn, .modal-footer .hotels .book-hotel-btn + .book-hotel-btn, .hotels .modal-footer .book-hotel-btn + .book-hotel-btn {
     margin-left: 5px;
     margin-bottom: 0; }
-  .modal-footer .btn-group .btn + .btn {
+  .modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .hotels .book-hotel-btn + .btn, .hotels .modal-footer .btn-group .book-hotel-btn + .btn, .modal-footer .btn-group .hotels .btn + .book-hotel-btn, .hotels .modal-footer .btn-group .btn + .book-hotel-btn, .modal-footer .btn-group .hotels .book-hotel-btn + .book-hotel-btn, .hotels .modal-footer .btn-group .book-hotel-btn + .book-hotel-btn {
     margin-left: -1px; }
-  .modal-footer .btn-block + .btn-block {
+  .modal-footer .btn-block + .btn-block, .modal-footer .hotels .book-hotel-btn + .btn-block, .hotels .modal-footer .book-hotel-btn + .btn-block, .modal-footer .hotels .btn-block + .book-hotel-btn, .hotels .modal-footer .btn-block + .book-hotel-btn, .modal-footer .hotels .book-hotel-btn + .book-hotel-btn, .hotels .modal-footer .book-hotel-btn + .book-hotel-btn {
     margin-left: 0; }
 
 .modal-scrollbar-measure {
@@ -3766,7 +3766,7 @@ button.close {
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
-  .carousel-caption .btn {
+  .carousel-caption .btn, .carousel-caption .hotels .book-hotel-btn, .hotels .carousel-caption .book-hotel-btn {
     text-shadow: none; }
 
 @media screen and (min-width: 768px) {
@@ -6486,113 +6486,25 @@ body > footer {
   max-width: 100%;
   margin-bottom: 20px; }
 
-/* Carousel base class */
-.carousel {
-  height: 500px;
-  margin-bottom: 60px; }
-
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-  z-index: 10; }
-
-/* Declare heights because of positioning of img element */
-.carousel .item {
-  height: 500px;
-  background-color: #777; }
-
-.carousel-inner > .item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 500px; }
-
-.hotel-carousel-title {
-  color: white; }
-
-.marketing .col-lg-4 {
-  margin-bottom: 20px;
-  text-align: center; }
-
-.marketing h2 {
-  font-weight: normal; }
-
-.marketing .col-lg-4 p {
-  margin-right: 10px;
-  margin-left: 10px; }
-
-.lead {
+.hotels .label.label-primary {
+  background: #c5473d; }
+.hotels .book-hotel-btn {
+  border-radius: 4px; }
+  .hotels .book-hotel-btn:hover {
+    background: #254164;
+    color: #ffffff; }
+.hotels .lead {
   margin-bottom: 20px;
   font-size: 21px;
   font-weight: 300;
   line-height: 1.4; }
-
-.featurette-heading {
+.hotels .featurette-heading {
   font-size: 50px; }
-
-.hotel-description {
+.hotels .hotel-description {
   font-size: 0.8em; }
+.hotels .row.featurette {
+  padding: 60px 0; }
 
-/* .hotels {
-
-}
-
-.hotel {
-  background: $blue-dark;
-  color: white;
-  margin-bottom: 20px;
-  position: relative;
-  width: 100%;
-
-  .hotel-image {
-
-    height: 250px;
-    overflow: hidden;
-
-    img {
-      min-height: 250px;
-      min-width: 100%;
-    }
-  }
-
-  .hotel-name {
-    font-size: 2em;
-    position: absolute;
-    top: 10px;
-    left: 30px;
-  }
-
-  .hotel-price {
-    bottom: 10px;
-    left: 30px;
-  }
-
-  .hotel-promocode {
-
-  }
-}
-
-.hotel-big {
-  @extend .hotel;
-
-  .hotel-price {
-    background: rgba(255, 255, 255, 0.6);
-    color: $blue-dark;
-    bottom: 0;
-    font-size: 1.4em;
-    padding: 10px 10px 20px 10px;
-    position: absolute;
-    left: 30px;
-  }
-
-  .hotel-promocode {
-    @extend .hotel-price;
-
-    font-size: 1.2em;
-    left: auto;
-    right: 30px;
-  }
-} */
 #dress {
   opacity: 0;
   -webkit-transition: all 250ms;
