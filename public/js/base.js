@@ -32,11 +32,11 @@
   // Tickets
   var modal = $('#buy');
 
-  var showError = function(message, exit) {
-    alert(message);
+  var showError = function(err, exit) {
     if (exit) {
       modal.modal('hide');
     }
+    alert(err.message);
     return false;
   }
 
@@ -132,7 +132,7 @@
     });
     $.get('/api/tickets/assign', {order: order}, function(response) {
       if (response.error) {
-        return showError(response.error);
+        return showError(response.error, true);
       } else {
         modal.find('.step-assign .attendees ul').empty();
         response.attendees.forEach(function(attendee, index) {
@@ -179,7 +179,7 @@
     });
     $.post('/api/tickets/save', data, function(response) {
       if (response.error) {
-        return showError(response.error);
+        return showError(response.error, true);
       } else {
         modal.modal('hide');
       }
@@ -192,8 +192,7 @@
     window.purchaseCompleted = function(err) {
       clearTimeout(windowTimeout);
       if (err) {
-        // TODO: check error!
-        showError(err.message);
+        showError(err, true);
       } else {
         assign(order);
       }
