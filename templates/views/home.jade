@@ -33,9 +33,14 @@ block top
 
 block content
   #tickets-sale.tickets-sale
-    h2.countdown-title
-      | Early birds begins in...
-    span.countdown
+    .buy-tickets
+      a(href='javascript:void(0);', data-buy)
+    
+    .countdown
+      h2.countdown-title
+        | Early birds begins in...
+      span.countdown-clock
+        
   #speakers.speakers
       h1 Meet the Speakers
       ul
