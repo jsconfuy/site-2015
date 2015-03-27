@@ -48,6 +48,11 @@ block content
             if speaker.twitter
               a(href='//twitter.com/#{speaker.twitter}')
                 i(class='fa fa-twitter')
+  #tickets-sale.tickets-sale
+    h2.countdown-title
+      | Early birds begins in...
+    span.countdown
+  
   #sponsors.sponsors
     h1 Sponsors
     ul
@@ -74,4 +79,5 @@ block content
             != organizer.name
 
 block js
+  script(src='/js/lib/jquery.countdown.min.js')
   script(src='/js/home.js')

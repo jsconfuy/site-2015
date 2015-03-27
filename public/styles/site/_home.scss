@@ -127,6 +127,26 @@
         }
       }
     }
+    .tickets-sale {
+      background: $gray-lighter;
+      padding: 80px;
+      width: 100%;
+      .countdown-title {
+
+      }
+      .countdown {
+        border: 3px solid $blue;
+        color: $blue;
+        display: block;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 40px auto;
+        padding: 10px 20px;
+        text-align: center;
+        text-transform: uppercase;
+        width: 270px;
+      }
+    }
     .sponsors {
       padding: 30px 0;
       ul {
