@@ -28,23 +28,23 @@ exports = module.exports = function (app) {
   app.get('/api/tickets/assign', routes.api.tickets.assign)
   app.post('/api/tickets/save', routes.api.tickets.save)
 
-  app.use(function(req, res) {
+  app.use(function (req, res) {
     res.status(404)
     res.render('errors/404')
-  });
-  app.use('/api*', function(err, req, res, next) {
-    logger.log(err, function(){
+  })
+  app.use('/api*', function (err, req, res, next) {
+    logger.log(err, function () {
       if (!err.internal) {
         res.apiResponse({error: {message: err.message, internal: false, code: err.code}})
       } else {
         res.apiResponse({error: {message: 'Internal server error.', code: 'INTERNAL', internal: true}})
       }
     })
-  });
-  app.use(function(err, req, res, next) {
-    logger.log(err, function(){
+  })
+  app.use(function (err, req, res, next) {
+    logger.log(err, function () {
       res.status(500)
       res.render('errors/500')
     })
-  });
+  })
 }

@@ -1,5 +1,4 @@
 var keystone = require('keystone')
-var Order = keystone.list('Order')
 var tickets = require('../../lib/tickets')
 var logger = require('../../lib/logger')
 
@@ -22,7 +21,7 @@ exports = module.exports = function (req, res) {
     if (err) {
       err.order = req.params.order
       err.query = req.query
-      logger.log(err, function() {
+      logger.log(err, function () {
         view.render('purchase')
       })
     } else {
