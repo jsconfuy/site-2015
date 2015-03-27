@@ -187,7 +187,9 @@
 
   modal.find('.step-payment .pay button').click(function(e){
     var order = $(this).data('order');
+    var windowTimeout;
     window.purchaseCompleted = function(err) {
+      clearTimeout(windowTimeout);
       if (err) {
         // TODO: check error!
         showError(err.message);
@@ -195,8 +197,13 @@
         assign(order);
       }
     };
-    var newwindow = window.open('/purchase/' + order, 'Payment','height=550,width=800');
-    if (window.focus) {newwindow.focus()}
+    var purchaseWindow = window.open('/purchase/' + order, 'Payment','scrollbars=1,height=550,width=800');
+    windowTimeout = setTimeout(function () {
+      setTimeout(function () { alert('Your reservation expired'); }, 10); // Prevent FF hangs
+      purchaseWindow.close();
+      show(modal.data('ticket'), modal.data('discount'));
+    }, 12 * 60 * 1000); // 12 minutes
+    if (window.focus) {purchaseWindow.focus()}
     return false;
   });
 

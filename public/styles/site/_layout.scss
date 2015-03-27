@@ -405,6 +405,12 @@ body > footer {
           position: relative;
           height: 150px;
         }
+        .important {
+          font-size: 80%;
+          padding: 0 10%;
+          color: $blue;
+          text-align: center;
+        }
         .invoice {
           @include clearfix();
           display: block;

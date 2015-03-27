@@ -6047,6 +6047,11 @@ body > footer {
   #buy .steps .step.step-payment .loading {
     position: relative;
     height: 150px; }
+  #buy .steps .step.step-payment .important {
+    font-size: 80%;
+    padding: 0 10%;
+    color: #254164;
+    text-align: center; }
   #buy .steps .step.step-payment .invoice {
     display: block;
     padding: 0;
