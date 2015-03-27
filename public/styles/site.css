@@ -6893,3 +6893,10 @@ body > footer {
     color: #D4AF37; }
   .gold body > footer .footer .venue-info .info .data button {
     background-color: #D4AF37; }
+
+.agenda .coming {
+  border-radius: 4px;
+  padding: 50px 0;
+  background-color: #e0e0d9;
+  color: #254164;
+  text-align: center; }
