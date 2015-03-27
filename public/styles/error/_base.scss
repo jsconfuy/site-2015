@@ -1,0 +1,36 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  .error-404,
+  .error-500 {
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 100%;
+    min-height: 100%;
+    min-width: 100%;
+    .message {
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+      color: white;
+      font-size: 250%;
+      line-height: 0;
+      top: 50%;
+      position: absolute;
+      text-shadow: 4px 4px 0px black;
+    }
+  }
+  .error-404 {
+    background: transparent url('http://sophilabs.co/static/core/img/404_01.gif') no-repeat 50% 50%;
+    background-size: cover;
+  }
+  .error-500 {
+    background: transparent url('http://sophilabs.co/static/core/img/500_01.gif') no-repeat 50% 50%;
+    background-size: cover;
+  }
+}
