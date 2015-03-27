@@ -1,6 +1,47 @@
 doctype html
 html
-  head
-  body
-    h1 Hi #{order.name},
-    a(href='https://jsconf.uy/?order=' + order.id) Fill tickets!
+  body(style='background: #f6f6f6; margin: 0; padding: 0;')
+    table(border='0', cellspacing='0', style='background: #ffffff; margin: 0 auto; text-align: center; font-family: Arial, Helvetica, sans-serif;', width='850')
+      tr
+        td(colspan='2')
+          img(src='#{ base_url }/images/email/header.png')
+      tr
+        td(colspan='2', style='border-bottom: 1px solid #cccccc;')
+          h1(style='color: #142535; display: block; font-size: 45px;')
+            | Welcome to JSConfUY 2015!
+      tr
+        td(colspan='2')
+          p(style='color: #142535; font-size: 30px; padding: 50px;')
+            strong Hi #{order.name}!
+            br
+            br
+            | We're almost done! To complete the registration
+            br
+            | we need more information on attendees.
+            br
+            | Click the following link to complete the sign up!
+      tr
+        td(colspan='2')
+          a(href='#{ base_url }/?order=' + order.id, style='background: #E6392E; color: #ffffff; display: inline-block; line-height: 60px; margin: 30px auto 70px auto; padding: 0 30px; text-decoration: none;')
+            | COMPLETE SIGNING UP NOW!
+      tr(style='background: #E6E6E6; border-bottom: 1px solid #cccccc;')
+        td(style='padding: 50px;')
+          p(style='color: #142535; font-size: 30px;')
+            strong April 24 - 8:00 am
+          a(href='#{ base_url }/agenda', style='color: #487C9A;')
+            | Agenda
+        td(style='padding: 30px;')
+          p(style='color: #142535; font-size: 30px;')
+            strong Antel Auditorium
+          a(href='https://maps.google.com/maps?q=ANTEL+-+Complejo+Torre+de+las+Telecomunicaciones,+Guatemala,+Montevideo,+Uruguay&hl=en&ll=-34.892593,-56.194639&spn=0.007858,0.013926&sll=-34.892584,-56.194639&sspn=0.015717,0.027852&oq=antel&t=m&hq=ANTEL+-+Complejo+Torre+de+las+Telecomunicaciones,&hnear=Guatemala,+Montevideo,+Uruguay&z=17&iwloc=A', style='color: #487C9A;')
+            | View on Google Maps
+      tr
+        td(colspan='2', style='padding: 30px;')
+          p(style='color: #142535;')
+            | If you have any questions, please contact us at 
+            a(href='mailto:hola@jsconf.uy', style='color: #487C9A;') hola@jsconf.uy
+            | .
+            br
+            | more info at 
+            a(href='#{ base_url }', style='color: #487C9A;') jsconf.uy
+            | .

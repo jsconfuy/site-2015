@@ -82,6 +82,7 @@
       } else {
         modal.find('.step-select .soldout').show();
       }
+      modal.find('.step-select .description').show();
       modal.find('.step-select .note').show();
       modal.find('.step-select .loading').hide();
     });

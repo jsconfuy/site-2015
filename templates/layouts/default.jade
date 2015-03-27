@@ -127,17 +127,25 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                 .indicator.indicator-assign
                   i(class='fa fa-ticket')
                   span Assign
-              .product-description
-                | A Ticket includes:
-                ul
-                  li Two day access Lanyard.
-                  li Lunch both days.
-                  li Breakfast and coffee-breaks.
-                  li A cool T-Shirt.
               .steps
                 .step.step-select
                   .loading
                     .loader
+                  .description
+                    span A Ticket includes
+                    ul
+                      li
+                        i(class='fa fa-check')
+                        |  Lunch both days
+                      li
+                        i(class='fa fa-check')
+                        |  A cool T-Shirt
+                      li
+                        i(class='fa fa-check')
+                        |  Two day access Lanyard
+                      li
+                        i(class='fa fa-check')
+                        |  Breakfast and coffee-breaks
                   .discount
                     .code
                   .soldout
@@ -146,7 +154,10 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                     ul
                   .note
                     | To participate in the conference you must adhere to
-                    a(href='/code-of-conduct', target='_blank') our code of conduct. Any questions you may have email us at
+                    a(href='/code-of-conduct', target='_blank') our code of conduct
+                    | .
+                    br
+                    | Any questions you may have email us at 
                     a(href='mailto:hola@jsconf.uy', target='_blank') hola@jsconf.uy
                 .step.step-payment
                   .loading
