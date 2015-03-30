@@ -29,16 +29,24 @@ block content
             span.label.label-primary
               i.fa.fa-usd 
               |  USD 90 After Twin
-            | 
+            &nbsp;
             span.label.label-primary
               i.fa.fa-usd 
-              |  USD 90 After Queen
+              |  USD 90 After Queen  
+            &nbsp;
+            span.label.label-success
+              | PROMO CODE "(oso)" 
 
           p.text-center
             a.book-hotel-btn(href="http://www.afterhotel.com.uy/en/", target="_blank")
               | Book 
               strong
                 |  After hotel
+              br
+              small.text-muted
+                |  with promo code
+                strong
+                  |  (oso)
           
       .col-md-5
         img.featurette-image.img-responsive.center-block(
@@ -66,11 +74,11 @@ block content
           span.label.label-primary
             i.fa.fa-usd 
             |  USD 70 Junior
-          | 
+          &nbsp;
           span.label.label-primary
             i.fa.fa-usd 
             |  USD 75 Executive
-          | 
+          &nbsp;
           span.label.label-success
             | PROMO CODE "JSConfUY" 
 
@@ -92,4 +100,41 @@ block content
         img.featurette-image.img-responsive.center-block(
           src="/images/hotels/regency-way-hotel.jpg"
           alt="Generic placeholder image"
+        )
+
+    .row.featurette
+      .col-md-7
+        h2.featurette-heading
+          | Dazzler Montevideo.
+          
+        p.hotel-description
+          | Dazzler Montevideo boasts 249 modern, broad and luminous rooms. 
+          | They are divided in six categories: Classic, Superior, Junior 
+          | Suites, Suites, VIP Suites, and Presidential Suites.  
+          
+        p.hotel-description
+          span.label.label-primary
+            i.fa.fa-usd 
+            |  USD 90
+          &nbsp;
+          span.label.label-success
+            | PROMO CODE "JSConfUY" 
+
+        p.text-center
+          a.book-hotel-btn(
+            href="mailto:reservas@dazzlermontevideo.com?subject=Reservation+with+JSConfUY+code",
+            target="_blank"
+          )
+            | Book 
+            strong
+              |  Dazzler Montevideo
+            br
+            small.text-muted
+              |  with promo code
+              strong
+                |  JSConfUY
+
+      .col-md-5
+        img.featurette-image.img-responsive.center-block(
+          src="https://static.fenhoteles.com/recursos/00dz_towermontevideo/fotos/fachadadazzlermontevideo_fotos.jpg"
         )
