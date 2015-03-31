@@ -57,7 +57,7 @@ Speaker.add(
   },
   'Transport & Accommodation',
   {
-    accomodation: {
+    accommodation: {
       nights: {type: Types.Number},
       notes: {type: Types.Textarea}
     },
