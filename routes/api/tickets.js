@@ -55,7 +55,7 @@ module.exports.assign = function (req, res, next) {
         name: attendee.name,
         email: attendee.email,
         tshirt: attendee.tshirt,
-        comments: attendee.comments
+        extra: attendee.extra
       }
     })
     res.apiResponse({order: order, attendees: attendees, messages: messages})
@@ -67,7 +67,7 @@ module.exports.save = function (req, res, next) {
     attendee.name = req.body[attendee._id + '_name']
     attendee.email = req.body[attendee._id + '_email']
     attendee.tshirt = req.body[attendee._id + '_tshirt']
-    attendee.comments = req.body[attendee._id + '_comments']
+    attendee.extra = req.body[attendee._id + '_extra']
   }
   tickets.save(req.body.order, fill, function (err, messages) {
     if (err) return next(ApiError(err.message, 'DB', true))

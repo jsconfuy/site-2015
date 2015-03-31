@@ -2,18 +2,19 @@ var keystone = require('keystone')
 var Types = keystone.Field.Types
 
 /**
- * Talks Model
- * ===========
+ * Workshops Model
+ * ===============
  */
 
-var Talk = new keystone.List('Talk', {
+var Workshop = new keystone.List('Workshop', {
   map: { name: 'title' },
   autokey: { path: 'slug', from: 'name', unique: true },
   sortable: true,
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true}
 })
 
-Talk.add({
+Workshop.add({
+  assignee: { type: Types.Relationship, ref: 'Organizer', index: true },
   title: { type: String, required: true },
   speakers: { type: Types.Relationship, ref: 'Speaker', many: true },
   status: { type: Types.Select, default: 'P', options: [
@@ -22,12 +23,14 @@ Talk.add({
     { value: 'C', label: 'Confirmed' },
     { value: 'D', label: 'Declined' }]},
   published: { type: Types.Datetime },
-  notes: { type: Types.Markdown },
-  tags: { type: Types.Relationship, ref: 'Tag', many: true }
+  hours: { type: Types.Number },
+  instructions: { type: Types.Markdown },
+  tags: { type: Types.Relationship, ref: 'Tag', many: true },
+  notes: { type: Types.Markdown }
 })
 
-Talk.relationship({ ref: 'Speaker', path: 'speakers' })
-Talk.relationship({ ref: 'Tag', path: 'tags' })
+Workshop.relationship({ ref: 'Speaker', path: 'speakers' })
+Workshop.relationship({ ref: 'Tag', path: 'tags' })
 
-Talk.defaultColumns = 'title, speakers, tags, status, added'
-Talk.register()
+Workshop.defaultColumns = 'title, speakers, tags, status, hours, assignee, published'
+Workshop.register()

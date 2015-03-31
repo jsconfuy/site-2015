@@ -14,6 +14,7 @@ var Discount = new keystone.List('Discount', {
 
 Discount.add({
   name: { type: String, required: true },
+  logo: { type: Types.CloudinaryImage },
   valid: {
     from: { type: Types.Datetime },
     until: { type: Types.Datetime }
@@ -23,9 +24,8 @@ Discount.add({
   limit: { type: Types.Number, note: '0 for no limit.' },
   min: { type: Types.Number, default: 1, note: 'Minimun per purchase' },
   max: { type: Types.Number, default: 5, note: 'Maximun per purchase' },
-  logo: { type: Types.CloudinaryImage },
   tickets: { type: Types.Relationship, ref: 'Ticket', many: true }
 })
 
-Discount.defaultColumns = 'code, name, valid.from, valid.until, percentage, flat, limit, tickets'
+Discount.defaultColumns = 'name, code, valid.from, valid.until, percentage, flat, limit, tickets'
 Discount.register()

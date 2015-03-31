@@ -16,7 +16,7 @@ exports = module.exports = function (req, res) {
 
     updater.process(req.body, {
       required: 'topic, summary, name, email, residence',
-      fields: 'topic, summary, name, email, residence, notes, coasted',
+      fields: 'topic, summary, name, email, residence, extra, coasted',
       errorMessage: 'There was a problem submitting your proposal:'
     }, function (err) {
       if (err) {

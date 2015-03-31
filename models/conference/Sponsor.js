@@ -37,5 +37,5 @@ Sponsor.add({
   tags: { type: Types.Relationship, ref: 'Tag', many: true }
 })
 
-Sponsor.defaultColumns = 'name, paid, level, tags, status, assignee, published'
+Sponsor.defaultColumns = 'name, level, tags, status, published, paid, price, assignee'
 Sponsor.register()

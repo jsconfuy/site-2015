@@ -13,13 +13,13 @@
     }
   });
 
-  var start = new Date(Date.UTC(2015, 2, 27, 19, 0, 0));
+  var start = new Date(Date.UTC(2015, 3, 1, 19, 0, 0));
   var countdown = $('.countdown-clock').countdown(start);
 
   countdown.on('update.countdown', function (clock) {
     countdownTime = '';
 
-    if (clock.offset.days > 1) {
+    if (clock.offset.days >= 1) {
       countdownTime += clock.strftime('%D ');
       countdownTime += '<span class="days">';
       countdownTime += clock.strftime('day%!d');

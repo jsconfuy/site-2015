@@ -22,5 +22,11 @@ Organizer.add({
   published: { type: Types.Datetime }
 })
 
+Organizer.relationship({ ref: 'Speaker', refPath: 'assignee', path: 'speakers' })
+Organizer.relationship({ ref: 'Talk', refPath: 'assignee', path: 'talks' })
+Organizer.relationship({ ref: 'Workshop', refPath: 'assignee', path: 'workshops' })
+Organizer.relationship({ ref: 'Sponsor', refPath: 'assignee', path: 'sponsors' })
+Organizer.relationship({ ref: 'Proposal', refPath: 'assignee', path: 'proposals' })
+
 Organizer.defaultColumns = 'name, twitter, email, published'
 Organizer.register()

@@ -1,5 +1,7 @@
 require('dotenv').load()
 
+process.env.TZ = 'America/Montevideo'
+
 var keystone = require('keystone')
 
 require('./lib/patchs')
@@ -27,9 +29,6 @@ keystone.init({
 
 keystone.import('models')
 
-// Setup common locals for your templates. The following are required for the
-// bundled templates and layouts. Any runtime locals (that should be set uniquely
-// for each request) should be added to ./routes/middleware.js
 keystone.set('locals', {
   _: require('underscore'),
   env: keystone.get('env'),
@@ -37,7 +36,6 @@ keystone.set('locals', {
   editable: keystone.content.editable
 })
 
-// Load your project's Routes
 keystone.set('routes', require('./routes'))
 
 if (keystone.get('env') !== 'production') {
@@ -45,16 +43,14 @@ if (keystone.get('env') !== 'production') {
 }
 keystone.set('cloudinary secure', true)
 
-// Setup common locals for your emails. The following are required by Keystone's
-// default email templates, you may remove them if you're using your own.
 keystone.set('email locals', {
   base_url: process.env.BASE_URL
 })
 
-// Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
-  'conference': ['proposals', 'speakers', 'talks', 'workshops', 'organizers'],
-  'sales': ['tickets', 'orders', 'attendees', 'discounts', 'sponsors', 'sponsor-levels'],
+  'conference': ['proposals', 'speakers', 'talks', 'workshops', 'organizers', 'attendees', 'sponsors', 'sponsor-levels'],
+  'schedule': ['days', 'tracks', 'slots'],
+  'sales': ['tickets', 'discounts', 'orders'],
   'blog': ['posts', 'post-categories'],
   'others': ['users', 'tags', 'galleries']
 })

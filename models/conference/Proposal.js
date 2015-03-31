@@ -14,11 +14,13 @@ var Proposal = new keystone.List('Proposal', {
 
 Proposal.add(
   {
+    assignee: { type: Types.Relationship, ref: 'Organizer', index: true },
     topic: { type: String, required: true, intial: true },
     status: { type: Types.Select, default: 'N', options: [
       { value: 'N', label: 'New' },
       { value: 'P', label: 'Pending' },
       { value: 'A', label: 'Accepted' },
+      { value: 'C', label: 'Canceled' },
       { value: 'D', label: 'Declined' }
     ]},
     source: { type: Types.Select, required: true, default: 'C', options: [
@@ -26,7 +28,6 @@ Proposal.add(
       { value: 'I', label: 'Internal' }
     ]},
     type: { type: Types.Select, required: true, default: 'T', options: [
-      { value: 'K', label: 'Key Note' },
       { value: 'T', label: 'Talk' },
       { value: 'W', label: 'Workshop' }
     ]},
@@ -36,9 +37,9 @@ Proposal.add(
     email: { type: Types.Email },
     residence: { type: String },
     biography: { type: Types.Textarea },
-    notes: { type: Types.Markdown },
+    extra: { type: Types.Markdown },
     tags: { type: Types.Relationship, ref: 'Tag', many: true },
-    assignee: { type: Types.Relationship, ref: 'Organizer', index: true }
+    notes: { type: Types.Markdown }
   },
   'Votes',
   {
@@ -53,8 +54,7 @@ Proposal.add(
       ssassi: { label: 'Sebastian Sassi', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
       mprunell: { label: 'Martin Prunell', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
       gcura: { label: 'Guillermo Cura', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] }
-    },
-    comments: { type: Types.Markdown }
+    }
   }
 )
 
@@ -78,5 +78,5 @@ Proposal.schema.pre('save', function (next) {
 })
 
 Proposal.relationship({ ref: 'Tag', path: 'tags' })
-Proposal.defaultColumns = 'topic|30%, name, coasted, tags, status, score'
+Proposal.defaultColumns = 'topic|30%, name, coasted, tags, status, score, assignee'
 Proposal.register()
