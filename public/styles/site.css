@@ -6177,20 +6177,20 @@ body > footer {
             background: #ffffff; }
             #buy .steps .step.step-assign ul li .personal .tshirt select:focus {
               outline: 2px solid #254164; }
-      #buy .steps .step.step-assign ul li .comments {
+      #buy .steps .step.step-assign ul li .extra {
         width: 100%; }
-        #buy .steps .step.step-assign ul li .comments:before, #buy .steps .step.step-assign ul li .comments:after {
+        #buy .steps .step.step-assign ul li .extra:before, #buy .steps .step.step-assign ul li .extra:after {
           content: " ";
           display: table; }
-        #buy .steps .step.step-assign ul li .comments:after {
+        #buy .steps .step.step-assign ul li .extra:after {
           clear: both; }
-        #buy .steps .step.step-assign ul li .comments textarea {
+        #buy .steps .step.step-assign ul li .extra textarea {
           width: 100%;
           max-width: 100%;
           height: 80px;
           padding: 4px 8px;
           border: 1px solid #999999; }
-          #buy .steps .step.step-assign ul li .comments textarea:focus {
+          #buy .steps .step.step-assign ul li .extra textarea:focus {
             outline: 2px solid #254164; }
 
 /* Loader */
