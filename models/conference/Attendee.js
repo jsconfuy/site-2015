@@ -34,6 +34,7 @@ Attendee.add({
     label: 'Country', type: Types.Select, options: countries.getData().map(function (country) {
       return {label: country.name, value: country.code}
     })},
+  extra: { type: Types.Textarea },
   comments: { type: Types.Textarea },
   order: { type: Types.Relationship, ref: 'Order', index: true, noedit: true },
   ticket: { type: Types.Relationship, ref: 'Ticket', index: true },

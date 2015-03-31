@@ -146,7 +146,7 @@
                 $('<input type="email" placeholder="Email" />').attr('name', attendee.id + '_email').val(attendee.email)
               ),
               $('<div class="tshirt" />').append(
-                $('<select placeholdecommentsT-Shirt" />').attr('name', attendee.id + '_tshirt').append(
+                $('<select placeholder="T-Shirt" />').attr('name', attendee.id + '_tshirt').append(
                   $('<option />', {value: 'XS', text: 'Size XS'}),
                   $('<option />', {value: 'S', text: 'Size S'}),
                   $('<option />', {value: 'M', text: 'Size M'}),
@@ -156,11 +156,11 @@
                 ).val(attendee.tshirt || 'L')
               )
             ),
-            $('<div class="comments" />').append(
+            $('<div class="extra" />').append(
               $('<textarea />')
-                .attr('name', attendee.id + '_comments')
+                .attr('name', attendee.id + '_extra')
                 .attr('placeholder', 'Anything you would like us to know. E.g: Meal requisites (vegan, vegetarian, diabetic, coeliac), Accessibility, etc.')
-                .val(attendee.comments)
+                .val(attendee.extra)
             )
           );
           modal.find('.step-assign .attendees ul').append(li);

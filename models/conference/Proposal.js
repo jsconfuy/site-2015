@@ -39,8 +39,7 @@ Proposal.add(
     biography: { type: Types.Textarea },
     extra: { type: Types.Markdown },
     tags: { type: Types.Relationship, ref: 'Tag', many: true },
-    notes: { type: Types.Markdown },
-    comments: { type: Types.Markdown }
+    notes: { type: Types.Markdown }
   },
   'Votes',
   {
