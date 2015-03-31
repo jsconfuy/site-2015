@@ -35,7 +35,6 @@ Attendee.add({
       return {label: country.name, value: country.code}
     })},
   extra: { type: Types.Textarea },
-  comments: { type: Types.Textarea },
   order: { type: Types.Relationship, ref: 'Order', index: true, noedit: true },
   ticket: { type: Types.Relationship, ref: 'Ticket', index: true },
   discount: { type: Types.Relationship, ref: 'Discount', index: true },
