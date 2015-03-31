@@ -21,7 +21,7 @@ exports = module.exports = function (req, res) {
     updater.process(req.body, {
       flashErrors: true,
       required: 'topic, summary, name, email',
-      fields: 'topic, summary, name, email, notes',
+      fields: 'topic, summary, name, email, extra',
       errorMessage: 'There was a problem submitting your workshop proposal:'
     }, function(err) {
       if (err) {

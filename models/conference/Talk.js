@@ -23,8 +23,8 @@ Talk.add({
     { value: 'C', label: 'Confirmed' },
     { value: 'D', label: 'Declined' }]},
   published: { type: Types.Datetime },
-  notes: { type: Types.Markdown },
-  tags: { type: Types.Relationship, ref: 'Tag', many: true }
+  tags: { type: Types.Relationship, ref: 'Tag', many: true },
+  notes: { type: Types.Markdown }
 })
 
 Talk.relationship({ ref: 'Speaker', path: 'speakers' })

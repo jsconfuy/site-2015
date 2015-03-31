@@ -37,8 +37,10 @@ Proposal.add(
     email: { type: Types.Email },
     residence: { type: String },
     biography: { type: Types.Textarea },
+    extra: { type: Types.Markdown },
+    tags: { type: Types.Relationship, ref: 'Tag', many: true },
     notes: { type: Types.Markdown },
-    tags: { type: Types.Relationship, ref: 'Tag', many: true }
+    comments: { type: Types.Markdown }
   },
   'Votes',
   {
@@ -53,8 +55,7 @@ Proposal.add(
       ssassi: { label: 'Sebastian Sassi', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
       mprunell: { label: 'Martin Prunell', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
       gcura: { label: 'Guillermo Cura', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] }
-    },
-    comments: { type: Types.Markdown }
+    }
   }
 )
 

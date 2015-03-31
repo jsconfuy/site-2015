@@ -72,9 +72,9 @@ block content
               .form-group(class=errors.email ? 'has-error' : null)
                 label(for='email') Instructor's Email *
                 input#email(type='email', name='email', value=data.email).form-control
-              .form-group(class=errors.notes ? 'has-error' : null)
-                label(for='notes') Notes
-                textarea#notes(name='notes', placeholder='Anything else you would like to mention...' rows=4).form-control= data.notes
+              .form-group(class=errors.extra ? 'has-error' : null)
+                label(for='extra') Notes
+                textarea#extra(name='extra', placeholder='Anything else you would like to mention...' rows=4).form-control= data.extra
               .form-group(class=errors.coasted ? 'has-error' : null)
                 .checkbox
                   label(for='coasted')

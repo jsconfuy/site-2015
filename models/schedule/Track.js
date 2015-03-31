@@ -1,5 +1,4 @@
 var keystone = require('keystone')
-var Types = keystone.Field.Types
 
 /**
  * Track Model
@@ -15,7 +14,7 @@ var Track = new keystone.List('Track', {
 
 Track.add({
   name: {type: String, required: true, initial: true},
-  room: {type: String, required: true, initial: true},
+  room: {type: String, required: true, initial: true}
 })
 
 Track.defaultColumns = 'name'

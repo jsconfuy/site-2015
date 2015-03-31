@@ -23,10 +23,10 @@ Workshop.add({
     { value: 'C', label: 'Confirmed' },
     { value: 'D', label: 'Declined' }]},
   published: { type: Types.Datetime },
-  notes: { type: Types.Markdown },
   hours: { type: Types.Number },
   instructions: { type: Types.Markdown },
-  tags: { type: Types.Relationship, ref: 'Tag', many: true }
+  tags: { type: Types.Relationship, ref: 'Tag', many: true },
+  notes: { type: Types.Markdown }
 })
 
 Workshop.relationship({ ref: 'Speaker', path: 'speakers' })

@@ -1,5 +1,7 @@
 require('dotenv').load()
 
+process.env.TZ = 'America/Montevideo'
+
 var keystone = require('keystone')
 
 require('./lib/patchs')

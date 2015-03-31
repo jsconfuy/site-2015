@@ -24,13 +24,13 @@ Slot.add({
       {value: 'workshop', label: 'Workshop'},
       {value: 'break', label: 'Break' },
       {value: 'lunch', label: 'Lunch'},
-      {value: 'empty', label: 'Empty' },
+      {value: 'empty', label: 'Empty' }
     ]},
   duration: {type: Number, initial: true, required: true, note: 'Duration in minutes'},
   content: {type: Types.Text},
   talk: {type: Types.Relationship, ref: 'Talk'},
   workshop: {type: Types.Relationship, ref: 'Workshop'},
-  tracks: { type: Types.Relationship, ref: 'Track', many: true },
+  tracks: { type: Types.Relationship, ref: 'Track', many: true }
 })
 
 Slot.defaultColumns = 'name, day, kind, duration, content, talk, workshop, tracks'
