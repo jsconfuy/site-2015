@@ -7,13 +7,14 @@ var Types = keystone.Field.Types
  */
 
 var Talk = new keystone.List('Talk', {
-  map: { name: 'title' },
   autokey: { path: 'slug', from: 'name', unique: true },
+  map: { name: 'title' },
   sortable: true,
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true}
 })
 
 Talk.add({
+  assignee: { type: Types.Relationship, ref: 'Organizer', index: true },
   title: { type: String, required: true },
   speakers: { type: Types.Relationship, ref: 'Speaker', many: true },
   status: { type: Types.Select, default: 'P', options: [
@@ -29,5 +30,5 @@ Talk.add({
 Talk.relationship({ ref: 'Speaker', path: 'speakers' })
 Talk.relationship({ ref: 'Tag', path: 'tags' })
 
-Talk.defaultColumns = 'title, speakers, tags, status, added'
+Talk.defaultColumns = 'title, speakers, tags, status, assignee, published'
 Talk.register()

@@ -14,11 +14,13 @@ var Proposal = new keystone.List('Proposal', {
 
 Proposal.add(
   {
+    assignee: { type: Types.Relationship, ref: 'Organizer', index: true },
     topic: { type: String, required: true, intial: true },
     status: { type: Types.Select, default: 'N', options: [
       { value: 'N', label: 'New' },
       { value: 'P', label: 'Pending' },
       { value: 'A', label: 'Accepted' },
+      { value: 'C', label: 'Canceled' },
       { value: 'D', label: 'Declined' }
     ]},
     source: { type: Types.Select, required: true, default: 'C', options: [
@@ -26,7 +28,6 @@ Proposal.add(
       { value: 'I', label: 'Internal' }
     ]},
     type: { type: Types.Select, required: true, default: 'T', options: [
-      { value: 'K', label: 'Key Note' },
       { value: 'T', label: 'Talk' },
       { value: 'W', label: 'Workshop' }
     ]},
@@ -37,8 +38,7 @@ Proposal.add(
     residence: { type: String },
     biography: { type: Types.Textarea },
     notes: { type: Types.Markdown },
-    tags: { type: Types.Relationship, ref: 'Tag', many: true },
-    assignee: { type: Types.Relationship, ref: 'Organizer', index: true }
+    tags: { type: Types.Relationship, ref: 'Tag', many: true }
   },
   'Votes',
   {
@@ -78,5 +78,5 @@ Proposal.schema.pre('save', function (next) {
 })
 
 Proposal.relationship({ ref: 'Tag', path: 'tags' })
-Proposal.defaultColumns = 'topic|30%, name, coasted, tags, status, score'
+Proposal.defaultColumns = 'topic|30%, name, coasted, tags, status, score, assignee'
 Proposal.register()

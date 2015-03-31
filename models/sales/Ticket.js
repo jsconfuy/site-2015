@@ -7,13 +7,14 @@ var Types = keystone.Field.Types
  */
 
 var Ticket = new keystone.List('Ticket', {
-  map: { name: 'name' },
   autokey: { path: 'code', from: 'name', unique: true },
+  map: { name: 'name' },
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true}
 })
 
 Ticket.add({
   name: { type: String, required: true },
+  logo: { type: Types.CloudinaryImage },
   description: { type: Types.Markdown },
   sale: {
     from: { type: Types.Datetime },
@@ -23,7 +24,6 @@ Ticket.add({
   limit: { type: Types.Number, default: 0, note: '0 for no limit.' },
   min: { type: Types.Number, default: 1, note: 'Minimun per purchase' },
   max: { type: Types.Number, default: 5, note: 'Maximun per purchase' },
-  sold: { type: Types.Number, default: 0, noedit: true },
   secret: { type: Types.Boolean, default: true, indent: true }
 })
 
@@ -39,5 +39,5 @@ Ticket.calculateDiscount = function (ticket, discount) {
   return value
 }
 
-Ticket.defaultColumns = 'code, name, saleFrom, saleUntil, price, sold, total, secret'
+Ticket.defaultColumns = 'name, code, sale.from, sale.until, price, sold, total, secret'
 Ticket.register()

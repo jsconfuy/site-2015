@@ -35,9 +35,6 @@ Order.add({
 
 Order.relationship({ ref: 'Attendee', refPath: 'order', path: 'attendees' })
 
-// The order should be paid before 15 minutes.
-// We should check the created and paid fields to reserve
-
 Order.schema.methods.sendOrderConfirmation = function (callback) {
   if (typeof callback !== 'function') {
     callback = function () {}
@@ -56,5 +53,5 @@ Order.schema.methods.sendOrderConfirmation = function (callback) {
   }, callback)
 }
 
-Order.defaultColumns = 'id, name, email, reserved, paid, ticket, discount'
+Order.defaultColumns = 'id, name, email, reserved, canceled, paid, ticket, discount, quantity'
 Order.register()

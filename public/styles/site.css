@@ -6378,8 +6378,6 @@ body > footer {
             -moz-transform: scale(1.05);
             transform: scale(1.05); }
         .home body .tickets-sale .buy-tickets .sold-out {
-          margin: auto auto;
-          text-align: center;
           background: url("/images/home/tickets-sold.svg") no-repeat;
           background-position: center; }
       .home body .tickets-sale .countdown .countdown-title {
