@@ -149,7 +149,7 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                   .discount
                     .code
                   .soldout
-                    | More tickets will be available coming soon.
+                    | Titcket sale has not started yet.
                     // We're sold out.
                   .tickets
                     ul
@@ -168,7 +168,7 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                     .pay
                       button Pay
                   .important
-                    | At this point your tickets has been reserved. You have 12 minutes to complete your payment or these will be released.
+                    | At this point your tickets has been reserved. You have #{ticketReservation} minutes to complete your payment or these will be released.
                   .note
                     | A popup will be open to process with the checkout.
                     br
@@ -211,6 +211,11 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
           .box
             a(href='//meetup.com/mvd-js') Open Web Uruguay
             a(href='/code-of-conduct') Code of Conduct
+
+    script(type='text/javascript').
+      window.tickets = {
+        reservation: #{ticketReservation}
+      };
 
     script(src='//maps.googleapis.com/maps/api/js?sensor=false')
     script(src='/js/lib/jquery/jquery-2.1.1.min.js')

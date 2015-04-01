@@ -1,6 +1,7 @@
 require('dotenv').load()
 
-process.env.TZ = 'America/Montevideo'
+process.env.TZ = process.env.TZ || 'America/Montevideo'
+process.env.TICKET_RESERVATION = process.env.TICKET_RESERVATION || 8
 
 var keystone = require('keystone')
 

@@ -202,7 +202,7 @@
       setTimeout(function () { alert('Your reservation expired'); }, 10); // Prevent FF hangs
       purchaseWindow.close();
       show(modal.data('ticket'), modal.data('discount'));
-    }, 12 * 60 * 1000); // 12 minutes
+    }, window.tickets.reservation * 60 * 1000); // X minutes
     if (window.focus) {purchaseWindow.focus()}
     return false;
   });
