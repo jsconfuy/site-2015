@@ -122,6 +122,13 @@
               color: $blue;
             }
           }
+          .company {
+            margin: 8px 16px 2px;
+            color: $blue;
+            font-size: 75%;
+            font-weight: bold;
+            text-transform: uppercase;
+          }
           a {
             color: $blue-light;
             &:hover {

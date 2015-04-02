@@ -50,6 +50,7 @@ Speaker.add(
       short: { type: Types.Markdown },
       full: { type: Types.Markdown }
     },
+    company: { type: String },
     twitter: { type: String },
     residence: { type: String },
     tags: {type: Types.Relationship, ref: 'Tag', many: true},

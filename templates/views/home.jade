@@ -53,6 +53,9 @@ block content
               != speaker.name
             .bio
               != speaker.biography.short.html
+            if speaker.company
+              .company
+                != speaker.company
             if speaker.twitter
               a(href='//twitter.com/#{speaker.twitter}')
                 i(class='fa fa-twitter')

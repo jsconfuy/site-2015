@@ -6354,6 +6354,12 @@ body > footer {
             .home body .speakers ul li .bio strong {
               font-weight: normal;
               color: #254164; }
+          .home body .speakers ul li .company {
+            margin: 8px 16px 2px;
+            color: #254164;
+            font-size: 75%;
+            font-weight: bold;
+            text-transform: uppercase; }
           .home body .speakers ul li a {
             color: #5596C0; }
             .home body .speakers ul li a:hover {
