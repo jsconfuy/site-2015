@@ -117,6 +117,10 @@
             color: $gray;
             font-size: $font-size-small;
             line-height: 1.4em;
+            strong {
+              font-weight: normal;
+              color: $blue;
+            }
           }
           a {
             color: $blue-light;
