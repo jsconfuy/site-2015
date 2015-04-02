@@ -13,7 +13,7 @@
     }
   });
 
-  var start = new Date(Date.UTC(2015, 3, 1, 19, 0, 0));
+  var start = new Date(Date.UTC(2015, 3, 6, 19, 0, 0));
   var countdown = $('.countdown-clock').countdown(start);
 
   countdown.on('update.countdown', function (clock) {
