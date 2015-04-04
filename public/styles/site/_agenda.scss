@@ -6,4 +6,14 @@
     color: $blue;
     text-align: center;
   }
+  table {
+    width: 100%;
+    tr {
+      border: 1px solid blue;
+      td, th {
+        text-align: center;
+        border: 1px solid red;
+      }
+    }
+  }
 }

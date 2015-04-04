@@ -6913,3 +6913,10 @@ body > footer {
   background-color: #e0e0d9;
   color: #254164;
   text-align: center; }
+.agenda table {
+  width: 100%; }
+  .agenda table tr {
+    border: 1px solid blue; }
+    .agenda table tr td, .agenda table tr th {
+      text-align: center;
+      border: 1px solid red; }

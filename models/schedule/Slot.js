@@ -15,10 +15,11 @@ var Slot = new keystone.List('Slot', {
 Slot.add({
   name: {type: Types.Text, required: true, initial: true},
   day: {type: Types.Relationship, ref: 'Day', index: true, required: true, initial: true},
+  track: {type: Types.Relationship, ref: 'Track', note: 'Left empty for show in all tracks.'},
   kind: {
     label: 'Kind', type: Types.Select, options: [
-      {value: 'registration', label: 'Registraion' },
-      {value: 'open', label: 'Open' },
+      {value: 'registration', label: 'Registraion'},
+      {value: 'open', label: 'Open'},
       {value: 'keynote', label: 'KeyNote'},
       {value: 'talk', label: 'Talk'},
       {value: 'workshop', label: 'Workshop'},
@@ -29,9 +30,8 @@ Slot.add({
   duration: {type: Number, initial: true, required: true, note: 'Duration in minutes'},
   content: {type: Types.Text},
   talk: {type: Types.Relationship, ref: 'Talk'},
-  workshop: {type: Types.Relationship, ref: 'Workshop'},
-  tracks: { type: Types.Relationship, ref: 'Track', many: true }
+  workshop: {type: Types.Relationship, ref: 'Workshop'}
 })
 
-Slot.defaultColumns = 'name, day, kind, duration, content, talk, workshop, tracks'
+Slot.defaultColumns = 'name, day, track, duration, kind, content, talk, workshop'
 Slot.register()

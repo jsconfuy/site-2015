@@ -42,6 +42,7 @@ exports = module.exports = function (app) {
     })
   })
   app.use(function (err, req, res, next) {
+    console.log(err)
     logger.log(err, function () {
       res.status(500)
       res.render('errors/500')
