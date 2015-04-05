@@ -17,6 +17,7 @@ Workshop.add({
   assignee: { type: Types.Relationship, ref: 'Organizer', index: true },
   title: { type: String, required: true },
   speakers: { type: Types.Relationship, ref: 'Speaker', many: true },
+  description: { type: Types.Markdown },
   status: { type: Types.Select, default: 'P', options: [
     { value: 'P', label: 'Pending' },
     { value: 'W', label: 'Waiting' },

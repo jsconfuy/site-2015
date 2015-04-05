@@ -6915,8 +6915,10 @@ body > footer {
   text-align: center; }
 .agenda table {
   width: 100%; }
-  .agenda table tr {
-    border: 1px solid blue; }
-    .agenda table tr td, .agenda table tr th {
-      text-align: center;
-      border: 1px solid red; }
+  .agenda table tr td, .agenda table tr th {
+    text-align: center;
+    border: 1px solid #999999;
+    vertical-align: top; }
+  .agenda table tr td.slot-talk .speakers .speaker .picture, .agenda table tr td.slot-workshop .speakers .speaker .picture, .agenda table tr td.slot-keynote .speakers .speaker .picture {
+    height: 40px;
+    width: 40px; }

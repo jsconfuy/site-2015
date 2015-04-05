@@ -12,22 +12,33 @@ block content
         h1
           | Agenda
         each day in timetable
-          h2 #{day.name}
+          h2 #{day.name} - #{moment.tz(day.start, 'America/Montevideo').format('dddd DD[th], MMMM')}
           table
             tr
-              th Time
+              th.time Time
               each track in day.tracks
-                  th #{track.name}
-              th Time
+                  th.track #{track.name}
+              th.time Time
             each slots in day.slots
               tr
-                td #{moment.tz(slots.start, 'America/Montevideo').format('HH:mm')}
+                td.time #{moment.tz(slots.start, 'America/Montevideo').format('HH:mm')}
                 each slot in slots.slots
                   if slot
-                    td(colspan=slot.colspan, rowspan=slot.rowspan) #{slot.name}
-                td #{moment.tz(slots.start, 'America/Montevideo').format('HH:mm')}
-
-        h2  #1 - Friday, April 24th
-        p.coming The agenda will be available coming soon.
-        h2  #2 - Saturday, April 25th
-        p.coming The agenda will be available coming soon.
+                    td(class='slot slot-#{slot.kind}', colspan=slot.colspan, rowspan=slot.rowspan)
+                      - var item = slot.talk || slot.workshop
+                      if item
+                        .title
+                          = item.title || slot.name
+                        .description
+                          != item.description.html
+                        .speakers
+                          for speaker in item.speakers
+                            .speaker
+                              .picture(style='background-image: url(#{speaker._.picture.fill(40,40)})')
+                              .name
+                                =speaker.name
+                      else if slot.content
+                        | #{slot.content}
+                      else
+                        | #{slot.name}
+                td.time #{moment.tz(slots.start, 'America/Montevideo').format('HH:mm')}

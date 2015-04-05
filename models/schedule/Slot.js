@@ -19,12 +19,14 @@ Slot.add({
   kind: {
     label: 'Kind', type: Types.Select, options: [
       {value: 'registration', label: 'Registraion'},
-      {value: 'open', label: 'Open'},
+      {value: 'opening', label: 'Opening'},
+      {value: 'close', label: 'Close'},
       {value: 'keynote', label: 'KeyNote'},
       {value: 'talk', label: 'Talk'},
       {value: 'workshop', label: 'Workshop'},
       {value: 'break', label: 'Break' },
       {value: 'lunch', label: 'Lunch'},
+      {value: 'after', label: 'After' },
       {value: 'empty', label: 'Empty' }
     ]},
   duration: {type: Number, initial: true, required: true, note: 'Duration in minutes'},

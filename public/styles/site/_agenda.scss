@@ -9,10 +9,26 @@
   table {
     width: 100%;
     tr {
-      border: 1px solid blue;
       td, th {
         text-align: center;
-        border: 1px solid red;
+        border: 1px solid $gray;
+        vertical-align: top;
+      }
+      th {
+      }
+      td {
+        &.time {
+        }
+        &.slot-talk, &.slot-workshop, &.slot-keynote {
+          .speakers {
+            .speaker {
+              .picture {
+                height: 40px;
+                width: 40px;
+              }
+            }
+          }
+        }
       }
     }
   }
