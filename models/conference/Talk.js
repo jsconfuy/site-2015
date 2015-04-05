@@ -19,12 +19,14 @@ Talk.add({
   title: { type: String, required: true },
   speakers: { type: Types.Relationship, ref: 'Speaker', many: true },
   description: { type: Types.Markdown },
+  language: { type: Types.Select, default: 'E', options: [
+    { value: 'E', label: 'English' },
+    { value: 'S', label: 'Spanish' }]},
   status: { type: Types.Select, default: 'P', options: [
     { value: 'P', label: 'Pending' },
     { value: 'W', label: 'Waiting' },
     { value: 'C', label: 'Confirmed' },
     { value: 'D', label: 'Declined' }]},
-  published: { type: Types.Datetime },
   tags: { type: Types.Relationship, ref: 'Tag', many: true },
   notes: { type: Types.Markdown }
 })
@@ -32,5 +34,5 @@ Talk.add({
 Talk.relationship({ ref: 'Speaker', path: 'speakers' })
 Talk.relationship({ ref: 'Tag', path: 'tags' })
 
-Talk.defaultColumns = 'title, speakers, tags, status, assignee, published'
+Talk.defaultColumns = 'title, speakers, tags, status, assignee, language'
 Talk.register()

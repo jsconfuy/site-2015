@@ -19,12 +19,14 @@ Workshop.add({
   title: { type: String, required: true },
   speakers: { type: Types.Relationship, ref: 'Speaker', many: true },
   description: { type: Types.Markdown },
+  language: { type: Types.Select, default: 'E', options: [
+    { value: 'E', label: 'English' },
+    { value: 'S', label: 'Spanish' }]},
   status: { type: Types.Select, default: 'P', options: [
     { value: 'P', label: 'Pending' },
     { value: 'W', label: 'Waiting' },
     { value: 'C', label: 'Confirmed' },
     { value: 'D', label: 'Declined' }]},
-  published: { type: Types.Datetime },
   hours: { type: Types.Number },
   instructions: { type: Types.Markdown },
   tags: { type: Types.Relationship, ref: 'Tag', many: true },
@@ -34,5 +36,5 @@ Workshop.add({
 Workshop.relationship({ ref: 'Speaker', path: 'speakers' })
 Workshop.relationship({ ref: 'Tag', path: 'tags' })
 
-Workshop.defaultColumns = 'title, speakers, tags, status, hours, assignee, published'
+Workshop.defaultColumns = 'title, speakers, tags, status, hours, assignee, language'
 Workshop.register()
