@@ -1,8 +1,8 @@
 extends ../layouts/default
 
 block vars
-  - var section = 'agenda';
-  - var klass = 'agenda';
+  - var section = 'schedule';
+  - var klass = 'schedule';
 
 
 block content
@@ -10,7 +10,7 @@ block content
     .row
       .col-md-10.col-md-offset-1
         h1
-          | Agenda
+          | Schedule
         each day in timetable
           h2 #{day.name} - #{moment.tz(day.start, 'America/Montevideo').format('dddd DD[th], MMMM')}
           table

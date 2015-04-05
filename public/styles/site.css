@@ -6907,18 +6907,18 @@ body > footer {
   .gold body > footer .footer .venue-info .info .data button {
     background-color: #D4AF37; }
 
-.agenda .coming {
+.schedule .coming {
   border-radius: 4px;
   padding: 50px 0;
   background-color: #e0e0d9;
   color: #254164;
   text-align: center; }
-.agenda table {
+.schedule table {
   width: 100%; }
-  .agenda table tr td, .agenda table tr th {
+  .schedule table tr td, .schedule table tr th {
     text-align: center;
     border: 1px solid #999999;
     vertical-align: top; }
-  .agenda table tr td.slot-talk .speakers .speaker .picture, .agenda table tr td.slot-workshop .speakers .speaker .picture, .agenda table tr td.slot-keynote .speakers .speaker .picture {
+  .schedule table tr td.slot-talk .speakers .speaker .picture, .schedule table tr td.slot-workshop .speakers .speaker .picture, .schedule table tr td.slot-keynote .speakers .speaker .picture {
     height: 40px;
     width: 40px; }
