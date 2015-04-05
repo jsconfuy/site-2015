@@ -6919,6 +6919,13 @@ body > footer {
     text-align: center;
     border: 1px solid #999999;
     vertical-align: top; }
+  .schedule table tr td.slot-talk .title, .schedule table tr td.slot-workshop .title, .schedule table tr td.slot-keynote .title {
+    text-transform: uppercase; }
+  .schedule table tr td.slot-talk .description, .schedule table tr td.slot-workshop .description, .schedule table tr td.slot-keynote .description {
+    font-size: 50%; }
+  .schedule table tr td.slot-talk .speakers .speaker .name, .schedule table tr td.slot-workshop .speakers .speaker .name, .schedule table tr td.slot-keynote .speakers .speaker .name {
+    text-transform: uppercase; }
   .schedule table tr td.slot-talk .speakers .speaker .picture, .schedule table tr td.slot-workshop .speakers .speaker .picture, .schedule table tr td.slot-keynote .speakers .speaker .picture {
+    margin: 0 auto;
     height: 40px;
     width: 40px; }

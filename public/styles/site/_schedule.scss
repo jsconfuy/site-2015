@@ -20,9 +20,19 @@
         &.time {
         }
         &.slot-talk, &.slot-workshop, &.slot-keynote {
+          .title {
+            text-transform: uppercase;
+          }
+          .description {
+            font-size: 50%;
+          }
           .speakers {
             .speaker {
+              .name {
+                text-transform: uppercase;
+              }
               .picture {
+                margin: 0 auto;
                 height: 40px;
                 width: 40px;
               }
