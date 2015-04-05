@@ -8,6 +8,7 @@ var Types = keystone.Field.Types
 
 var Order = new keystone.List('Order', {
   map: { name: 'id' },
+  perPage: 200,
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true },
   nocreate: true,
   noedit: true

@@ -8,6 +8,7 @@ var Types = keystone.Field.Types
 
 var Proposal = new keystone.List('Proposal', {
   map: { name: 'topic' },
+  perPage: 200,
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true },
   sortable: true
 })

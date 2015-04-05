@@ -9,6 +9,7 @@ var Types = keystone.Field.Types
 var Slot = new keystone.List('Slot', {
   map: { name: 'name' },
   sortable: true,
+  perPage: 200,
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true}
 })
 

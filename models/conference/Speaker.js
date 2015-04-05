@@ -9,6 +9,7 @@ var countries = require('country-list')()
 
 var Speaker = new keystone.List('Speaker', {
   map: { name: 'name' },
+  perPage: 200,
   autokey: { path: 'slug', from: 'name', unique: true },
   sortable: true,
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true}

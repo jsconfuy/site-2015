@@ -10,6 +10,7 @@ var countries = require('country-list')()
 
 var Attendee = new keystone.List('Attendee', {
   map: { name: 'name' },
+  perPage: 200,
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true }
 })
 
