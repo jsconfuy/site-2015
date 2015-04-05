@@ -25,20 +25,22 @@ block content
                 each slot in slots.slots
                   if slot
                     td(class='slot slot-#{slot.kind}', colspan=slot.colspan, rowspan=slot.rowspan)
-                      - var item = slot.talk || slot.workshop
-                      if item
-                        .title
-                          = item.title || slot.name
-                        .description
-                          != item.description.html
-                        .speakers
-                          for speaker in item.speakers
-                            .speaker
-                              .picture(style='background-image: url(#{speaker._.picture.fill(40,40)})')
-                              .name
-                                =speaker.name
-                      else if slot.content
-                        | #{slot.content}
+                      if slot.kind == 'empty'
                       else
-                        | #{slot.name}
+                        - var item = slot.talk || slot.workshop
+                        if item
+                          .title
+                            = item.title || slot.name
+                          .description
+                            != item.description.html
+                          .speakers
+                            for speaker in item.speakers
+                              .speaker
+                                .picture(style='background-image: url(#{speaker._.picture.fill(40,40)})')
+                                .name
+                                  =speaker.name
+                        else if slot.content
+                          | #{slot.content}
+                        else
+                          | #{slot.name}
                 td.time #{moment.tz(slots.start, 'America/Montevideo').format('HH:mm')}
