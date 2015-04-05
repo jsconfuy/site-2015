@@ -21,7 +21,9 @@ block content
               th.time Time
             each slots in day.slots
               tr
-                td.time #{moment.tz(slots.start, 'America/Montevideo').format('HH:mm')}
+                td.time
+                  if slots.slots[0]
+                    | #{moment.tz(slots.start, 'America/Montevideo').format('HH:mm')}
                 each slot in slots.slots
                   if slot
                     td(class='slot slot-#{slot.kind}', colspan=slot.colspan, rowspan=slot.rowspan)
@@ -43,4 +45,6 @@ block content
                           | #{slot.content}
                         else
                           | #{slot.name}
-                td.time #{moment.tz(slots.start, 'America/Montevideo').format('HH:mm')}
+                td.time
+                  if slots.slots[slots.slots.length - 1]
+                    | #{moment.tz(slots.start, 'America/Montevideo').format('HH:mm')}
