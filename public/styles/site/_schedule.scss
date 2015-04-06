@@ -42,21 +42,12 @@
           background: transparent;
         }
         &.slot-talk, &.slot-workshop, &.slot-keynote, {
-          position: relative;
-          z-index: 1;
-          &:before {
+          .box {
             border: 1px solid $gray-light;
             border-radius: 5px;
-            content: "";
             display: block;
-            height: -webkit-calc(100% - 10px);
-            height: -moz-calc(100% - 10px);
-            left: 5px;
-            position: absolute;
-            top: 5px;
-            width: -webkit-calc(100% - 10px);
-            width: -moz-calc(100% - 10px);
-            z-index: 0;
+            height: 100%;
+            width: 100%;
           }
           .title {
             color: $blue-dark;
