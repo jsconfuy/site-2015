@@ -10,14 +10,15 @@
     margin: 30px auto;
     width: 100%;
     tr {
+      margin: 5px 0;
       &:first-of-type {
         font-size: 0.8em;
         height: 60px;
       }
       td, th {
-        text-align: center;
-        //border: 1px solid $gray;
+        border-radius: 5px;
         padding: 15px;
+        text-align: center;
         vertical-align: top;
       }
       th {
@@ -26,22 +27,23 @@
         }
       }
       td {
+        color: $blue-dark;
         &.time {
+          color: $gray;
         }
         &.slot {
           background: rgba(85, 150, 192, 0.20);
         }
-        &.slot-keynote {
-          background: rgba(197, 71, 61, 0.25);
-        }
+
         &.slot-break, &.slot-lunch {
           background: rgba(85, 150, 192, 0.40);
         }
-        &.slot-talk, &.slot-workshop, &.slot-empty {
+        &.slot-talk, &.slot-workshop, &.slot-keynote, &.slot-empty {
           background: transparent;
         }
         &.slot-talk, &.slot-workshop, &.slot-keynote, {
           position: relative;
+          z-index: 1;
           &:before {
             border: 1px solid $gray-light;
             border-radius: 5px;
@@ -54,6 +56,7 @@
             top: 5px;
             width: -webkit-calc(100% - 10px);
             width: -moz-calc(100% - 10px);
+            z-index: 0;
           }
           .title {
             color: $blue-dark;
@@ -115,6 +118,15 @@
                 }
               }
             }
+          }
+        }
+        &.slot-keynote {
+          background: rgba(22, 38, 54, 0.75);
+          color: $white;
+          font-weight: 700;
+          text-transform: uppercase;
+          &:before {
+            border: 0;
           }
         }
       }

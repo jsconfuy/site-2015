@@ -6916,84 +6916,100 @@ body > footer {
 .schedule table {
   margin: 30px auto;
   width: 100%; }
-  .schedule table tr:first-of-type {
-    font-size: 0.8em;
-    height: 60px; }
-  .schedule table tr td, .schedule table tr th {
-    text-align: center;
-    padding: 15px;
-    vertical-align: top; }
-  .schedule table tr th.track {
-    width: 50%; }
-  .schedule table tr td.slot {
-    background: rgba(85, 150, 192, 0.2); }
-  .schedule table tr td.slot-break, .schedule table tr td.slot-lunch {
-    background: rgba(85, 150, 192, 0.4); }
-  .schedule table tr td.slot-talk, .schedule table tr td.slot-workshop, .schedule table tr td.slot-keynote, .schedule table tr td.slot-empty {
-    background: transparent; }
-  .schedule table tr td.slot-talk, .schedule table tr td.slot-workshop, .schedule table tr td.slot-keynote {
-    position: relative; }
-    .schedule table tr td.slot-talk:before, .schedule table tr td.slot-workshop:before, .schedule table tr td.slot-keynote:before {
-      border: 1px solid #e0e0d9;
+  .schedule table tr {
+    margin: 5px 0; }
+    .schedule table tr:first-of-type {
+      font-size: 0.8em;
+      height: 60px; }
+    .schedule table tr td, .schedule table tr th {
       border-radius: 5px;
-      content: "";
-      display: block;
-      height: -webkit-calc(100% - 10px);
-      height: -moz-calc(100% - 10px);
-      left: 5px;
-      position: absolute;
-      top: 5px;
-      width: -webkit-calc(100% - 10px);
-      width: -moz-calc(100% - 10px); }
-    .schedule table tr td.slot-talk .title, .schedule table tr td.slot-workshop .title, .schedule table tr td.slot-keynote .title {
-      color: #162636;
-      cursor: pointer;
-      margin-bottom: 15px;
-      text-transform: uppercase; }
-      .schedule table tr td.slot-talk .title:hover:after, .schedule table tr td.slot-workshop .title:hover:after, .schedule table tr td.slot-keynote .title:hover:after {
-        -webkit-transform: rotate(360deg);
-        -moz-transform: rotate(360deg);
-        transform: rotate(360deg); }
-      .schedule table tr td.slot-talk .title:after, .schedule table tr td.slot-workshop .title:after, .schedule table tr td.slot-keynote .title:after {
-        color: #c5473d;
-        content: "+";
-        cursor: pointer;
-        display: inline-block;
+      padding: 15px;
+      text-align: center;
+      vertical-align: top; }
+    .schedule table tr th.track {
+      width: 50%; }
+    .schedule table tr td {
+      color: #162636; }
+      .schedule table tr td.time {
+        color: #999999; }
+      .schedule table tr td.slot {
+        background: rgba(85, 150, 192, 0.2); }
+      .schedule table tr td.slot-break, .schedule table tr td.slot-lunch {
+        background: rgba(85, 150, 192, 0.4); }
+      .schedule table tr td.slot-talk, .schedule table tr td.slot-workshop, .schedule table tr td.slot-keynote, .schedule table tr td.slot-empty {
+        background: transparent; }
+      .schedule table tr td.slot-talk, .schedule table tr td.slot-workshop, .schedule table tr td.slot-keynote {
+        position: relative;
+        z-index: 1; }
+        .schedule table tr td.slot-talk:before, .schedule table tr td.slot-workshop:before, .schedule table tr td.slot-keynote:before {
+          border: 1px solid #e0e0d9;
+          border-radius: 5px;
+          content: "";
+          display: block;
+          height: -webkit-calc(100% - 10px);
+          height: -moz-calc(100% - 10px);
+          left: 5px;
+          position: absolute;
+          top: 5px;
+          width: -webkit-calc(100% - 10px);
+          width: -moz-calc(100% - 10px);
+          z-index: 0; }
+        .schedule table tr td.slot-talk .title, .schedule table tr td.slot-workshop .title, .schedule table tr td.slot-keynote .title {
+          color: #162636;
+          cursor: pointer;
+          margin-bottom: 15px;
+          text-transform: uppercase; }
+          .schedule table tr td.slot-talk .title:hover:after, .schedule table tr td.slot-workshop .title:hover:after, .schedule table tr td.slot-keynote .title:hover:after {
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            transform: rotate(360deg); }
+          .schedule table tr td.slot-talk .title:after, .schedule table tr td.slot-workshop .title:after, .schedule table tr td.slot-keynote .title:after {
+            color: #c5473d;
+            content: "+";
+            cursor: pointer;
+            display: inline-block;
+            font-weight: 700;
+            -webkit-transition: all 100ms;
+            -moz-transition: all 100ms;
+            transition: all 100ms; }
+        .schedule table tr td.slot-talk .description, .schedule table tr td.slot-workshop .description, .schedule table tr td.slot-keynote .description {
+          display: block;
+          height: 0;
+          font-size: 0.75em;
+          overflow: hidden;
+          padding: 0;
+          text-align: left;
+          -webkit-transition: all ease-out 250ms;
+          -moz-transition: all ease-out 250ms;
+          transition: all ease-out 250ms; }
+          .schedule table tr td.slot-talk .description.active, .schedule table tr td.slot-workshop .description.active, .schedule table tr td.slot-keynote .description.active {
+            height: auto;
+            padding: 15px; }
+        .schedule table tr td.slot-talk .speakers .speaker .name, .schedule table tr td.slot-workshop .speakers .speaker .name, .schedule table tr td.slot-keynote .speakers .speaker .name {
+          color: #162636;
+          font-weight: 700;
+          text-transform: uppercase; }
+        .schedule table tr td.slot-talk .speakers .speaker .picture, .schedule table tr td.slot-workshop .speakers .speaker .picture, .schedule table tr td.slot-keynote .speakers .speaker .picture {
+          margin: 0 auto;
+          display: block;
+          height: 40px;
+          width: 40px;
+          -webkit-clip-path: url(../images/home/mask-small.svg);
+          clip-path: url(../images/home/mask-small.svg#hexagonPath);
+          -webkit-mask: url(../images/home/mask-small.svg);
+          background-repeat: no-repeat;
+          background-position: center center;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover; }
+          .schedule table tr td.slot-talk .speakers .speaker .picture.empty, .schedule table tr td.slot-workshop .speakers .speaker .picture.empty, .schedule table tr td.slot-keynote .speakers .speaker .picture.empty {
+            background: transparent url('../images/base/george.svg') no-repeat 50% 50%;
+            background-size: 70% auto; }
+      .schedule table tr td.slot-keynote {
+        background: rgba(22, 38, 54, 0.75);
+        color: #ffffff;
         font-weight: 700;
-        -webkit-transition: all 100ms;
-        -moz-transition: all 100ms;
-        transition: all 100ms; }
-    .schedule table tr td.slot-talk .description, .schedule table tr td.slot-workshop .description, .schedule table tr td.slot-keynote .description {
-      display: block;
-      height: 0;
-      font-size: 0.75em;
-      overflow: hidden;
-      padding: 0;
-      text-align: left;
-      -webkit-transition: all ease-out 250ms;
-      -moz-transition: all ease-out 250ms;
-      transition: all ease-out 250ms; }
-      .schedule table tr td.slot-talk .description.active, .schedule table tr td.slot-workshop .description.active, .schedule table tr td.slot-keynote .description.active {
-        height: auto;
-        padding: 15px; }
-    .schedule table tr td.slot-talk .speakers .speaker .name, .schedule table tr td.slot-workshop .speakers .speaker .name, .schedule table tr td.slot-keynote .speakers .speaker .name {
-      color: #162636;
-      font-weight: 700;
-      text-transform: uppercase; }
-    .schedule table tr td.slot-talk .speakers .speaker .picture, .schedule table tr td.slot-workshop .speakers .speaker .picture, .schedule table tr td.slot-keynote .speakers .speaker .picture {
-      margin: 0 auto;
-      display: block;
-      height: 40px;
-      width: 40px;
-      -webkit-clip-path: url(../images/home/mask-small.svg);
-      clip-path: url(../images/home/mask-small.svg#hexagonPath);
-      -webkit-mask: url(../images/home/mask-small.svg);
-      background-repeat: no-repeat;
-      background-position: center center;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover; }
-      .schedule table tr td.slot-talk .speakers .speaker .picture.empty, .schedule table tr td.slot-workshop .speakers .speaker .picture.empty, .schedule table tr td.slot-keynote .speakers .speaker .picture.empty {
-        background: transparent url('../images/base/george.svg') no-repeat 50% 50%;
-        background-size: 70% auto; }
+        text-transform: uppercase; }
+        .schedule table tr td.slot-keynote:before {
+          border: 0; }
