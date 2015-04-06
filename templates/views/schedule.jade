@@ -25,9 +25,9 @@ block content
                   if slots.slots[0]
                     | #{moment.tz(slots.start, 'America/Montevideo').format('HH:mm')}
                 each slot in slots.slots
-                  .box
-                    if slot
-                      td(class='slot slot-#{slot.kind}', colspan=slot.colspan, rowspan=slot.rowspan)
+                  if slot
+                    td(class='slot slot-#{slot.kind}', colspan=slot.colspan, rowspan=slot.rowspan)
+                      .box
                         - var item = slot.talk || slot.workshop
                         if item
                           .title
