@@ -155,6 +155,7 @@
             }
             .title, .description, .speakers .speaker .name {
               color: $white;
+              text-shadow: 1px 1px 1px rgba(20, 20, 20, 0.5);
             }
           }
         }

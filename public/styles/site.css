@@ -7031,4 +7031,5 @@ body > footer {
         .schedule table tr td.slot-keynote .box .title {
           text-transform: uppercase; }
         .schedule table tr td.slot-keynote .box .title, .schedule table tr td.slot-keynote .box .description, .schedule table tr td.slot-keynote .box .speakers .speaker .name {
-          color: #ffffff; }
+          color: #ffffff;
+          text-shadow: 1px 1px 1px rgba(20, 20, 20, 0.5); }
