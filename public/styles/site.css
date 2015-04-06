@@ -6967,16 +6967,15 @@ body > footer {
           opacity: 0;
           overflow: hidden;
           margin: 0;
-          padding: 0;
           text-align: left;
+          padding: 0 15px;
           -webkit-transition: all ease-out 100ms;
           -moz-transition: all ease-out 100ms;
           transition: all ease-out 100ms; }
           .schedule table tr td.slot .box .description.active {
             margin-top: 15px;
             height: auto;
-            opacity: 1;
-            padding: 0 15px; }
+            opacity: 1; }
       .schedule table tr td.slot-break .box, .schedule table tr td.slot-lunch .box {
         background: rgba(85, 150, 192, 0.4); }
       .schedule table tr td.slot-talk .box, .schedule table tr td.slot-workshop .box, .schedule table tr td.slot-keynote .box, .schedule table tr td.slot-empty .box {

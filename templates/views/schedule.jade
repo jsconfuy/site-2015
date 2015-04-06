@@ -27,7 +27,7 @@ block content
                 each slot in slots.slots
                   if slot
                     td(class='slot slot-#{slot.kind}', colspan=slot.colspan, rowspan=slot.rowspan)
-                      .box(style='#{slot.kind == "keynote" ? "background-image: url(" + slot.talk.speakers[0]._.picture.fill(230,230, {transformation: {effect: "blur:800", opacity: 90}}) + ");" : ""}')
+                      .box(style='#{slot.kind == "keynote" ? "background-image: url(" + slot.talk.speakers[0]._.picture.fill(230,230, {transformation: {effect: "blur:1500", opacity: 90}}) + ");" : ""}')
                         - var item = slot.talk || slot.workshop
                         if item
                           .title(class='#{item.description && item.description.html ? "has-description" : ""}')
