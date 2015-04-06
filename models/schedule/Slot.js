@@ -31,9 +31,10 @@ Slot.add({
       {value: 'empty', label: 'Empty' }
     ]},
   duration: {type: Number, initial: true, required: true, note: 'Duration in minutes'},
-  content: {type: Types.Text},
   talk: {type: Types.Relationship, ref: 'Talk'},
-  workshop: {type: Types.Relationship, ref: 'Workshop'}
+  workshop: {type: Types.Relationship, ref: 'Workshop'},
+  title: {type: Types.Text},
+  description: {type: Types.Markdown}
 })
 
 Slot.defaultColumns = 'name, day, track, duration, kind, content, talk, workshop'
