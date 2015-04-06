@@ -28,24 +28,28 @@ block content
                   .box
                     if slot
                       td(class='slot slot-#{slot.kind}', colspan=slot.colspan, rowspan=slot.rowspan)
-                        if slot.kind == 'empty'
+                        - var item = slot.talk || slot.workshop
+                        if item
+                          .title
+                            = item.title || slot.name
+                          .description
+                            != item.description.html
+                          .speakers
+                            for speaker in item.speakers
+                              .speaker
+                                .picture(style='background-image: url(#{speaker._.picture.fill(40,40)})')
+                                .name
+                                  =speaker.name
                         else
-                          - var item = slot.talk || slot.workshop
-                          if item
+                          if slot.title
                             .title
-                              = item.title || slot.name
+                              = slot.title
+                          else if slot.kind != 'empty'
+                            .title
+                              = slot.name
+                          if slot.description
                             .description
-                              != item.description.html
-                            .speakers
-                              for speaker in item.speakers
-                                .speaker
-                                  .picture(style='background-image: url(#{speaker._.picture.fill(40,40)})')
-                                  .name
-                                    =speaker.name
-                          else if slot.content
-                            | #{slot.content}
-                          else
-                            | #{slot.name}
+                              != slot.description.html
                 td.time
                   if slots.slots[slots.slots.length - 1]
                     | #{moment.tz(slots.start, 'America/Montevideo').format('HH:mm')}
