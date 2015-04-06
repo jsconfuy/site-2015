@@ -19,7 +19,7 @@ Slot.add({
   track: {type: Types.Relationship, ref: 'Track', note: 'Left empty for show in all tracks.'},
   kind: {
     label: 'Kind', type: Types.Select, options: [
-      {value: 'registration', label: 'Registraion'},
+      {value: 'registration', label: 'Registration'},
       {value: 'opening', label: 'Opening'},
       {value: 'close', label: 'Close'},
       {value: 'keynote', label: 'KeyNote'},
