@@ -115,9 +115,9 @@
                   display: block;
                   height: 40px;
                   width: 40px;
-                  -webkit-clip-path: url(../images/home/mask-small.svg);
-                  clip-path: url(../images/home/mask-small.svg#hexagonPath);
-                   -webkit-mask: url(../images/home/mask-small.svg);
+                  -webkit-clip-path: url(../images/schedule/mask-small.svg);
+                  clip-path: url(../images/schedule/mask-small.svg#hexagonPath);
+                   -webkit-mask: url(../images/schedule/mask-small.svg);
                   @include background-size-cover();
                   &.empty {
                     background: transparent url('../images/base/george.svg') no-repeat 50% 50%;

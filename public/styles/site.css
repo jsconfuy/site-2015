@@ -6997,9 +6997,9 @@ body > footer {
               display: block;
               height: 40px;
               width: 40px;
-              -webkit-clip-path: url(../images/home/mask-small.svg);
-              clip-path: url(../images/home/mask-small.svg#hexagonPath);
-              -webkit-mask: url(../images/home/mask-small.svg);
+              -webkit-clip-path: url(../images/schedule/mask-small.svg);
+              clip-path: url(../images/schedule/mask-small.svg#hexagonPath);
+              -webkit-mask: url(../images/schedule/mask-small.svg);
               background-repeat: no-repeat;
               background-position: center center;
               -webkit-background-size: cover;
