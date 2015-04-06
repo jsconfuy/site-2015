@@ -48,3 +48,6 @@ block content
                 td.time
                   if slots.slots[slots.slots.length - 1]
                     | #{moment.tz(slots.start, 'America/Montevideo').format('HH:mm')}
+
+block js
+  script(src='/js/schedule.js')

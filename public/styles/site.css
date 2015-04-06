@@ -6927,9 +6927,11 @@ body > footer {
     width: 50%; }
   .schedule table tr td.slot {
     background: rgba(85, 150, 192, 0.2); }
+  .schedule table tr td.slot-keynote {
+    background: rgba(197, 71, 61, 0.25); }
   .schedule table tr td.slot-break, .schedule table tr td.slot-lunch {
     background: rgba(85, 150, 192, 0.4); }
-  .schedule table tr td.slot-talk, .schedule table tr td.slot-workshop, .schedule table tr td.slot-keynote, .schedule table tr td.slot-empty {
+  .schedule table tr td.slot-talk, .schedule table tr td.slot-workshop, .schedule table tr td.slot-empty {
     background: transparent; }
   .schedule table tr td.slot-talk, .schedule table tr td.slot-workshop, .schedule table tr td.slot-keynote {
     position: relative; }
