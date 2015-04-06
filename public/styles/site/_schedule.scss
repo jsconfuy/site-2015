@@ -31,11 +31,13 @@
         &.slot {
           background: rgba(85, 150, 192, 0.20);
         }
+        &.slot-keynote {
+          background: rgba(197, 71, 61, 0.25);
+        }
         &.slot-break, &.slot-lunch {
-          //RED background: rgba(197, 71, 61, 0.25);
           background: rgba(85, 150, 192, 0.40);
         }
-        &.slot-talk, &.slot-workshop, &.slot-keynote, &.slot-empty {
+        &.slot-talk, &.slot-workshop, &.slot-empty {
           background: transparent;
         }
         &.slot-talk, &.slot-workshop, &.slot-keynote, {
