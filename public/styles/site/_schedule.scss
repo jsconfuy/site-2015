@@ -144,7 +144,9 @@
             border: 0;
             color: $white;
             font-weight: 700;
-            text-transform: uppercase;
+            .title {
+              text-transform: uppercase;
+            }
             .title, .description {
               color: $white;
             }
