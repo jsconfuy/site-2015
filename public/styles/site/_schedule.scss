@@ -17,7 +17,7 @@
       }
       td, th {
         border-radius: 5px;
-        padding: 15px;
+        padding: 5px;
         text-align: center;
         vertical-align: top;
       }
@@ -30,24 +30,48 @@
         color: $blue-dark;
         &.time {
           color: $gray;
+          padding: 15px;
         }
         &.slot {
-          background: rgba(85, 150, 192, 0.20);
-        }
-
-        &.slot-break, &.slot-lunch {
-          background: rgba(85, 150, 192, 0.40);
-        }
-        &.slot-talk, &.slot-workshop, &.slot-keynote, &.slot-empty {
-          background: transparent;
-        }
-        &.slot-talk, &.slot-workshop, &.slot-keynote, {
           .box {
-            border: 1px solid $gray-light;
+            background: rgba(85, 150, 192, 0.20);
             border-radius: 5px;
             display: block;
             height: 100%;
+            padding: 10px;
             width: 100%;
+          }
+        }
+
+        &.slot-break, &.slot-lunch {
+          .box {
+            background: rgba(85, 150, 192, 0.40);
+          }
+        }
+        &.slot-talk, &.slot-workshop, &.slot-keynote, &.slot-empty {
+          .box {
+            background: transparent;
+          }
+        }
+        &.slot-talk, &.slot-workshop, &.slot-keynote, {
+          position: relative;
+          .box {
+            position: relative;
+            z-index: 1;
+          }
+          &:before {
+            border: 1px solid $gray-light;
+            border-radius: 5px;
+            content: "";
+            display: block;
+            height: -webkit-calc(100% - 10px);
+            height: -moz-calc(100% - 10px);
+            left: 5px;
+            position: absolute;
+            top: 5px;
+            width: -webkit-calc(100% - 10px);
+            width: -moz-calc(100% - 10px);
+            z-index: 0;
           }
           .title {
             color: $blue-dark;
@@ -115,12 +139,15 @@
           }
         }
         &.slot-keynote {
-          background: rgba(22, 38, 54, 0.75);
-          color: $white;
-          font-weight: 700;
-          text-transform: uppercase;
-          &:before {
+          .box {
+            background: rgba(22, 38, 54, 0.75);
             border: 0;
+            color: $white;
+            font-weight: 700;
+            text-transform: uppercase;
+            .title, .description {
+              color: $white;
+            }
           }
         }
       }
