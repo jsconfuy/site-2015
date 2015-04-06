@@ -73,17 +73,20 @@
             }
           }
           .description {
+            color: $gray-dark;
             display: block;
             height: 0;
             font-size: 0.75em;
+            opacity: 0;
             overflow: hidden;
             padding: 0;
             text-align: left;
-            -webkit-transition: all ease-out 250ms;
-               -moz-transition: all ease-out 250ms;
-                    transition: all ease-out 250ms;
+            -webkit-transition: all ease-out 100ms;
+               -moz-transition: all ease-out 100ms;
+                    transition: all ease-out 100ms;
             &.active {
               height: auto;
+              opacity: 1;
               padding: 15px;
             }
           }

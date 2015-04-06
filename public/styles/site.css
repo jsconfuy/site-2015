@@ -6932,9 +6932,9 @@ body > footer {
       color: #162636; }
       .schedule table tr td.time {
         color: #999999; }
-      .schedule table tr td.slot {
+      .schedule table tr td.slot .box {
         background: rgba(85, 150, 192, 0.2); }
-      .schedule table tr td.slot-break, .schedule table tr td.slot-lunch {
+      .schedule table tr td.slot-break .box, .schedule table tr td.slot-lunch .box {
         background: rgba(85, 150, 192, 0.4); }
       .schedule table tr td.slot-talk, .schedule table tr td.slot-workshop, .schedule table tr td.slot-keynote, .schedule table tr td.slot-empty {
         background: transparent; }
@@ -6963,17 +6963,20 @@ body > footer {
           -moz-transition: all 100ms;
           transition: all 100ms; }
       .schedule table tr td.slot-talk .description, .schedule table tr td.slot-workshop .description, .schedule table tr td.slot-keynote .description {
+        color: #666666;
         display: block;
         height: 0;
         font-size: 0.75em;
+        opacity: 0;
         overflow: hidden;
         padding: 0;
         text-align: left;
-        -webkit-transition: all ease-out 250ms;
-        -moz-transition: all ease-out 250ms;
-        transition: all ease-out 250ms; }
+        -webkit-transition: all ease-out 100ms;
+        -moz-transition: all ease-out 100ms;
+        transition: all ease-out 100ms; }
         .schedule table tr td.slot-talk .description.active, .schedule table tr td.slot-workshop .description.active, .schedule table tr td.slot-keynote .description.active {
           height: auto;
+          opacity: 1;
           padding: 15px; }
       .schedule table tr td.slot-talk .speakers .speaker .name, .schedule table tr td.slot-workshop .speakers .speaker .name, .schedule table tr td.slot-keynote .speakers .speaker .name {
         color: #162636;
