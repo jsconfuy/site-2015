@@ -40,9 +40,53 @@
             height: 100%;
             padding: 10px;
             width: 100%;
+            .title {
+              color: $blue-dark;
+              text-transform: uppercase;
+              &.has-description {
+                cursor: pointer;
+                &:hover {
+                  &:after {
+                    -webkit-transform: rotate(360deg);
+                       -moz-transform: rotate(360deg);
+                            transform: rotate(360deg);
+                  }
+                }
+                &:after {
+                  color: $red;
+                  content: "+";
+                  margin-left: 4px;
+                  cursor: pointer;
+                  display: inline-block;
+                  font-weight: 700;
+                  -webkit-transition: all 100ms;
+                     -moz-transition: all 100ms;
+                          transition: all 100ms;
+                }
+              }
+            }
+            .description {
+              color: $gray-dark;
+              display: block;
+              height: 0;
+              font-size: 0.75em;
+              opacity: 0;
+              overflow: hidden;
+              margin: 0;
+              padding: 0;
+              text-align: left;
+              -webkit-transition: all ease-out 100ms;
+                 -moz-transition: all ease-out 100ms;
+                      transition: all ease-out 100ms;
+              &.active {
+                margin-top: 15px;
+                height: auto;
+                opacity: 1;
+                padding: 0 15px;
+              }
+            }
           }
         }
-
         &.slot-break, &.slot-lunch {
           .box {
             background: rgba(85, 150, 192, 0.40);
@@ -58,6 +102,31 @@
           .box {
             position: relative;
             z-index: 1;
+            .speakers {
+              margin-top: 15px;
+              .speaker {
+                .name {
+                  color: $blue-dark;
+                  font-weight: 700;
+                  text-transform: uppercase;
+                  font-size: 80%;
+                }
+                .picture {
+                  margin: 0 auto;
+                  display: block;
+                  height: 40px;
+                  width: 40px;
+                  -webkit-clip-path: url(../images/home/mask-small.svg);
+                  clip-path: url(../images/home/mask-small.svg#hexagonPath);
+                   -webkit-mask: url(../images/home/mask-small.svg);
+                  @include background-size-cover();
+                  &.empty {
+                    background: transparent url('../images/base/george.svg') no-repeat 50% 50%;
+                    background-size: 70% auto;
+                  }
+                }
+              }
+            }
           }
           &:before {
             border: 1px solid $gray-light;
@@ -73,81 +142,19 @@
             width: -moz-calc(100% - 10px);
             z-index: 0;
           }
-          .title {
-            color: $blue-dark;
-            cursor: pointer;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            &:hover {
-              &:after {
-                -webkit-transform: rotate(360deg);
-                   -moz-transform: rotate(360deg);
-                        transform: rotate(360deg);
-              }
-            }
-            &:after {
-              color: $red;
-              content: "+";
-              cursor: pointer;
-              display: inline-block;
-              font-weight: 700;
-              -webkit-transition: all 100ms;
-                 -moz-transition: all 100ms;
-                      transition: all 100ms;
-            }
-          }
-          .description {
-            color: $gray-dark;
-            display: block;
-            height: 0;
-            font-size: 0.75em;
-            opacity: 0;
-            overflow: hidden;
-            padding: 0;
-            text-align: left;
-            -webkit-transition: all ease-out 100ms;
-               -moz-transition: all ease-out 100ms;
-                    transition: all ease-out 100ms;
-            &.active {
-              height: auto;
-              opacity: 1;
-              padding: 15px;
-            }
-          }
-          .speakers {
-            .speaker {
-              .name {
-                color: $blue-dark;
-                font-weight: 700;
-                text-transform: uppercase;
-              }
-              .picture {
-                margin: 0 auto;
-                display: block;
-                height: 40px;
-                width: 40px;
-                -webkit-clip-path: url(../images/home/mask-small.svg);
-                clip-path: url(../images/home/mask-small.svg#hexagonPath);
-                 -webkit-mask: url(../images/home/mask-small.svg);
-                @include background-size-cover();
-                &.empty {
-                  background: transparent url('../images/base/george.svg') no-repeat 50% 50%;
-                  background-size: 70% auto;
-                }
-              }
-            }
-          }
         }
         &.slot-keynote {
           .box {
-            background: rgba(22, 38, 54, 0.75);
+            // background: rgba(22, 38, 54, 0.75);
+            background-size: cover;
+            background-position: 50% 50%;
             border: 0;
             color: $white;
             font-weight: 700;
             .title {
               text-transform: uppercase;
             }
-            .title, .description {
+            .title, .description, .speakers .speaker .name {
               color: $white;
             }
           }

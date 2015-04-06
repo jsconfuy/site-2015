@@ -12,13 +12,13 @@ block content
         h1
           | Schedule
         each day in timetable
-          h2 #{day.name} - #{moment.tz(day.start, 'America/Montevideo').format('dddd DD[th], MMMM')}
+          h2 #{moment.tz(day.start, 'America/Montevideo').format('dddd DD[th], MMMM')}
           table
             tr
-              th.time Time
+              th.time
               each track in day.tracks
                   th.track #{track.name}
-              th.time Time
+              th.time
             each slots in day.slots
               tr
                 td.time
@@ -27,13 +27,14 @@ block content
                 each slot in slots.slots
                   if slot
                     td(class='slot slot-#{slot.kind}', colspan=slot.colspan, rowspan=slot.rowspan)
-                      .box
+                      .box(style='#{slot.kind == "keynote" ? "background-image: url(" + slot.talk.speakers[0]._.picture.fill(230,230, {transformation: {effect: "blur:800", opacity: 90}}) + ");" : ""}')
                         - var item = slot.talk || slot.workshop
                         if item
-                          .title
+                          .title(class='#{item.description && item.description.html ? "has-description" : ""}')
                             = item.title || slot.name
-                          .description
-                            != item.description.html
+                          if item.description && item.description.html
+                            .description
+                              != item.description.html
                           .speakers
                             for speaker in item.speakers
                               .speaker
@@ -41,15 +42,12 @@ block content
                                 .name
                                   =speaker.name
                         else
-                          if slot.title
-                            .title
-                              = slot.title
-                          else if slot.kind != 'empty'
-                            .title
-                              = slot.name
-                          if slot.description
-                            .description
-                              != slot.description.html
+                          if slot.kind != 'empty'
+                            .title(class='#{slot.description && slot.description.html ? "has-description" : ""}')
+                              = slot.title || slot.name
+                            if slot.description && slot.description.html
+                              .description
+                                != slot.description.html
                 td.time
                   if slots.slots[slots.slots.length - 1]
                     | #{moment.tz(slots.start, 'America/Montevideo').format('HH:mm')}
