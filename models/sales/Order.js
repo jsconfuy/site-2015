@@ -40,7 +40,7 @@ Order.add({
   }
 })
 
-Order.schema.add({ 'payment.data': mongoose.Schema.Types.Mixed });
+Order.schema.add({ 'payment.data': mongoose.Schema.Types.Mixed })
 
 Order.relationship({ ref: 'Attendee', refPath: 'order', path: 'attendees' })
 
