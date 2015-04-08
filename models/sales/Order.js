@@ -29,6 +29,11 @@ Order.add({
   paid: { type: Types.Datetime },
   canceled: { type: Types.Datetime },
   payment: {
+    gateway: {
+      label: 'Gateway', type: Types.Select, options: [
+        {value: '2checkout', label: '2Checkout'},
+        {value: 'paypal', label: 'PayPal'}
+      ]},
     order: { type: String },
     invoice: { type: String }
   }

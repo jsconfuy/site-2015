@@ -11,9 +11,14 @@ exports.initLocals = function (req, res, next) {
     order: req.query.order
   }
   locals.ticketReservation = process.env.TICKET_RESERVATION
+  locals.baseUrl = process.env.BASE_URL
 
-  locals.twoco_env = process.env.TWOCO_ENV
-  locals.twoco_seller_id = process.env.TWOCO_SELLER_ID
+  locals.gateway = process.env.GATEWAY
+  locals.twocoEnv = process.env.TWOCO_ENV
+  locals.twocoSellerId = process.env.TWOCO_SELLER_ID
+  locals.paypalEnv = process.env.PAYPAL_ENV
+  locals.paypalBusiness = process.env.PAYPAL_BUSINESS
+
   locals.gold = req.query.g === '' ? 'gold' : ''
 
   next()

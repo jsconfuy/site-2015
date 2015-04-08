@@ -19,8 +19,8 @@ Discount.add({
     from: { type: Types.Datetime },
     until: { type: Types.Datetime }
   },
-  percentage: { type: Types.Number, required: true, default: 0},
-  flat: { type: Types.Money, required: true, default: 0 },
+  percentage: { type: Types.Number, default: 0},
+  flat: { type: Types.Money, default: 0 },
   limit: { type: Types.Number, note: '0 for no limit.' },
   min: { type: Types.Number, default: 1, note: 'Minimun per purchase' },
   max: { type: Types.Number, default: 5, note: 'Maximun per purchase' },

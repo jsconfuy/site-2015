@@ -2,34 +2,58 @@ html
   body
   if !processed && order
     if order
-      form#purchase(action=twoco_env == 'sandbox' ? 'https://sandbox.2checkout.com/checkout/purchase': 'https://www.2checkout.com/checkout/purchase', method='post')
-        input(type='hidden', name='merchant_order_id', value=order._id)
-        input(type='hidden', name='sid', value=twoco_seller_id)
-        input(type='hidden', name='mode', value='2CO')
-        input(type='hidden', name='li_0_type', value='product')
-        input(type='hidden', name='li_0_name', value='#{order.ticket.name}')
-        input(type='hidden', name='li_0_product_id', value='#{order.ticket.code}')
-        input(type='hidden', name='li_0_price', value='#{order.price.ticket}')
-        input(type='hidden', name='li_0_quantity', value='#{order.quantity}')
-        input(type='hidden', name='li_0_tangible', value='N')
-        if order.discount
-          input(type='hidden', name='li_1_type', value='coupon')
-          input(type='hidden', name='li_1_name', value='#{order.discount.name}')
-          input(type='hidden', name='li_1_product_id', value='#{order.discount.code}')
-          input(type='hidden', name='li_1_price', value='#{order.price.discount}')
-          input(type='hidden', name='li_1_quantity', value='#{order.quantity}')
-          input(type='hidden', name='li_1_tangible', value='N')
-        if twoco_env == 'sandbox'
-          input(type='hidden', name='card_holder_name', value='Pablo Ricco')
-          input(type='hidden', name='email', value='pricco@jsconf.uy')
-          input(type='hidden', name='street_address', value='123 Test St')
-          input(type='hidden', name='street_address2', value='Suite 200')
-          input(type='hidden', name='city', value='Columbus')
-          input(type='hidden', name='state', value='OH')
-          input(type='hidden', name='zip', value='43228')
-          input(type='hidden', name='country', value='USA')
-        script.
-          document.getElementById('purchase').submit();
+      if gateway === 'twoco'
+        form#purchase(action=twocoEnv == 'sandbox' ? 'https://sandbox.2checkout.com/checkout/purchase': 'https://www.2checkout.com/checkout/purchase', method='post')
+          input(type='hidden', name='merchant_order_id', value=order._id)
+          input(type='hidden', name='sid', value=twocoSellerId)
+          input(type='hidden', name='mode', value='2CO')
+          input(type='hidden', name='li_0_type', value='product')
+          input(type='hidden', name='li_0_name', value='#{order.ticket.name}')
+          input(type='hidden', name='li_0_product_id', value='#{order.ticket.code}')
+          input(type='hidden', name='li_0_price', value='#{order.price.ticket}')
+          input(type='hidden', name='li_0_quantity', value='#{order.quantity}')
+          input(type='hidden', name='li_0_tangible', value='N')
+          if order.discount
+            input(type='hidden', name='li_1_type', value='coupon')
+            input(type='hidden', name='li_1_name', value='#{order.discount.name}')
+            input(type='hidden', name='li_1_product_id', value='#{order.discount.code}')
+            input(type='hidden', name='li_1_price', value='#{order.price.discount}')
+            input(type='hidden', name='li_1_quantity', value='#{order.quantity}')
+            input(type='hidden', name='li_1_tangible', value='N')
+          if twocoEnv == 'sandbox'
+            input(type='hidden', name='card_holder_name', value='Pablo Ricco')
+            input(type='hidden', name='email', value='pricco@jsconf.uy')
+            input(type='hidden', name='street_address', value='123 Test St')
+            input(type='hidden', name='street_address2', value='Suite 200')
+            input(type='hidden', name='city', value='Columbus')
+            input(type='hidden', name='state', value='OH')
+            input(type='hidden', name='zip', value='43228')
+            input(type='hidden', name='country', value='USA')
+          script.
+            // document.getElementById('purchase').submit();
+      else if gateway === 'paypal'
+        form#purchase(action=paypalEnv == 'sandbox' ? 'https://www.sandbox.paypal.com/cgi-bin/webscr': 'https://www.paypal.com/cgi-bin/webscr', method='post')
+          input(type='hidden', name='cmd', value='_xclick')
+          input(type='hidden', name='no_note', value='1')
+          input(type='hidden', name='rm', value='2')
+          input(type='hidden', name='return', value='#{baseUrl}/purchase')
+          input(type='hidden', name='invoice', value=order._id)
+          input(type='hidden', name='no_shipping', value='1')
+          input(type='hidden', name='business', value=paypalBusiness)
+          input(type='hidden', name='amount', value='#{order.price.ticket}')
+          input(type='hidden', name='quantity', value='#{order.quantity}')
+          input(type='hidden', name='item_name', value='#{order.ticket.name}')
+          input(type='hidden', name='item_number', value='#{order.ticket.code}')
+          input(type='hidden', name='currency_code', value='USD')
+          if order.discount
+            input(type='hidden', name='custom', value='#{order.discount.name}')
+            input(type='hidden', name='discount_amount', value='#{order.price.discount}')
+            input(type='hidden', name='discount_amount2', value='#{order.price.discount}')
+          script.
+            document.getElementById('purchase').submit();
+      else
+        h1
+          | ERROR: Set 2checkout or paypal
   else
     script.
       window.opener.purchaseCompleted(!{error_json});
