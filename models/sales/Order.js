@@ -1,4 +1,5 @@
 var keystone = require('keystone')
+var mongoose = require('mongoose')
 var Types = keystone.Field.Types
 
 /**
@@ -38,6 +39,8 @@ Order.add({
     invoice: { type: String }
   }
 })
+
+Order.schema.add({ 'payment.data': mongoose.Schema.Types.Mixed });
 
 Order.relationship({ ref: 'Attendee', refPath: 'order', path: 'attendees' })
 

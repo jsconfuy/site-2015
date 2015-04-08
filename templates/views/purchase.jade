@@ -30,13 +30,11 @@ html
             input(type='hidden', name='zip', value='43228')
             input(type='hidden', name='country', value='USA')
           script.
-            // document.getElementById('purchase').submit();
+            document.getElementById('purchase').submit();
       else if gateway === 'paypal'
         form#purchase(action=paypalEnv == 'sandbox' ? 'https://www.sandbox.paypal.com/cgi-bin/webscr': 'https://www.paypal.com/cgi-bin/webscr', method='post')
           input(type='hidden', name='cmd', value='_xclick')
           input(type='hidden', name='no_note', value='1')
-          input(type='hidden', name='rm', value='2')
-          input(type='hidden', name='return', value='#{baseUrl}/purchase')
           input(type='hidden', name='invoice', value=order._id)
           input(type='hidden', name='no_shipping', value='1')
           input(type='hidden', name='business', value=paypalBusiness)

@@ -5,7 +5,6 @@ var logger = require('../../lib/logger')
 exports = module.exports = function (req, res) {
   var view = new keystone.View(req, res)
   var locals = res.locals
-  console.log(req.query, req.body)
 
   tickets.purchase(req.params.order, req.query, function (err, order, processed) {
     locals.error = err
@@ -22,6 +21,7 @@ exports = module.exports = function (req, res) {
     if (err) {
       err.order = req.params.order
       err.query = req.query
+      err.body = req.body
       logger.log(err, function () {
         view.render('purchase')
       })

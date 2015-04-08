@@ -21,7 +21,7 @@ exports = module.exports = function (app) {
   app.all('/workshops', routes.views.cfw)
   app.get('/blog/:category?', routes.views.blog)
   app.get('/blog/post/:post', routes.views.post)
-  app.get('/purchase/:order?', routes.views.purchase)
+  app.all('/purchase/:order?', routes.views.purchase)
 
   app.all('/api*', keystone.middleware.api)
   app.get('/api/tickets/available', routes.api.tickets.available)
