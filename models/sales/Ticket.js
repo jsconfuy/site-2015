@@ -8,6 +8,7 @@ var Types = keystone.Field.Types
 
 var Ticket = new keystone.List('Ticket', {
   autokey: { path: 'code', from: 'name', unique: true },
+  sortable: true,
   map: { name: 'name' },
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true}
 })

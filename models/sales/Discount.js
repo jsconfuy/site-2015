@@ -8,6 +8,7 @@ var Types = keystone.Field.Types
 
 var Discount = new keystone.List('Discount', {
   map: { name: 'name' },
+  sortable: true,
   autokey: { path: 'code', from: 'name', unique: true },
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true}
 })
