@@ -72,5 +72,17 @@ exports = module.exports = function (req, res) {
     })
   })
 
+  locals.volunteers = []
+  view.on('init', function (next) {
+    var list = keystone.list('Volunteer')
+    var q = list.model.find().sort('sortOrder')
+    q.exec(function (err, results) {
+      // TODO: handle err!
+      if (err) console.error(err)
+      locals.volunteers = results
+      next(err)
+    })
+  })
+
   view.render('home')
 }

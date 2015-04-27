@@ -216,12 +216,17 @@
     }
 
     .organizers {
-      padding: 30px 0;
-      background-color: $blue-dark;
       h1 {
         background: transparent url('../images/home/ballon.svg') no-repeat 50% 0;
         background-size: 230px auto;
         padding-top: 250px;
+      }
+    }
+    .organizers,
+    .volunteers {
+      padding: 30px 0;
+      background-color: $blue-dark;
+      h1 {
         color: $white;
       }
       ul {

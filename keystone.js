@@ -49,7 +49,7 @@ keystone.set('email locals', {
 })
 
 keystone.set('nav', {
-  'conference': ['proposals', 'speakers', 'talks', 'workshops', 'organizers', 'attendees', 'sponsors', 'sponsor-levels'],
+  'conference': ['proposals', 'speakers', 'talks', 'workshops', 'organizers', 'volunteers', 'attendees', 'sponsors', 'sponsor-levels'],
   'schedule': ['days', 'tracks', 'slots'],
   'sales': ['tickets', 'discounts', 'orders'],
   'blog': ['posts', 'post-categories'],

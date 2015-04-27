@@ -34,14 +34,14 @@ block top
         a(href='javascript:void(0);', data-buy) Buy Ticket!
 
 block content
-  #tickets-sale.tickets-sale
-    .buy-tickets
-      a(href='javascript:void(0);', data-buy)
-      // .sold-out
-    .countdown
-      h2.countdown-title
-        | Final batch starts in...
-      span.countdown-clock
+  //- #tickets-sale.tickets-sale
+  //-   .buy-tickets
+  //-     a(href='javascript:void(0);', data-buy)
+  //-     // .sold-out
+  //-   .countdown
+  //-     h2.countdown-title
+  //-       | Final batch starts in...
+  //-     span.countdown-clock
   #speakers.speakers
       h1 Meet the Speakers
       ul
@@ -85,6 +85,18 @@ block content
             .img.empty
           a.name(href='//twitter.com/#{organizer.twitter}')
             != organizer.name
+
+  .volunteers
+    h1 Volunteers
+    ul
+      each volunteer in volunteers
+        li
+          if volunteer.picture.exists
+            .img(style='background-image: url(#{volunteer._.picture.fill(230,230)})')
+          else
+            .img.empty
+          a.name(href='//twitter.com/#{volunteer.twitter}')
+            != volunteer.name
 
 block js
   script(src='/js/lib/jquery.countdown.min.js')

@@ -6425,27 +6425,28 @@ body > footer {
               -o-background-size: cover;
               background-size: cover;
               text-decoration: none; }
-    .home body .organizers {
+    .home body .organizers h1 {
+      background: transparent url('../images/home/ballon.svg') no-repeat 50% 0;
+      background-size: 230px auto;
+      padding-top: 250px; }
+    .home body .organizers, .home body .volunteers {
       padding: 30px 0;
       background-color: #162636; }
-      .home body .organizers h1 {
-        background: transparent url('../images/home/ballon.svg') no-repeat 50% 0;
-        background-size: 230px auto;
-        padding-top: 250px;
+      .home body .organizers h1, .home body .volunteers h1 {
         color: #ffffff; }
-      .home body .organizers ul {
+      .home body .organizers ul, .home body .volunteers ul {
         display: block;
         padding: 0;
         text-align: center;
         max-width: 1200px;
         margin: 90px auto; }
-        .home body .organizers ul li {
+        .home body .organizers ul li, .home body .volunteers ul li {
           list-style: none;
           display: inline-block;
           vertical-align: top;
           width: 282px;
           padding: 10px 0 40px 0; }
-          .home body .organizers ul li .img {
+          .home body .organizers ul li .img, .home body .volunteers ul li .img {
             margin: 0 auto;
             display: block;
             height: 230px;
@@ -6459,10 +6460,10 @@ body > footer {
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover; }
-            .home body .organizers ul li .img.empty {
+            .home body .organizers ul li .img.empty, .home body .volunteers ul li .img.empty {
               background: transparent url('../images/base/george.svg') no-repeat 50% 50%;
               background-size: 70% auto; }
-          .home body .organizers ul li .name {
+          .home body .organizers ul li .name, .home body .volunteers ul li .name {
             display: block;
             margin: 10px 0 0;
             text-transform: uppercase;
